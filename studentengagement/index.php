@@ -71,7 +71,7 @@ th{
 ";
 
 //Table
-echo "<h4>UC Student Engagement Dashboard</h4>";
+echo "<h4>Student Logs</h4>";
 
 echo "<div class='table-wrapper'>";
 
