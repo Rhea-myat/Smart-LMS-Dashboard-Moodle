@@ -1,4 +1,4 @@
-Main branch is reserved for final integration.
+# Main branch is reserved for final integration.
 
 Development branches:
 
