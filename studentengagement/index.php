@@ -13,7 +13,7 @@ echo $OUTPUT->header();
 //Load CSV
 $file = __DIR__ . '/data/mdl_logs.csv';
 
-if (!file_exists($file)) {
+if(!file_exists($file)){
     die("CSV file not found");
 }
 
