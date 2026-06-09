@@ -70,11 +70,11 @@ th{
 </style>
 ";
 
-//Table
+//Table Header
 echo "<h4>Student Logs Data</h4>";
 
+//Labels (Column)
 echo "<div class='table-wrapper'>";
-
 echo "<table>";
 echo "<tr>
     <th>Time</th>
@@ -89,7 +89,7 @@ echo "<tr>
     <th>IP Address</th>
 </tr>";
 
-//Get Data
+//Data (Rows)
 foreach($data as $row){
     echo "<tr>
         <td>" . ($row['Time'] ?? '-') . "</td>
