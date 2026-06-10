@@ -1,0 +1,2 @@
+2026-06-10 21:22:23.208662: Starting ETL test.
+2026-06-10 21:22:23.208985: Error reading test data: [Errno 2] No such file or directory: 'data/raw/test_data.csv'
