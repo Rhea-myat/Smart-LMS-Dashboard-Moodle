@@ -1,10 +1,10 @@
 <?php
 
 require_once(__DIR__ . '/../../config.php');
-require_login();
+//require_login(); 
 
 $PAGE->set_context(context_system::instance());
-$PAGE->set_url(new moodle_url('/local/studentengagement/index.php'));
+$PAGE->set_url(new moodle_url('/local/studentengagement/logs.php'));
 $PAGE->set_title('Student Engagement Dashboard');
 $PAGE->set_heading('Student Engagement Dashboard');
 
@@ -62,16 +62,24 @@ th, td{
 }
 
 th{
-    background: #2c3e50;
-    color: white;
+    color: black;
+    font: bold;
     position: sticky;
     top: 0;
 }
-</style>
-";
+</style>";
+
+//Page Set-Up
+$page = optional_param('page', 0, PARAM_INT);
+$perpage = 200;
+$totalrecords = count($data);
+$start = $page * $perpage;
+$pagedata = array_slice($data, $start, $perpage);
+$baseurl = new moodle_url('/local/studentengagement/logs.php');
 
 //Table Header
 echo "<h4>Student Logs Data</h4>";
+echo "<p>Showing " . min($start + $perpage, $totalrecords) . " of $totalrecords</p>";
 
 //Labels (Column)
 echo "<div class='table-wrapper'>";
@@ -90,7 +98,7 @@ echo "<tr>
 </tr>";
 
 //Data (Rows)
-foreach($data as $row){
+foreach($pagedata as $row){
     echo "<tr>
         <td>" . ($row['Time'] ?? '-') . "</td>
         <td>" . ($row['User full name'] ?? '-') . "</td>
@@ -106,6 +114,21 @@ foreach($data as $row){
 }
 
 echo "</table>";
+echo "</div>";
+
+//Next Page Buttons
+echo "<div style='margin-top:20px;'>";
+
+if($page > 0){
+    $prevurl = new moodle_url($baseurl, ['page' => $page - 1]);
+    echo "<a href='{$prevurl->out()}' style='margin-right:10px;'>&laquo; Previous</a>";
+}
+
+if(($start + $perpage) < $totalrecords){
+    $nexturl = new moodle_url($baseurl, ['page' => $page + 1]);
+    echo "<a href='{$nexturl->out()}'>Next &raquo;</a>";
+}
+
 echo "</div>";
 
 echo $OUTPUT->footer();
