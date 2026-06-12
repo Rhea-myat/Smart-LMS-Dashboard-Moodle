@@ -33,19 +33,19 @@ foreach($rows as $row){
 //Table Format (CSS Style)
 echo "
 <style>
-body {
+body{
     font-family: Arial, sans-serif;
 }
 
-h3 {
+h3{
     margin-bottom: 15px;
 }
 
-.table-wrapper {
+.table-wrapper{
     overflow-x: auto;
 }
 
-table {
+table{
     width: 100%;
     border-collapse: collapse;
     font-size: 13px;
