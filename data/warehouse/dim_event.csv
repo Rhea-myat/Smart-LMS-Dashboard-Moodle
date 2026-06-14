@@ -1,0 +1,17 @@
+event_key,event_name
+1,Unit viewed
+2,Unit module viewed
+3,Grade user report viewed
+4,Feedback viewed
+5,Unit user report viewed
+6,Discussion viewed
+7,Grade overview report viewed
+8,User report viewed
+9,A file has been uploaded.
+10,A submission has been submitted.
+11,Submission created.
+12,Comment created
+13,Submission updated.
+14,Submission removed.
+15,Unit module completion updated
+16,Comment deleted

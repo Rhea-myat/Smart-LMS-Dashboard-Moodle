@@ -4,3 +4,1587 @@
 2026-06-10 21:35:02.725285: Successfully read test data.
 2026-06-10 21:47:55.771407: Starting test of write_log function.
 2026-06-10 21:47:55.771543: This is a test log entry.
+2026-06-10 21:49:41.325146: Starting test of write_log function.
+2026-06-10 21:49:41.325303: This is a test log entry.
+2026-06-10 21:49:41.325579: Starting test of load_data function.
+2026-06-10 21:49:42.752526: Moodle logs loaded: 54812 rows
+2026-06-10 21:49:42.752685: Results data loaded: 238 rows
+2026-06-10 21:54:57.950378: Starting ETL tests.
+2026-06-10 21:54:59.422112: Moodle logs loaded: 54812 rows
+2026-06-10 21:54:59.422261: Results data loaded: 238 rows
+2026-06-10 21:54:59.428701: Missing values in logs: 54812 total
+2026-06-10 21:54:59.428918: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-10 21:54:59.429104: Missing values in results: 2487 total
+2026-06-10 21:54:59.429232: Missing values by column in results:
+Unnamed: 0            67
+Unnamed: 1            67
+Unnamed: 2            70
+Unnamed: 3            67
+Unnamed: 4            88
+Unnamed: 5            85
+Unnamed: 6           100
+Unnamed: 7           108
+Unnamed: 8           110
+Unnamed: 9           112
+Unnamed: 10          119
+Unnamed: 11          123
+Unnamed: 12          134
+Unnamed: 13          132
+Unnamed: 14           66
+Unnamed: 15           74
+Penalty per day      236
+Weight                65
+Unnamed: 18           91
+Penalty per day.1    236
+Weight.1              65
+Weight.2              92
+Weight.3              58
+Unnamed: 23           61
+Unnamed: 24           61
+dtype: int64
+2026-06-10 22:24:41.543499: Starting ETL tests.
+2026-06-10 22:24:42.976590: Moodle logs loaded: 54812 rows
+2026-06-10 22:24:42.976746: Results data loaded: 236 rows
+2026-06-10 22:24:42.982984: Missing values in logs: 54812 total
+2026-06-10 22:24:42.983232: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-10 22:24:42.983443: Missing values in results: 2469 total
+2026-06-10 22:24:42.983580: Missing values by column in results:
+Person Id                    66
+Surname                      66
+Mark                         69
+Grade                        66
+Ass Ex 1                     87
+Ass Ex 2                     84
+Ass Ex 3                     99
+Ass Ex 4                    107
+Ass Ex 5                    109
+Ass Ex 6                    111
+Ass Ex 7                    118
+Ass Ex 8                    122
+Ass Ex 9                    133
+Ass Ex 10                   131
+Weekly Lab Quizzes / 100     66
+Assignment 1 / 100           73
+Delay (days)                236
+Ass 1 with Penalty /100      65
+Ass 2 /100                   90
+Delay (days).1              236
+Ass 2 with Penalty /100      65
+Exam/ 100                    92
+Total/ 100                   58
+Rounded Total/ 100           60
+Cal G                        60
+dtype: int64
+2026-06-10 22:24:42.983623: ETL tests completed.
+2026-06-10 22:26:12.606907: Starting ETL tests.
+2026-06-10 22:26:14.035649: Moodle logs loaded: 54812 rows
+2026-06-10 22:26:14.035809: Results data loaded: 236 rows
+2026-06-10 22:26:14.041680: Missing values in logs: 54812 total
+2026-06-10 22:26:14.041876: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-10 22:26:14.042046: Missing values in results: 2469 total
+2026-06-10 22:26:14.042178: Missing values by column in results:
+Person Id                    66
+Surname                      66
+Mark                         69
+Grade                        66
+Ass Ex 1                     87
+Ass Ex 2                     84
+Ass Ex 3                     99
+Ass Ex 4                    107
+Ass Ex 5                    109
+Ass Ex 6                    111
+Ass Ex 7                    118
+Ass Ex 8                    122
+Ass Ex 9                    133
+Ass Ex 10                   131
+Weekly Lab Quizzes / 100     66
+Assignment 1 / 100           73
+Delay (days)                236
+Ass 1 with Penalty /100      65
+Ass 2 /100                   90
+Delay (days).1              236
+Ass 2 with Penalty /100      65
+Exam/ 100                    92
+Total/ 100                   58
+Rounded Total/ 100           60
+Cal G                        60
+dtype: int64
+2026-06-10 22:28:49.826482: Starting ETL tests.
+2026-06-10 22:28:51.200139: Moodle logs loaded: 54812 rows
+2026-06-10 22:28:51.200309: Results data loaded: 236 rows
+2026-06-10 22:28:51.205997: Missing values in logs: 54812 total
+2026-06-10 22:28:51.206215: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-10 22:28:51.206397: Missing values in results: 2469 total
+2026-06-10 22:28:51.206533: Missing values by column in results:
+Person Id                    66
+Surname                      66
+Mark                         69
+Grade                        66
+Ass Ex 1                     87
+Ass Ex 2                     84
+Ass Ex 3                     99
+Ass Ex 4                    107
+Ass Ex 5                    109
+Ass Ex 6                    111
+Ass Ex 7                    118
+Ass Ex 8                    122
+Ass Ex 9                    133
+Ass Ex 10                   131
+Weekly Lab Quizzes / 100     66
+Assignment 1 / 100           73
+Delay (days)                236
+Ass 1 with Penalty /100      65
+Ass 2 /100                   90
+Delay (days).1              236
+Ass 2 with Penalty /100      65
+Exam/ 100                    92
+Total/ 100                   58
+Rounded Total/ 100           60
+Cal G                        60
+dtype: int64
+2026-06-10 22:29:58.700650: Starting ETL tests.
+2026-06-10 22:30:00.102940: Moodle logs loaded: 54812 rows
+2026-06-10 22:30:00.103121: Results data loaded: 236 rows
+2026-06-10 22:30:00.109666: Missing values in logs: 54812 total
+2026-06-10 22:30:00.109897: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-10 22:30:00.110078: Missing values in results: 2469 total
+2026-06-10 22:30:00.110212: Missing values by column in results:
+Person Id                    66
+Surname                      66
+Mark                         69
+Grade                        66
+Ass Ex 1                     87
+Ass Ex 2                     84
+Ass Ex 3                     99
+Ass Ex 4                    107
+Ass Ex 5                    109
+Ass Ex 6                    111
+Ass Ex 7                    118
+Ass Ex 8                    122
+Ass Ex 9                    133
+Ass Ex 10                   131
+Weekly Lab Quizzes / 100     66
+Assignment 1 / 100           73
+Delay (days)                236
+Ass 1 with Penalty /100      65
+Ass 2 /100                   90
+Delay (days).1              236
+Ass 2 with Penalty /100      65
+Exam/ 100                    92
+Total/ 100                   58
+Rounded Total/ 100           60
+Cal G                        60
+dtype: int64
+2026-06-10 22:30:14.553255: Starting ETL tests.
+2026-06-10 22:30:16.047791: Moodle logs loaded: 54812 rows
+2026-06-10 22:30:16.047986: Results data loaded: 236 rows
+2026-06-10 22:30:16.054409: Missing values in logs: 54812 total
+2026-06-10 22:30:16.054653: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-10 22:30:16.054862: Missing values in results: 2469 total
+2026-06-10 22:30:16.055008: Missing values by column in results:
+Person Id                    66
+Surname                      66
+Mark                         69
+Grade                        66
+Ass Ex 1                     87
+Ass Ex 2                     84
+Ass Ex 3                     99
+Ass Ex 4                    107
+Ass Ex 5                    109
+Ass Ex 6                    111
+Ass Ex 7                    118
+Ass Ex 8                    122
+Ass Ex 9                    133
+Ass Ex 10                   131
+Weekly Lab Quizzes / 100     66
+Assignment 1 / 100           73
+Delay (days)                236
+Ass 1 with Penalty /100      65
+Ass 2 /100                   90
+Delay (days).1              236
+Ass 2 with Penalty /100      65
+Exam/ 100                    92
+Total/ 100                   58
+Rounded Total/ 100           60
+Cal G                        60
+dtype: int64
+2026-06-10 22:31:58.847867: Starting ETL tests.
+2026-06-10 22:32:00.306456: Moodle logs loaded: 54812 rows
+2026-06-10 22:32:00.306653: Results data loaded: 236 rows
+2026-06-10 22:32:00.312425: Missing values in logs: 54812 total
+2026-06-10 22:32:00.312667: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-10 22:32:00.312949: Missing values in results: 2469 total
+2026-06-10 22:32:00.313114: Missing values by column in results:
+Person Id                    66
+Surname                      66
+Mark                         69
+Grade                        66
+Ass Ex 1                     87
+Ass Ex 2                     84
+Ass Ex 3                     99
+Ass Ex 4                    107
+Ass Ex 5                    109
+Ass Ex 6                    111
+Ass Ex 7                    118
+Ass Ex 8                    122
+Ass Ex 9                    133
+Ass Ex 10                   131
+Weekly Lab Quizzes / 100     66
+Assignment 1 / 100           73
+Delay (days)                236
+Ass 1 with Penalty /100      65
+Ass 2 /100                   90
+Delay (days).1              236
+Ass 2 with Penalty /100      65
+Exam/ 100                    92
+Total/ 100                   58
+Rounded Total/ 100           60
+Cal G                        60
+dtype: int64
+2026-06-10 22:43:37.672242: Starting ETL tests.
+2026-06-10 22:43:39.084540: Moodle logs loaded: 54812 rows
+2026-06-10 22:43:39.084730: Results data loaded: 236 rows
+2026-06-10 22:43:39.091555: Missing values in logs: 54812 total
+2026-06-10 22:43:39.091810: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-10 22:43:39.091979: No missing values in results.
+2026-06-10 22:43:39.092023: Missing value check for results passed.
+2026-06-10 22:47:17.453539: Starting ETL tests.
+2026-06-10 22:47:18.883673: Moodle logs loaded: 54812 rows
+2026-06-10 22:47:18.883863: Results data loaded: 236 rows
+2026-06-10 22:47:18.889962: Missing values in logs: 54812 total
+2026-06-10 22:47:18.890171: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-10 22:47:18.890348: Missing values in results: 853 total
+2026-06-10 22:47:18.890482: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 13:57:04.914252: Starting ETL tests.
+2026-06-11 13:57:06.410730: Moodle logs loaded: 54812 rows
+2026-06-11 13:57:06.410915: Results data loaded: 236 rows
+2026-06-11 13:57:06.419532: Missing values in logs: 54812 total
+2026-06-11 13:57:06.419803: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 13:57:06.420021: Missing values in results: 853 total
+2026-06-11 13:57:06.420168: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 13:57:06.438728: Duplicate check completed for logs: 304 duplicates
+2026-06-11 13:57:06.439342: Duplicate check completed for results: 0 duplicates
+2026-06-11 13:59:07.133174: Starting ETL tests.
+2026-06-11 13:59:08.595544: Moodle logs loaded: 54812 rows
+2026-06-11 13:59:08.595753: Results data loaded: 236 rows
+2026-06-11 13:59:08.602094: Missing values in logs: 54812 total
+2026-06-11 13:59:08.602342: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 13:59:08.602557: Missing values in results: 853 total
+2026-06-11 13:59:08.602721: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 13:59:08.620877: Duplicate check completed for logs: 304 duplicates
+2026-06-11 13:59:08.638048: Duplicate row indices in logs: [35, 220, 595, 702, 704, 707, 809, 813, 1003, 1005, 1094, 2937, 5585, 5586, 5587, 5722, 5733, 5742, 5745, 5857, 5890, 5908, 5912, 5919, 5930, 6002, 6026, 6036, 6042, 6068, 6082, 6109, 6127, 6140, 6172, 6208, 6241, 6260, 6330, 6375, 6413, 6416, 6421, 6500, 6815, 7253, 7449, 7771, 8178, 8194, 8197, 8438, 8439, 8485, 8489, 8492, 8505, 8507, 8509, 8511, 8515, 8518, 8617, 9052, 9053, 9959, 9963, 9970, 9973, 9989, 10086, 10246, 10341, 10344, 10388, 10823, 10964, 11247, 11456, 11661, 12016, 12365, 12538, 12805, 12809, 13534, 13842, 14394, 14590, 15006, 15099, 15125, 15175, 15376, 15412, 15433, 15505, 15553, 15989, 16207, 16669, 16796, 17711, 18372, 18376, 18382, 18384, 18596, 18806, 18894, 19166, 19480, 19500, 19533, 19624, 19664, 19691, 19876, 19878, 19913, 20993, 21025, 21062, 21067, 21090, 21619, 21654, 22033, 22641, 22665, 22765, 22824, 22832, 22852, 22899, 22904, 23010, 23143, 23147, 23370, 23379, 23381, 23390, 23421, 23554, 23559, 23562, 23567, 23571, 23573, 23579, 23585, 23691, 23694, 24038, 24155, 25016, 25809, 25988, 26298, 26983, 27193, 27657, 27796, 27862, 28283, 28523, 28975, 29516, 30077, 30638, 30729, 31035, 31520, 31598, 31706, 31872, 32504, 32548, 32706, 33099, 33488, 34010, 34023, 34107, 34251, 34284, 34778, 36336, 36395, 36450, 36471, 36476, 36478, 36920, 36987, 36998, 37113, 37223, 37233, 37476, 37493, 37708, 38119, 38124, 38166, 38197, 38293, 38409, 38442, 38496, 38501, 38533, 38587, 38608, 38698, 38772, 38818, 38829, 38894, 38943, 38951, 39140, 39165, 39216, 39319, 40022, 40101, 40104, 40108, 40161, 40591, 40595, 40957, 41049, 41096, 41119, 41123, 41133, 41142, 41202, 41473, 41958, 42195, 42456, 43206, 43300, 43435, 43439, 43444, 43579, 44079, 44154, 44301, 44714, 44974, 44975, 45070, 45099, 45136, 45493, 45494, 45583, 45610, 45612, 45657, 46092, 46555, 46939, 47315, 47888, 47907, 47918, 47950, 47967, 47971, 47997, 47998, 48064, 48918, 49410, 49498, 49533, 49536, 50602, 50618, 51233, 51238, 51403, 51789, 51792, 52024, 52087, 52097, 52123, 52136, 52324, 52414, 52515, 52878, 53218, 53240, 53723, 54067]
+2026-06-11 13:59:08.639143: Duplicate check completed for results: 0 duplicates
+2026-06-11 14:02:07.509418: Starting ETL tests.
+2026-06-11 14:02:08.881309: Moodle logs loaded: 54812 rows
+2026-06-11 14:02:08.881462: Results data loaded: 236 rows
+2026-06-11 14:02:08.887651: Missing values in logs: 54812 total
+2026-06-11 14:02:08.887859: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 14:02:08.888029: Missing values in results: 853 total
+2026-06-11 14:02:08.888700: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 14:02:08.905961: Duplicate check completed for logs: 304 duplicates
+2026-06-11 14:02:08.906618: Duplicate check completed for results: 0 duplicates
+2026-06-11 14:04:39.577231: Starting ETL tests.
+2026-06-11 14:04:40.987956: Moodle logs loaded: 54812 rows
+2026-06-11 14:04:40.988134: Results data loaded: 236 rows
+2026-06-11 14:04:40.994262: Missing values in logs: 54812 total
+2026-06-11 14:04:40.994450: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 14:04:40.994650: Missing values in results: 853 total
+2026-06-11 14:04:40.994788: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 14:04:41.012252: Duplicate check completed for logs: 304 duplicates
+2026-06-11 14:04:41.012868: Duplicate check completed for results: 0 duplicates
+2026-06-11 14:08:34.868100: Starting ETL tests.
+2026-06-11 14:08:36.309117: Moodle logs loaded: 54812 rows
+2026-06-11 14:08:36.309299: Results data loaded: 236 rows
+2026-06-11 14:08:36.315836: Missing values in logs: 54812 total
+2026-06-11 14:08:36.316110: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 14:08:36.316327: Missing values in results: 853 total
+2026-06-11 14:08:36.316485: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 14:08:36.333493: Duplicate check completed for logs: 304 duplicates
+2026-06-11 14:08:36.334307: Duplicate check completed for results: 0 duplicates
+2026-06-11 14:14:19.839590: Starting ETL tests.
+2026-06-11 14:14:21.295464: Moodle logs loaded: 54812 rows
+2026-06-11 14:14:21.295674: Results data loaded: 236 rows
+2026-06-11 14:14:21.301716: Missing values in logs: 54812 total
+2026-06-11 14:14:21.301942: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 14:14:21.302128: Missing values in results: 853 total
+2026-06-11 14:14:21.302349: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 14:14:21.319940: Duplicate check completed for logs: 304 duplicates
+2026-06-11 14:14:21.320746: Duplicate check completed for results: 0 duplicates
+2026-06-11 14:18:40.358872: Starting ETL tests.
+2026-06-11 14:18:41.769423: Moodle logs loaded: 54812 rows
+2026-06-11 14:18:41.769637: Results data loaded: 236 rows
+2026-06-11 14:18:41.776514: Missing values in logs: 54812 total
+2026-06-11 14:18:41.776758: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 14:18:41.776979: Missing values in results: 853 total
+2026-06-11 14:18:41.777140: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 14:18:41.795028: Duplicate check completed for logs: 304 duplicates
+2026-06-11 14:18:41.795760: Duplicate check completed for results: 0 duplicates
+2026-06-11 14:18:41.814111: Matched students: 168
+2026-06-11 14:18:41.814224: Log-only students: 1
+2026-06-11 14:18:41.814299: Result-only students: 2
+2026-06-11 21:29:47.226687: Starting ETL tests.
+2026-06-11 21:29:48.703814: Moodle logs loaded: 54812 rows
+2026-06-11 21:29:48.704000: Results data loaded: 236 rows
+2026-06-11 21:29:48.711315: Missing values in logs: 54812 total
+2026-06-11 21:29:48.711530: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 21:29:48.711706: Missing values in results: 853 total
+2026-06-11 21:29:48.711849: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 21:29:48.750736: Duplicate check completed for logs: 304 duplicates
+2026-06-11 21:29:48.751823: Duplicate check completed for results: 0 duplicates
+2026-06-11 21:29:48.768126: Matched students: 168
+2026-06-11 21:29:48.768236: Log-only students: 1
+2026-06-11 21:29:48.768287: Result-only students: 2
+2026-06-11 21:36:00.958752: Starting ETL tests.
+2026-06-11 21:36:02.405070: Moodle logs loaded: 54812 rows
+2026-06-11 21:36:02.405283: Results data loaded: 236 rows
+2026-06-11 21:36:02.412101: Missing values in logs: 54812 total
+2026-06-11 21:36:02.412375: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 21:36:02.412586: Missing values in results: 853 total
+2026-06-11 21:36:02.412790: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 21:36:02.450865: Duplicate check completed for logs: 304 duplicates
+2026-06-11 21:36:02.452142: Duplicate check completed for results: 0 duplicates
+2026-06-11 21:36:02.470166: Matched students: 168
+2026-06-11 21:36:02.470294: Log-only students: 1
+2026-06-11 21:36:02.470356: Result-only students: 2
+2026-06-11 21:39:51.540289: Starting ETL tests.
+2026-06-11 21:39:53.020610: Moodle logs loaded: 54812 rows
+2026-06-11 21:39:53.020842: Results data loaded: 236 rows
+2026-06-11 21:39:53.027509: Missing values in logs: 54812 total
+2026-06-11 21:39:53.027735: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 21:39:53.027918: Missing values in results: 853 total
+2026-06-11 21:39:53.028060: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 21:39:53.066018: Duplicate check completed for logs: 304 duplicates
+2026-06-11 21:39:53.067418: Duplicate check completed for results: 0 duplicates
+2026-06-11 21:39:53.085339: Matched students: 168
+2026-06-11 21:39:53.085459: Log-only students: 1
+2026-06-11 21:39:53.085509: Result-only students: 2
+2026-06-11 21:41:50.516393: Starting ETL tests.
+2026-06-11 21:41:52.011974: Moodle logs loaded: 54812 rows
+2026-06-11 21:41:52.012180: Results data loaded: 236 rows
+2026-06-11 21:41:52.018919: Missing values in logs: 54812 total
+2026-06-11 21:41:52.019207: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 21:41:52.019459: Missing values in results: 853 total
+2026-06-11 21:41:52.019607: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 21:41:52.056445: Duplicate check completed for logs: 304 duplicates
+2026-06-11 21:41:52.057692: Duplicate check completed for results: 0 duplicates
+2026-06-11 21:41:52.075816: Matched students: 168
+2026-06-11 21:41:52.075925: Log-only students: 1
+2026-06-11 21:41:52.075965: Result-only students: 2
+2026-06-11 21:43:00.718999: Starting ETL tests.
+2026-06-11 21:43:02.196172: Moodle logs loaded: 54812 rows
+2026-06-11 21:43:02.196353: Results data loaded: 236 rows
+2026-06-11 21:43:02.202487: Missing values in logs: 54812 total
+2026-06-11 21:43:02.202679: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 21:43:02.202837: Missing values in results: 853 total
+2026-06-11 21:43:02.202971: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 21:43:02.237586: Duplicate check completed for logs: 304 duplicates
+2026-06-11 21:43:02.238733: Duplicate check completed for results: 0 duplicates
+2026-06-11 21:43:02.255253: Matched students: 168
+2026-06-11 21:43:02.255362: Log-only students: 1
+2026-06-11 21:43:02.255404: Result-only students: 2
+2026-06-11 21:43:15.882523: Starting ETL tests.
+2026-06-11 21:43:17.292351: Moodle logs loaded: 54812 rows
+2026-06-11 21:43:17.292518: Results data loaded: 236 rows
+2026-06-11 21:43:17.298830: Missing values in logs: 54812 total
+2026-06-11 21:43:17.299049: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 21:43:17.299227: Missing values in results: 853 total
+2026-06-11 21:43:17.299364: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 21:43:17.333861: Duplicate check completed for logs: 304 duplicates
+2026-06-11 21:43:17.335048: Duplicate check completed for results: 0 duplicates
+2026-06-11 21:43:17.351734: Matched students: 168
+2026-06-11 21:43:17.351818: Log-only students: 1
+2026-06-11 21:43:17.351861: Result-only students: 2
+2026-06-11 21:44:36.723814: Starting ETL tests.
+2026-06-11 21:44:38.100016: Moodle logs loaded: 54812 rows
+2026-06-11 21:44:38.100219: Results data loaded: 236 rows
+2026-06-11 21:44:38.105992: Missing values in logs: 54812 total
+2026-06-11 21:44:38.106174: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 21:44:38.106327: Missing values in results: 853 total
+2026-06-11 21:44:38.106460: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 21:44:38.142210: Duplicate check completed for logs: 304 duplicates
+2026-06-11 21:44:38.143266: Duplicate check completed for results: 0 duplicates
+2026-06-11 21:44:38.159862: Matched students: 168
+2026-06-11 21:44:38.159982: Log-only students: 1
+2026-06-11 21:44:38.160026: Result-only students: 2
+2026-06-11 21:51:55.027340: Starting ETL tests.
+2026-06-11 21:51:56.493044: Moodle logs loaded: 54812 rows
+2026-06-11 21:51:56.493258: Results data loaded: 236 rows
+2026-06-11 21:51:56.500038: Missing values in logs: 54812 total
+2026-06-11 21:51:56.500280: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 21:51:56.500481: Missing values in results: 853 total
+2026-06-11 21:51:56.500631: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 21:51:56.538697: Duplicate check completed for logs: 304 duplicates
+2026-06-11 21:51:56.540057: Duplicate check completed for results: 0 duplicates
+2026-06-11 21:51:56.558425: Matched students: 168
+2026-06-11 21:51:56.558539: Log-only students: 1
+2026-06-11 21:51:56.558601: Result-only students: 2
+2026-06-11 21:53:04.676994: Starting ETL tests.
+2026-06-11 21:53:06.138330: Moodle logs loaded: 54812 rows
+2026-06-11 21:53:06.138561: Results data loaded: 236 rows
+2026-06-11 21:53:06.145382: Missing values in logs: 54812 total
+2026-06-11 21:53:06.145602: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 21:53:06.145779: Missing values in results: 853 total
+2026-06-11 21:53:06.145914: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 21:53:06.183691: Duplicate check completed for logs: 304 duplicates
+2026-06-11 21:53:06.185039: Duplicate check completed for results: 0 duplicates
+2026-06-11 21:53:06.202413: Matched students: 168
+2026-06-11 21:53:06.202523: Log-only students: 1
+2026-06-11 21:53:06.202627: Result-only students: 2
+2026-06-11 22:08:36.771231: Starting ETL tests.
+2026-06-11 22:08:38.256841: Moodle logs loaded: 54812 rows
+2026-06-11 22:08:38.257052: Results data loaded: 236 rows
+2026-06-11 22:08:38.263934: Missing values in logs: 54812 total
+2026-06-11 22:08:38.264157: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 22:08:38.264324: Missing values in results: 853 total
+2026-06-11 22:08:38.264470: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 22:08:38.303435: Duplicate check completed for logs: 304 duplicates
+2026-06-11 22:08:38.304783: Duplicate check completed for results: 0 duplicates
+2026-06-11 22:08:38.322101: Matched students: 168
+2026-06-11 22:08:38.322200: Log-only students: 1
+2026-06-11 22:08:38.322241: Result-only students: 2
+2026-06-11 22:09:46.006357: Starting ETL tests.
+2026-06-11 22:09:47.444620: Moodle logs loaded: 54812 rows
+2026-06-11 22:09:47.445008: Results data loaded: 236 rows
+2026-06-11 22:09:47.451164: Missing values in logs: 54812 total
+2026-06-11 22:09:47.451387: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 22:09:47.451585: Missing values in results: 853 total
+2026-06-11 22:09:47.451727: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 22:09:47.487125: Duplicate check completed for logs: 304 duplicates
+2026-06-11 22:09:47.488405: Duplicate check completed for results: 0 duplicates
+2026-06-11 22:09:47.505450: Matched students: 168
+2026-06-11 22:09:47.505566: Log-only students: 1
+2026-06-11 22:09:47.505624: Result-only students: 2
+2026-06-11 22:10:53.919508: Starting ETL tests.
+2026-06-11 22:10:55.340529: Moodle logs loaded: 54812 rows
+2026-06-11 22:10:55.340761: Results data loaded: 236 rows
+2026-06-11 22:10:55.347318: Missing values in logs: 54812 total
+2026-06-11 22:10:55.347557: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 22:10:55.347739: Missing values in results: 853 total
+2026-06-11 22:10:55.347883: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 22:10:55.384470: Duplicate check completed for logs: 304 duplicates
+2026-06-11 22:10:55.385879: Duplicate check completed for results: 0 duplicates
+2026-06-11 22:10:55.403455: Matched students: 168
+2026-06-11 22:10:55.403569: Log-only students: 1
+2026-06-11 22:10:55.403616: Result-only students: 2
+2026-06-11 22:12:07.380212: Starting ETL tests.
+2026-06-11 22:12:08.843009: Moodle logs loaded: 54812 rows
+2026-06-11 22:12:08.843242: Results data loaded: 236 rows
+2026-06-11 22:12:08.850207: Missing values in logs: 54812 total
+2026-06-11 22:12:08.850488: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 22:12:08.850717: Missing values in results: 853 total
+2026-06-11 22:12:08.850885: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 22:12:08.891130: Duplicate check completed for logs: 304 duplicates
+2026-06-11 22:12:08.892287: Duplicate check completed for results: 0 duplicates
+2026-06-11 22:12:08.910000: Matched students: 168
+2026-06-11 22:12:08.910114: Log-only students: 1
+2026-06-11 22:12:08.910153: Result-only students: 2
+2026-06-11 22:16:41.164308: Starting ETL tests.
+2026-06-11 22:16:42.595313: Moodle logs loaded: 54812 rows
+2026-06-11 22:16:42.595490: Results data loaded: 236 rows
+2026-06-11 22:16:42.601561: Missing values in logs: 54812 total
+2026-06-11 22:16:42.601778: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 22:16:42.601952: Missing values in results: 853 total
+2026-06-11 22:16:42.602096: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 22:16:42.637615: Duplicate check completed for logs: 304 duplicates
+2026-06-11 22:16:42.638943: Duplicate check completed for results: 0 duplicates
+2026-06-11 22:16:42.655894: Matched students: 168
+2026-06-11 22:16:42.656003: Log-only students: 1
+2026-06-11 22:16:42.656040: Result-only students: 2
+2026-06-11 22:18:28.872374: Starting ETL tests.
+2026-06-11 22:18:30.354142: Moodle logs loaded: 54812 rows
+2026-06-11 22:18:30.354360: Results data loaded: 236 rows
+2026-06-11 22:18:30.361112: Missing values in logs: 54812 total
+2026-06-11 22:18:30.361352: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 22:18:30.361537: Missing values in results: 853 total
+2026-06-11 22:18:30.361689: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 22:18:30.399134: Duplicate check completed for logs: 304 duplicates
+2026-06-11 22:18:30.400373: Duplicate check completed for results: 0 duplicates
+2026-06-11 22:18:30.417691: Matched students: 168
+2026-06-11 22:18:30.417806: Log-only students: 1
+2026-06-11 22:18:30.417846: Result-only students: 2
+2026-06-11 22:32:35.901558: Starting ETL tests.
+2026-06-11 22:32:37.346180: Moodle logs loaded: 54812 rows
+2026-06-11 22:32:37.346470: Results data loaded: 236 rows
+2026-06-11 22:32:37.353232: Missing values in logs: 54812 total
+2026-06-11 22:32:37.353410: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 22:32:37.353564: Missing values in results: 853 total
+2026-06-11 22:32:37.353710: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 22:32:37.390417: Duplicate check completed for logs: 304 duplicates
+2026-06-11 22:32:37.391538: Duplicate check completed for results: 0 duplicates
+2026-06-11 22:32:37.407996: Matched students: 168
+2026-06-11 22:32:37.408067: Log-only students: 1
+2026-06-11 22:32:37.408107: Result-only students: 2
+2026-06-11 22:35:15.776156: Starting ETL tests.
+2026-06-11 22:35:17.205050: Moodle logs loaded: 54812 rows
+2026-06-11 22:35:17.205321: Results data loaded: 236 rows
+2026-06-11 22:35:17.212334: Missing values in logs: 54812 total
+2026-06-11 22:35:17.212628: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 22:35:17.212835: Missing values in results: 853 total
+2026-06-11 22:35:17.212983: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 22:35:17.250884: Duplicate check completed for logs: 304 duplicates
+2026-06-11 22:35:17.252283: Duplicate check completed for results: 0 duplicates
+2026-06-11 22:35:17.270303: Matched students: 168
+2026-06-11 22:35:17.270416: Log-only students: 1
+2026-06-11 22:35:17.270486: Result-only students: 2
+2026-06-11 22:54:34.001918: Starting ETL tests.
+2026-06-11 22:54:35.436899: Moodle logs loaded: 54812 rows
+2026-06-11 22:54:35.437118: Results data loaded: 236 rows
+2026-06-11 22:54:35.443370: Missing values in logs: 54812 total
+2026-06-11 22:54:35.443592: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-06-11 22:54:35.443766: Missing values in results: 853 total
+2026-06-11 22:54:35.443921: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-06-11 22:54:35.478949: Duplicate check completed for logs: 304 duplicates
+2026-06-11 22:54:35.480146: Duplicate check completed for results: 0 duplicates
+2026-06-11 22:54:35.496761: Matched students: 168
+2026-06-11 22:54:35.496875: Log-only students: 1
+2026-06-11 22:54:35.496921: Result-only students: 2
