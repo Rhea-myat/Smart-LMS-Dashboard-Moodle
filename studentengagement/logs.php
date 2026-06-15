@@ -5,13 +5,11 @@ require_once(__DIR__ . '/../../config.php');
 
 $PAGE->set_context(context_system::instance());
 $PAGE->set_url(new moodle_url('/local/studentengagement/logs.php'));
-$PAGE->set_title('Student Engagement Dashboard');
-$PAGE->set_heading('Student Engagement Dashboard');
-
-echo $OUTPUT->header();
+$PAGE->set_title('Student Logs');
+$PAGE->set_heading('Student Logs');
 
 //Load CSV
-$file = __DIR__ . '/data/mdl_logs.csv';
+$file = __DIR__ . '/data/ICT001 S1 2025 Logs RELEASED V1.0.csv';
 
 if(!file_exists($file)){
     die("CSV file not found");
@@ -29,6 +27,23 @@ foreach($rows as $row){
 
     $data[] = array_combine($header, $row);
 }
+
+//Export CSV File (If Needed)
+if(isset($_GET['export'])){
+    header('Content-Type: text/csv');
+    header('Content-Disposition: attachment; filename = "student_logs.csv"');
+    $output = fopen('php://output', 'w');
+    fputcsv($output, $header);
+
+    foreach($data as $row){
+        fputcsv($output, $row);
+    }
+
+    fclose($output);
+    exit;
+}
+
+echo $OUTPUT->header();
 
 //Table Format (CSS Style)
 echo "
@@ -81,6 +96,8 @@ $baseurl = new moodle_url('/local/studentengagement/logs.php');
 echo "<h4>Student Logs Data</h4>";
 echo "<p>Showing " . min($start + $perpage, $totalrecords) . " of $totalrecords</p>";
 
+echo "<p><a href='?export=1'>Export Clean CSV</a></p>";
+
 //Labels (Column)
 echo "<div class='table-wrapper'>";
 echo "<table>";
@@ -116,8 +133,8 @@ foreach($pagedata as $row){
 echo "</table>";
 echo "</div>";
 
-//Next Page Buttons
-echo "<div style='margin-top:20px;'>";
+//Page Buttons
+echo "<div style = 'margin-top:20px;'>";
 
 if($page > 0){
     $prevurl = new moodle_url($baseurl, ['page' => $page - 1]);
@@ -130,5 +147,4 @@ if(($start + $perpage) < $totalrecords){
 }
 
 echo "</div>";
-
 echo $OUTPUT->footer();
