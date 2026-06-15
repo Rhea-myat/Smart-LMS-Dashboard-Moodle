@@ -86,15 +86,19 @@ def create_dim_time(logs):
 
 # 3. course dimension
 def create_dim_course(logs):
-    dim_course = logs[["event_context"]].drop_duplicates().copy()
+    course_rows = logs[
+        logs["event_context"].astype(str).str.startswith("Unit:", na=False)
+    ][["event_context"]].drop_duplicates().copy()
 
-    dim_course["course_name"] = dim_course["event_context"].str.extract(
-        r"Unit:\s*(.*)"
+    course_rows["course_name"] = (
+        course_rows["event_context"]
+        .str.replace("Unit:", "", regex=False)
+        .str.strip()
     )
 
-    dim_course.insert(0, "course_key", range(1, len(dim_course) + 1))
+    course_rows.insert(0, "course_key", range(1, len(course_rows) + 1))
 
-    return dim_course
+    return course_rows
 
 # 4. event dimension
 def create_dim_event(logs):
