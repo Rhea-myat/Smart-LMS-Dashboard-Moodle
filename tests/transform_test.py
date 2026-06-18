@@ -59,12 +59,12 @@ from etl.transform import (
 )
 
 dim_time = create_dim_time(logs)
-dim_course = create_dim_course(logs)
+dim_course, course_lookup = create_dim_course(logs)
 dim_event = create_dim_event(logs)
 dim_material = create_dim_material(logs)
 dim_assessment = create_dim_assessment(results)
 dim_grade = create_dim_grade(results)
-fact_activity_log = create_fact_activity_log(logs, dim_student, dim_time, dim_course, dim_event, dim_material)
+fact_activity_log = create_fact_activity_log(logs, dim_student, dim_time, dim_course, dim_event, dim_material, course_lookup)
 fact_result = create_fact_result(results, dim_student, dim_course, dim_assessment, dim_grade)
 
 print("StudentKey missing:", fact_activity_log["student_key"].isnull().sum())

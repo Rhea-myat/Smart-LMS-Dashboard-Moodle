@@ -56,7 +56,7 @@ def main():
 
     dim_student = create_dim_student(logs, results)
     dim_time = create_dim_time(logs)
-    dim_course = create_dim_course(logs)
+    dim_course, course_lookup = create_dim_course(logs)
     dim_event = create_dim_event(logs)
     dim_material = create_dim_material(logs)
     dim_assessment = create_dim_assessment(results)
@@ -68,7 +68,8 @@ def main():
         dim_time,
         dim_course,
         dim_event,
-        dim_material
+        dim_material,
+        course_lookup
     )
 
     fact_result = create_fact_result(

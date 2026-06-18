@@ -90,24 +90,30 @@ def create_dim_time(logs):
 
 # 3. course dimension
 def create_dim_course(logs):
-    course_rows = logs[
+    course_lookup = logs[
         logs["event_context"].astype(str).str.startswith("Unit:", na=False)
     ][["event_context"]].drop_duplicates().copy()
 
-    course_rows["course_name"] = (
-        course_rows["event_context"]
+    course_lookup["course_name"] = (
+        course_lookup["event_context"]
         .str.replace("Unit:", "", regex=False)
         .str.strip()
     )
-    course_rows["course_code"] = (
-        course_rows["course_name"]
-        .str.extract(r"([A-Z]{3}\d{3})", expand=False)
 
+    course_lookup["course_code"] = (
+        course_lookup["course_name"]
+        .str.extract(r"([A-Z]{3}\d{3})", expand=False)
     )
 
-    course_rows.insert(0, "course_key", range(1, len(course_rows) + 1))
+    course_lookup.insert(0, "course_key", range(1, len(course_lookup) + 1))
 
-    return course_rows
+    # Final dimension table
+    dim_course = course_lookup[
+        ["course_key", "course_name", "course_code"]
+    ].copy()
+
+    # Temporary lookup for fact joins
+    return dim_course, course_lookup[["course_key", "event_context"]]
 
 # 4. event dimension
 def create_dim_event(logs):
@@ -234,12 +240,12 @@ def create_dim_grade(results):
 
 # fact tables
 # 1. activity log fact table
-def create_fact_activity_log(logs, dim_student, dim_time, dim_course, dim_event, dim_material):
+def create_fact_activity_log(logs, dim_student, dim_time, dim_course, dim_event, dim_material, course_lookup):
     fact = logs.copy()
 
     fact = fact.merge(dim_student, left_on="studentid_clean", right_on="student_id", how="left")
     fact = fact.merge(dim_time[["time_key", "time"]], on="time", how="left")
-    fact = fact.merge(dim_course[["course_key", "event_context"]], on="event_context", how="left")
+    fact = fact.merge(course_lookup, on="event_context", how="left")
     fact = fact.merge(dim_event[["event_key", "event_name"]], on="event_name", how="left")
     fact = fact.merge(
         dim_material[["material_key", "context", "component"]],
