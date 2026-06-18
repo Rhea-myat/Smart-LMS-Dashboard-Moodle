@@ -8,7 +8,8 @@ from etl.transform import (
     create_dim_assessment,
     create_dim_grade,
     create_fact_activity_log,
-    create_fact_result
+    create_fact_result,
+    create_fact_enrolment
 )
 from etl.db import get_engine
 from etl.load import load_to_mysql_initial
@@ -25,9 +26,13 @@ from etl.logging_utils import write_log
 from etl.reconcile_datasets import check_student_matching, generate_matching_log
 
 
+
 def main():
     logs_path = BASE_DIR / "data" / "raw" / "ICT001 S1 2025 Logs RELEASED V1.0.xlsx"
     results_path = BASE_DIR / "data" / "raw" / "cleaned_standard_results.xlsx"
+
+    warehouse_path = BASE_DIR / "data" / "warehouse"
+    warehouse_path.mkdir(parents=True, exist_ok=True)
 
     logs = extract_data(logs_path)
     results = extract_data(results_path)
@@ -74,6 +79,25 @@ def main():
         dim_grade
     )
 
+    fact_enrolment = create_fact_enrolment(
+        logs,
+        results,
+        dim_student,
+        dim_course,
+        dim_time
+    )
+
+    dim_student.to_csv(warehouse_path / "dim_student.csv", index=False)
+    dim_time.to_csv(warehouse_path / "dim_time.csv", index=False)
+    dim_course.to_csv(warehouse_path / "dim_course.csv", index=False)
+    dim_event.to_csv(warehouse_path / "dim_event.csv", index=False)
+    dim_material.to_csv(warehouse_path / "dim_material.csv", index=False)
+    dim_assessment.to_csv(warehouse_path / "dim_assessment.csv", index=False)
+    dim_grade.to_csv(warehouse_path / "dim_grade.csv", index=False)
+    fact_activity_log.to_csv(warehouse_path / "fact_activity_log.csv", index=False)
+    fact_result.to_csv(warehouse_path / "fact_result.csv", index=False)
+    fact_enrolment.to_csv(warehouse_path / "fact_enrolment.csv", index=False)
+
     engine = get_engine()
 
     load_to_mysql_initial(dim_student, "dim_student", engine)
@@ -85,6 +109,8 @@ def main():
     load_to_mysql_initial(dim_grade, "dim_grade", engine)
     load_to_mysql_initial(fact_activity_log, "fact_activity_log", engine)
     load_to_mysql_initial(fact_result, "fact_result", engine)
+    fact_enrolment = create_fact_enrolment(logs, results, dim_student, dim_course, dim_time)
+    load_to_mysql_initial(fact_enrolment, "fact_enrolment", engine)
 
 
 if __name__ == "__main__":

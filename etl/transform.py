@@ -78,6 +78,10 @@ def create_dim_time(logs):
     dim_time["day"] = dim_time["datetime"].dt.day_name()
     dim_time["week"] = dim_time["datetime"].dt.isocalendar().week
     dim_time["month"] = dim_time["datetime"].dt.month
+    # infer term based on month (assuming 2 semesters: Jan-Jun = S1, Jul-Dec = S2) as assuming S for semester
+    dim_time["term"] = dim_time["month"].apply(
+        lambda m: "S1" if m <= 6 else "S2" 
+    )
     dim_time["year"] = dim_time["datetime"].dt.year
 
     dim_time.insert(0, "time_key", range(1, len(dim_time) + 1))
@@ -94,6 +98,11 @@ def create_dim_course(logs):
         course_rows["event_context"]
         .str.replace("Unit:", "", regex=False)
         .str.strip()
+    )
+    course_rows["course_code"] = (
+        course_rows["course_name"]
+        .str.extract(r"([A-Z]{3}\d{3})", expand=False)
+
     )
 
     course_rows.insert(0, "course_key", range(1, len(course_rows) + 1))
@@ -301,3 +310,91 @@ def create_fact_result(results, dim_student, dim_course, dim_assessment, dim_gra
     fact.insert(0, "result_fact_id", range(1, len(fact) + 1))
 
     return fact
+
+# 3. enrolment fact table
+def create_fact_enrolment(logs, results, dim_student, dim_course, dim_time):
+    """
+    Create assumed enrolment fact table from available historical data.
+
+    Since official enrolment records are not available yet, enrolment is assumed
+    if a student appears in activity logs, results, or both.
+    """
+
+    # Students from logs
+    log_enrolments = logs[["studentid_clean"]].drop_duplicates().copy()
+    log_enrolments["in_logs"] = True
+    log_enrolments["in_results"] = False
+
+    # Students from results
+    result_enrolments = results[["studentid_clean"]].drop_duplicates().copy()
+    result_enrolments["in_logs"] = False
+    result_enrolments["in_results"] = True
+
+    # Combine and aggregate source flags
+    enrolments = pd.concat(
+        [log_enrolments, result_enrolments],
+        ignore_index=True
+    )
+
+    enrolments = (
+        enrolments
+        .groupby("studentid_clean", as_index=False)
+        .agg({
+            "in_logs": "max",
+            "in_results": "max"
+        })
+    )
+
+    def get_source(row):
+        if row["in_logs"] and row["in_results"]:
+            return "Both"
+        elif row["in_logs"]:
+            return "ActivityOnly"
+        elif row["in_results"]:
+            return "ResultOnly"
+        return "Unknown"
+
+    enrolments["enrolment_source"] = enrolments.apply(get_source, axis=1)
+    enrolments["enrolment_status"] = "Assumed Enrolled"
+
+    # Map student key
+    enrolments = enrolments.merge(
+        dim_student[["student_key", "student_id"]],
+        left_on="studentid_clean",
+        right_on="student_id",
+        how="left"
+    )
+
+    # Current historical data appears to have one course
+    enrolments["course_key"] = dim_course["course_key"].iloc[0]
+
+    # Use earliest available time as assumed enrolment time - comment out for now
+    #enrolment_time_key = dim_time.sort_values("datetime")["time_key"].iloc[0]
+    #enrolments["time_key"] = enrolment_time_key
+
+    # Historical enrolment date is unknown because official enrolment data is unavailable
+    enrolments["time_key"] = None
+
+    # TODO:
+    # When Moodle enrolment data becomes available:
+    # 1. Extract mdl_user_enrolments.timestart
+    # 2. Join to dim_time
+    # 3. Replace NULL time_key with actual enrolment time_key
+
+    enrolments = enrolments[
+        [
+            "student_key",
+            "course_key",
+            "time_key",
+            "enrolment_status",
+            "enrolment_source"
+        ]
+    ]
+
+    enrolments.insert(
+        0,
+        "enrolment_fact_id",
+        range(1, len(enrolments) + 1)
+    )
+
+    return enrolments

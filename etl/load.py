@@ -34,9 +34,6 @@ def get_connection():
     )
 """
 
-
-
-
 def build_dimensions(transformed_df):
     dim_course = transformed_df[["courseid"]].drop_duplicates()
     dim_course["course_name"] = "Course " + dim_course["courseid"].astype(str)
