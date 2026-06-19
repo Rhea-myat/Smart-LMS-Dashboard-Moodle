@@ -4,10 +4,10 @@ Purpose:
 Dashboard and Moodle visualisation development.
 
 Sub-branches:
-- aye-chart
-- teammate-ui
+- myat-chart
+- yimon-ui
 
 Merge Flow:
-aye-chart → visualization
-teammate-ui → visualization
+myat-chart → visualization
+yimon-ui → visualization
 visualization → main
