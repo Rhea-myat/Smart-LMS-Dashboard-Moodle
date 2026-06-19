@@ -1,7 +1,13 @@
-# Main branch is reserved for final integration.
+# Visualization Branch
 
-Development branches:
+Purpose:
+Dashboard and Moodle visualisation development.
 
-- myat-mlops: ML and analytics development
+Sub-branches:
+- aye-chart
+- teammate-ui
 
-- php-moodle: Moodle plugin development
+Merge Flow:
+aye-chart → visualization
+teammate-ui → visualization
+visualization → main
