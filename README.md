@@ -1,7 +1,13 @@
-# Main branch is reserved for final integration.
+# Visualization Branch
 
-Development branches:
+Purpose:
+Dashboard and Moodle visualisation development.
 
-- myat-mlops: ML and analytics development
+Sub-branches:
+- myat-ui
+- yimon-ui
 
-- php-moodle: Moodle plugin development
+Merge Flow:
+myat-ui → visualization
+yimon-ui → visualization
+visualization → main
