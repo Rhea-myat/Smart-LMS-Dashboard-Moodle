@@ -2,12 +2,12 @@ from etl.extract import BASE_DIR, extract_data
 from etl.transform import (
     create_dim_student,
     create_dim_time,
-    create_dim_course,
+    create_dim_course_from_historical_logs,
     create_dim_event,
     create_dim_material,
     create_dim_assessment,
     create_dim_grade,
-    create_fact_activity_log,
+    create_fact_activity_log_from_historical,
     create_fact_result,
     create_fact_enrolment
 )
@@ -56,13 +56,13 @@ def main():
 
     dim_student = create_dim_student(logs, results)
     dim_time = create_dim_time(logs)
-    dim_course, course_lookup = create_dim_course(logs)
+    dim_course, course_lookup = create_dim_course_from_historical_logs(logs)
     dim_event = create_dim_event(logs)
     dim_material = create_dim_material(logs)
     dim_assessment = create_dim_assessment(results)
     dim_grade = create_dim_grade(results)
 
-    fact_activity_log = create_fact_activity_log(
+    fact_activity_log = create_fact_activity_log_from_historical(
         logs,
         dim_student,
         dim_time,

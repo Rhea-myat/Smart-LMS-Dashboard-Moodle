@@ -88,8 +88,8 @@ def create_dim_time(logs):
 
     return dim_time
 
-# 3. course dimension
-def create_dim_course(logs):
+# 3A. Historical course dimension
+def create_dim_course_from_historical_logs(logs):
     course_lookup = logs[
         logs["event_context"].astype(str).str.startswith("Unit:", na=False)
     ][["event_context"]].drop_duplicates().copy()
@@ -105,15 +105,37 @@ def create_dim_course(logs):
         .str.extract(r"([A-Z]{3}\d{3})", expand=False)
     )
 
+    course_lookup["course_id"] = (
+        "HIST_" + course_lookup["course_code"].fillna("UNKNOWN")
+    )
+
     course_lookup.insert(0, "course_key", range(1, len(course_lookup) + 1))
 
-    # Final dimension table
     dim_course = course_lookup[
-        ["course_key", "course_name", "course_code"]
+        ["course_key", "course_id", "course_name", "course_code"]
     ].copy()
 
-    # Temporary lookup for fact joins
-    return dim_course, course_lookup[["course_key", "event_context"]]
+    return dim_course, course_lookup[["course_key", "course_id", "event_context"]]
+
+# 3B. Future Moodle course dimension
+def create_dim_course_from_moodle_courses(courses):
+    dim_course = courses[
+        ["id", "fullname", "shortname"]
+    ].drop_duplicates().copy()
+
+    dim_course = dim_course.rename(columns={
+        "id": "course_id",
+        "fullname": "course_name",
+        "shortname": "course_code"
+    })
+
+    dim_course.insert(0, "course_key", range(1, len(dim_course) + 1))
+
+    dim_course = dim_course[
+        ["course_key", "course_id", "course_name", "course_code"]
+    ]
+
+    return dim_course
 
 # 4. event dimension
 def create_dim_event(logs):
@@ -239,14 +261,52 @@ def create_dim_grade(results):
     return dim_grade
 
 # fact tables
-# 1. activity log fact table
-def create_fact_activity_log(logs, dim_student, dim_time, dim_course, dim_event, dim_material, course_lookup):
+# 1A. historical activity log fact table
+def create_fact_activity_log_from_historical(
+    logs,
+    dim_student,
+    dim_time,
+    dim_course,
+    dim_event,
+    dim_material,
+    course_lookup
+):
     fact = logs.copy()
 
-    fact = fact.merge(dim_student, left_on="studentid_clean", right_on="student_id", how="left")
-    fact = fact.merge(dim_time[["time_key", "time"]], on="time", how="left")
-    fact = fact.merge(course_lookup, on="event_context", how="left")
-    fact = fact.merge(dim_event[["event_key", "event_name"]], on="event_name", how="left")
+    fact = fact.merge(
+        dim_student,
+        left_on="studentid_clean",
+        right_on="student_id",
+        how="left"
+    )
+
+    fact = fact.merge(
+        dim_time[["time_key", "time"]],
+        on="time",
+        how="left"
+    )
+
+    fact = fact.merge(
+        course_lookup[["course_key", "event_context"]],
+        on="event_context",
+        how="left"
+    )
+
+    # Current historical dataset has one course.
+    # Unmatched activity contexts are assigned to the only available course.
+    if len(dim_course) == 1:
+        fact["course_key"] = fact["course_key"].fillna(
+            dim_course["course_key"].iloc[0]
+        )
+
+    fact["course_key"] = fact["course_key"].astype("Int64")
+
+    fact = fact.merge(
+        dim_event[["event_key", "event_name"]],
+        on="event_name",
+        how="left"
+    )
+
     fact = fact.merge(
         dim_material[["material_key", "context", "component"]],
         left_on=["event_context", "component"],
@@ -254,17 +314,87 @@ def create_fact_activity_log(logs, dim_student, dim_time, dim_course, dim_event,
         how="left"
     )
 
-    fact = fact[[
-        "student_key",
-        "course_key",
-        "time_key",
-        "event_key",
-        "material_key",
-        "description"
-    ]]
+    fact = fact[
+        [
+            "student_key",
+            "course_key",
+            "time_key",
+            "event_key",
+            "material_key",
+            "description"
+        ]
+    ]
 
     fact.insert(0, "activity_fact_id", range(1, len(fact) + 1))
     fact["event_count"] = 1
+    fact["source_system"] = "Historical"
+
+    return fact
+
+# 1B. future Moodle activity log fact table - to be implemented when Moodle data is available
+def create_fact_activity_log_from_moodle(
+    logs,
+    dim_student,
+    dim_time,
+    dim_course,
+    dim_event,
+    dim_material
+):
+    fact = logs.copy()
+
+    fact = fact.merge(
+        dim_student[["student_key", "student_id"]],
+        left_on="userid",
+        right_on="student_id",
+        how="left"
+    )
+
+    fact = fact.merge(
+        dim_course[["course_key", "course_id"]],
+        left_on="courseid",
+        right_on="course_id",
+        how="left"
+    )
+
+    fact = fact.merge(
+        dim_time[["time_key", "timecreated"]],
+        on="timecreated",
+        how="left"
+    )
+
+    fact = fact.merge(
+        dim_event[["event_key", "event_name"]],
+        left_on="eventname",
+        right_on="event_name",
+        how="left"
+    )
+
+    fact = fact.merge(
+        dim_material[["material_key", "component", "target"]],
+        on=["component", "target"],
+        how="left"
+    )
+
+    fact = fact[
+        [
+            "id",
+            "student_key",
+            "course_key",
+            "time_key",
+            "event_key",
+            "material_key",
+            "action",
+            "target"
+        ]
+    ]
+
+    fact = fact.rename(columns={
+        "id": "source_log_id"
+    })
+
+    fact.insert(0, "activity_fact_id", range(1, len(fact) + 1))
+    fact["event_count"] = 1
+    fact["source_system"] = "Moodle"
 
     return fact
 
