@@ -1,0 +1,26 @@
+{
+    "model_name": "academic_risk_model",
+    "model_version": "v1",
+    "algorithm": "Random Forest",
+    "selected_model": "Baseline Random Forest",
+    "threshold": 0.5,
+    "features": [
+        "avg_score_so_far",
+        "max_score_so_far",
+        "min_score_so_far",
+        "pass_assessment_count",
+        "latest_assessment_score",
+        "fail_assessment_count",
+        "early_exercise_avg",
+        "late_exercise_avg",
+        "assignment_avg_score",
+        "score_trend"
+    ],
+    "accuracy": 0.852941,
+    "precision": 0.8,
+    "recall": 1.0,
+    "f1": 0.888889,
+    "roc_auc": 0.898214,
+    "created_at": "2026-06-23T21:52:34.278174",
+    "artifact_path": "ml/models/academic_model_v1.pkl"
+}

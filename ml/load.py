@@ -26,3 +26,19 @@ def load_model_registry(df, table_name, engine):
         if_exists="append",
         index=False
     )
+
+def load_model_feature_stats(df, table_name, engine):
+    df.to_sql(
+        table_name,
+        engine,
+        if_exists="replace",
+        index=False
+    )
+
+def load_model_feature_baseline(df, table_name, engine):
+    df.to_sql(
+        table_name,
+        engine,
+        if_exists="replace",
+        index=False
+    )

@@ -4,7 +4,8 @@ from ml import feature_engineering as fe_v1
 from ml import feature_engineering_v2 as fe_v2
 
 from ml.db import get_ml_engine
-from ml.load import load_snapshot, load_model_registry
+from ml.load import load_snapshot, load_model_registry, load_model_feature_stats, load_model_feature_baseline
+from ml.monitoring.drift_utils import save_model_baselines
 from datetime import datetime   
 
 def test_feature_engineering():
@@ -179,6 +180,11 @@ def test_feature_engineering_v2():
         index=False
     )
 
+    save_model_baselines(
+        behaviour_model_snapshot,
+        academic_model_snapshot
+    )
+
     # Load snapshots to database
     engine = get_ml_engine()
     load_snapshot(
@@ -198,6 +204,18 @@ def test_feature_engineering_v2():
         "academic_model_snapshot_v2",
         engine
     )
+
+    load_model_feature_stats(
+        behaviour_model_snapshot,
+        "model_feature_stats",
+        engine
+    )
+
+    load_model_feature_baseline(
+        behaviour_model_snapshot,
+        "model_feature_baseline",
+        engine
+    )   
 
     # verify which students disappeared from the snapshot
     all_students = set(snapshot["student_key"])
@@ -240,9 +258,30 @@ def test_behaviour_model_registry():
         "model_registry",
         get_ml_engine()        
         )
+    
+def test_academic_model_registry():
+    registry_df = pd.DataFrame([{
+        "model_name": "academic_model",
+        "model_version": "v1",
+        "algorithm": "Random Forest",
+        "accuracy": 0.78, # later can replace with more robust metrics like precision, recall, f1, roc_auc
+        "recall": 0.85,
+        "f1": 0.82,
+        "roc_auc": 0.88,
+        "model_path": "ml/models/academic_model_v1.pkl",
+        "scaler_path": "ml/models/academic_scaler_v1.pkl",
+        "created_at": datetime.now()
+    }])
+
+    load_model_registry(
+        registry_df,
+        "model_registry",
+        get_ml_engine()        
+        )
 
 
 if __name__ == "__main__":
     test_feature_engineering_v2()
     test_behaviour_model_registry()
+    test_academic_model_registry()
     
