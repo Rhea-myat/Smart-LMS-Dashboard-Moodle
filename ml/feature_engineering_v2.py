@@ -349,27 +349,6 @@ def create_academic_features(
         - academic["early_exercise_avg"]
     )
 
-    # Completion feature (dynamic): attempted assessments / total assessments.
-    assessment_names = (
-        dim_assessment["assessment_name"]
-        .astype(str)
-        .str.lower()
-    )
-    valid_assessment_names = assessment_names[
-        ~assessment_names.str.contains(
-            leakage_pattern,
-            regex=True,
-            na=False
-        )
-    ]
-    total_assessments = max(
-        int(valid_assessment_names.nunique()),
-        1
-    )
-    academic["assessment_completion_rate"] = (
-        academic["assessments_attempted"] / total_assessments
-    )
-
     grade_mode = (
         result.groupby(
             ["student_key", "course_key", "grade_code"]
