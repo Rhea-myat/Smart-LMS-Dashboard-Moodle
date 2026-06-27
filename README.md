@@ -4,7 +4,7 @@ This branch is used for Moodle Environment Set-Up and Plugin Testing.
 - Moodle Version: 4.1
 - PHP Version: 7.4
 - SQL Version: 8.0
-- Local Development Environment: WAMPServer 64 (used for testing)
+- Local Development Environment: WAMPServer 64 (used for testing locally)
 
 ## Plugin Tesing:
 - Tested custom Moodle plugin functionality
