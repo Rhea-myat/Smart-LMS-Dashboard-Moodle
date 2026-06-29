@@ -1,4 +1,20 @@
 from etl.logging_utils import write_log
+
+WAREHOUSE_LOAD_ORDER = [
+    "dim_student",
+    "dim_time",
+    "dim_academic_period",
+    "dim_course",
+    "dim_event",
+    "dim_material",
+    "dim_assessment",
+    "dim_grade",
+    "fact_activity_log",
+    "fact_result",
+    "fact_enrolment"
+]
+
+
 # for initial loading to MySQL
 def load_to_mysql_initial(df, table_name, engine):
     df.to_sql(

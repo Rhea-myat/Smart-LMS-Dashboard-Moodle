@@ -1,7 +1,12 @@
+import pandas as pd
+
 from etl.extract import BASE_DIR, extract_data
 from etl.transform import (
     create_dim_student,
     create_dim_time,
+    create_dim_academic_period,
+    lookup_academic_period_key,
+    parse_academic_period_from_label,
     create_dim_course_from_historical_logs,
     create_dim_event,
     create_dim_material,
@@ -22,6 +27,7 @@ from etl.data_quality_rules_v2 import (
     check_required_columns,
     remove_duplicates
 )
+from etl.data_quality_rules import validate_academic_period_integrity
 from etl.logging_utils import write_log
 from etl.reconcile_datasets import check_student_matching, generate_matching_log
 
@@ -30,6 +36,7 @@ from etl.reconcile_datasets import check_student_matching, generate_matching_log
 def main():
     logs_path = BASE_DIR / "data" / "raw" / "ICT001 S1 2025 Logs RELEASED V1.0.xlsx"
     results_path = BASE_DIR / "data" / "raw" / "cleaned_standard_results.xlsx"
+    source_label = logs_path.stem
 
     warehouse_path = BASE_DIR / "data" / "warehouse"
     warehouse_path.mkdir(parents=True, exist_ok=True)
@@ -54,8 +61,37 @@ def main():
     check_student_matching(logs, results)
     matching_log = generate_matching_log(logs, results)
 
+    # Historical ETL: the source dataset determines the academic period.
+    source_semester, source_academic_year = parse_academic_period_from_label(
+        source_label
+    )
+
     dim_student = create_dim_student(logs, results)
     dim_time = create_dim_time(logs)
+    dim_academic_period = create_dim_academic_period(
+        source_semester,
+        source_academic_year
+    )
+
+    historical_academic_period_key = lookup_academic_period_key(
+        dim_academic_period,
+        source_semester,
+        source_academic_year
+    )
+
+    # Daily production ETL path:
+    # 1) ask Moodle for current semester / teaching period / academic year
+    # 2) if Moodle is unavailable, fall back to the date-based lookup below
+    # production_academic_period_key = resolve_academic_period_key(
+    #     dim_academic_period,
+    #     current_semester,
+    #     current_academic_year
+    # )
+    # production_academic_period_key = resolve_academic_period_from_date(
+    #     dim_academic_period,
+    #     pd.Timestamp.today().date()
+    # )
+
     dim_course, course_lookup = create_dim_course_from_historical_logs(logs)
     dim_event = create_dim_event(logs)
     dim_material = create_dim_material(logs)
@@ -66,6 +102,7 @@ def main():
         logs,
         dim_student,
         dim_time,
+        historical_academic_period_key,
         dim_course,
         dim_event,
         dim_material,
@@ -77,7 +114,8 @@ def main():
         dim_student,
         dim_course,
         dim_assessment,
-        dim_grade
+        dim_grade,
+        historical_academic_period_key
     )
 
     fact_enrolment = create_fact_enrolment(
@@ -85,11 +123,20 @@ def main():
         results,
         dim_student,
         dim_course,
-        dim_time
+        dim_time,
+        historical_academic_period_key
+    )
+
+    validate_academic_period_integrity(
+        dim_academic_period,
+        fact_activity_log,
+        fact_result,
+        fact_enrolment
     )
 
     dim_student.to_csv(warehouse_path / "dim_student.csv", index=False)
     dim_time.to_csv(warehouse_path / "dim_time.csv", index=False)
+    dim_academic_period.to_csv(warehouse_path / "dim_academic_period.csv", index=False)
     dim_course.to_csv(warehouse_path / "dim_course.csv", index=False)
     dim_event.to_csv(warehouse_path / "dim_event.csv", index=False)
     dim_material.to_csv(warehouse_path / "dim_material.csv", index=False)
@@ -103,6 +150,7 @@ def main():
 
     load_to_mysql_initial(dim_student, "dim_student", engine)
     load_to_mysql_initial(dim_time, "dim_time", engine)
+    load_to_mysql_initial(dim_academic_period, "dim_academic_period", engine)
     load_to_mysql_initial(dim_course, "dim_course", engine)
     load_to_mysql_initial(dim_event, "dim_event", engine)
     load_to_mysql_initial(dim_material, "dim_material", engine)
@@ -110,7 +158,6 @@ def main():
     load_to_mysql_initial(dim_grade, "dim_grade", engine)
     load_to_mysql_initial(fact_activity_log, "fact_activity_log", engine)
     load_to_mysql_initial(fact_result, "fact_result", engine)
-    fact_enrolment = create_fact_enrolment(logs, results, dim_student, dim_course, dim_time)
     load_to_mysql_initial(fact_enrolment, "fact_enrolment", engine)
 
 

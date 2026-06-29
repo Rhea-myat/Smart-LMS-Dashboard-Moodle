@@ -49,23 +49,41 @@ print("Saved:", WAREHOUSE_DIR / "dim_student.csv")
 from etl.transform import (
     create_dim_student,
     create_dim_time,
-    create_dim_course,
+    create_dim_academic_period,
+    create_dim_course_from_historical_logs,
     create_dim_event,
     create_dim_material,
     create_dim_assessment, 
     create_dim_grade, 
-    create_fact_activity_log, 
+    create_fact_activity_log_from_historical, 
     create_fact_result
 )
 
 dim_time = create_dim_time(logs)
-dim_course, course_lookup = create_dim_course(logs)
+dim_academic_period = create_dim_academic_period(dim_time)
+dim_course, course_lookup = create_dim_course_from_historical_logs(logs)
 dim_event = create_dim_event(logs)
 dim_material = create_dim_material(logs)
 dim_assessment = create_dim_assessment(results)
 dim_grade = create_dim_grade(results)
-fact_activity_log = create_fact_activity_log(logs, dim_student, dim_time, dim_course, dim_event, dim_material, course_lookup)
-fact_result = create_fact_result(results, dim_student, dim_course, dim_assessment, dim_grade)
+fact_activity_log = create_fact_activity_log_from_historical(
+    logs,
+    dim_student,
+    dim_time,
+    dim_academic_period["academic_period_key"].iloc[0],
+    dim_course,
+    dim_event,
+    dim_material,
+    course_lookup
+)
+fact_result = create_fact_result(
+    results,
+    dim_student,
+    dim_course,
+    dim_assessment,
+    dim_grade,
+    dim_academic_period["academic_period_key"].iloc[0]
+)
 
 print("StudentKey missing:", fact_activity_log["student_key"].isnull().sum())
 print("CourseKey missing:", fact_activity_log["course_key"].isnull().sum())

@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 
 # 1. Student dimension
 def create_dim_student(logs, results, enrolments=None):
@@ -78,17 +79,60 @@ def create_dim_time(logs):
     dim_time["day"] = dim_time["datetime"].dt.day_name()
     dim_time["week"] = dim_time["datetime"].dt.isocalendar().week
     dim_time["month"] = dim_time["datetime"].dt.month
-    # infer term based on month (assuming 2 semesters: Jan-Jun = S1, Jul-Dec = S2) as assuming S for semester
-    dim_time["term"] = dim_time["month"].apply(
-        lambda m: "S1" if m <= 6 else "S2" 
-    )
     dim_time["year"] = dim_time["datetime"].dt.year
 
     dim_time.insert(0, "time_key", range(1, len(dim_time) + 1))
 
     return dim_time
 
-# 3A. Historical course dimension
+# lookup helper function 
+def lookup_academic_period_key(
+    dim_academic_period,
+    semester,
+    academic_year
+):
+    match = dim_academic_period[
+        (dim_academic_period["semester"] == semester)
+        &
+        (dim_academic_period["academic_year"] == academic_year)
+    ]
+
+    if match.empty:
+        raise ValueError(
+            f"Academic period not found: {semester} {academic_year}"
+        )
+
+    return int(match.iloc[0]["academic_period_key"])
+
+# 3A . Academic period dimension for ETL - ask Moodle for current semester and academic year in production ETL path
+def create_dim_academic_period(
+        semester,
+        academic_year
+    ):
+    return pd.DataFrame({
+        "academic_period_key": [1],
+        "semester": [semester],
+        "academic_year": [academic_year]
+    })
+
+#3B.  parse semester and academic year from source label (Historical ETL path)
+def parse_academic_period_from_label(source_label):
+    """
+    Historical ETL path: derive semester and academic year from the dataset label.
+
+    Example: 'ICT302 S1 2025' -> semester='S1', academic_year=2025
+    """
+    match = re.search(
+        r"(S1|S2).*?(\d{4})",
+        str(source_label).upper())
+    if not match:
+        raise ValueError(
+            f"Could not parse semester and academic year from source label: {source_label}"
+        )
+
+    return match.group(1), int(match.group(2))
+
+# 4A. Historical course dimension
 def create_dim_course_from_historical_logs(logs):
     course_lookup = logs[
         logs["event_context"].astype(str).str.startswith("Unit:", na=False)
@@ -117,7 +161,7 @@ def create_dim_course_from_historical_logs(logs):
 
     return dim_course, course_lookup[["course_key", "course_id", "event_context"]]
 
-# 3B. Future Moodle course dimension
+# 4B. Future Moodle course dimension
 def create_dim_course_from_moodle_courses(courses):
     dim_course = courses[
         ["id", "fullname", "shortname"]
@@ -137,7 +181,7 @@ def create_dim_course_from_moodle_courses(courses):
 
     return dim_course
 
-# 4. event dimension
+# 5. event dimension
 def create_dim_event(logs):
     dim_event = logs[["event_name"]].drop_duplicates().copy()
 
@@ -145,7 +189,7 @@ def create_dim_event(logs):
 
     return dim_event
 
-# 5. material dimension
+# 6. material dimension
 def create_dim_material(logs):
     dim_material = (
         logs[["event_context", "component"]]
@@ -204,7 +248,7 @@ def create_dim_material(logs):
 
     return dim_material
 
-# 6. Assessment dimension
+# 7. Assessment dimension
 def create_dim_assessment(results):
     assessment_columns = [
         "ass_ex_1", "ass_ex_2", "ass_ex_3", "ass_ex_4", "ass_ex_5",
@@ -227,7 +271,7 @@ def create_dim_assessment(results):
 
     return dim_assessment
 
-# 7. Grade Dimesnion - reference:  https://askmurdoch.custhelp.com/app/answers/detail/a_id/714
+# 8. Grade Dimension - reference:  https://askmurdoch.custhelp.com/app/answers/detail/a_id/714
 
 def create_dim_grade(results):
     grades = [
@@ -266,6 +310,7 @@ def create_fact_activity_log_from_historical(
     logs,
     dim_student,
     dim_time,
+    academic_period_key,
     dim_course,
     dim_event,
     dim_material,
@@ -285,6 +330,8 @@ def create_fact_activity_log_from_historical(
         on="time",
         how="left"
     )
+
+    fact["academic_period_key"] = academic_period_key
 
     fact = fact.merge(
         course_lookup[["course_key", "event_context"]],
@@ -319,6 +366,7 @@ def create_fact_activity_log_from_historical(
             "student_key",
             "course_key",
             "time_key",
+            "academic_period_key",
             "event_key",
             "material_key",
             "description"
@@ -336,6 +384,7 @@ def create_fact_activity_log_from_moodle(
     logs,
     dim_student,
     dim_time,
+    academic_period_key,
     dim_course,
     dim_event,
     dim_material
@@ -362,6 +411,8 @@ def create_fact_activity_log_from_moodle(
         how="left"
     )
 
+    fact["academic_period_key"] = academic_period_key
+
     fact = fact.merge(
         dim_event[["event_key", "event_name"]],
         left_on="eventname",
@@ -381,6 +432,7 @@ def create_fact_activity_log_from_moodle(
             "student_key",
             "course_key",
             "time_key",
+            "academic_period_key",
             "event_key",
             "material_key",
             "action",
@@ -399,7 +451,14 @@ def create_fact_activity_log_from_moodle(
     return fact
 
 # 2. assessment fact table 
-def create_fact_result(results, dim_student, dim_course, dim_assessment, dim_grade):
+def create_fact_result(
+    results,
+    dim_student,
+    dim_course,
+    dim_assessment,
+    dim_grade,
+    academic_period_key
+):
     assessment_cols = dim_assessment["assessment_name"].tolist()
 
     fact = results.melt(
@@ -430,12 +489,14 @@ def create_fact_result(results, dim_student, dim_course, dim_assessment, dim_gra
     )
 
     fact["course_key"] = dim_course["course_key"].iloc[0]
+    fact["academic_period_key"] = academic_period_key
     fact["final_mark"] = fact["mark"]
 
     fact = fact[
         [
             "student_key",
             "course_key",
+            "academic_period_key",
             "assessment_key",
             "grade_key",
             "assessment_score",
@@ -448,7 +509,14 @@ def create_fact_result(results, dim_student, dim_course, dim_assessment, dim_gra
     return fact
 
 # 3. enrolment fact table
-def create_fact_enrolment(logs, results, dim_student, dim_course, dim_time):
+def create_fact_enrolment(
+    logs,
+    results,
+    dim_student,
+    dim_course,
+    dim_time,
+    academic_period_key
+):
     """
     Create assumed enrolment fact table from available historical data.
 
@@ -504,6 +572,8 @@ def create_fact_enrolment(logs, results, dim_student, dim_course, dim_time):
     # Current historical data appears to have one course
     enrolments["course_key"] = dim_course["course_key"].iloc[0]
 
+    enrolments["academic_period_key"] = academic_period_key
+
     # Use earliest available time as assumed enrolment time - comment out for now
     #enrolment_time_key = dim_time.sort_values("datetime")["time_key"].iloc[0]
     #enrolments["time_key"] = enrolment_time_key
@@ -517,10 +587,16 @@ def create_fact_enrolment(logs, results, dim_student, dim_course, dim_time):
     # 2. Join to dim_time
     # 3. Replace NULL time_key with actual enrolment time_key
 
+
+    #TODO:  When Moodle enrolment data becomes available:
+    # 1. Ask Moodle for current semester and academic year in production ETL path
+    # 2. Extract mld_academicyear.semester and academic_year
+
     enrolments = enrolments[
         [
             "student_key",
             "course_key",
+            "academic_period_key",
             "time_key",
             "enrolment_status",
             "enrolment_source"
