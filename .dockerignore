@@ -1,0 +1,13 @@
+.git
+.venv
+__pycache__
+*.pyc
+.ipynb_checkpoints
+tests
+docs
+logs
+ml/notebooks
+ml/__pycache__
+etl/__pycache__
+tests/__pycache__
+.DS_Store
