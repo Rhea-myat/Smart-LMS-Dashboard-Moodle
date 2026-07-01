@@ -1,3 +1,6 @@
+from sqlalchemy import engine
+
+
 def load_snapshot(df, table_name, engine):
     df.to_sql(
         table_name,
@@ -40,5 +43,22 @@ def load_model_feature_baseline(df, table_name, engine):
         table_name,
         engine,
         if_exists="replace",
+        index=False
+    )
+
+
+def load_prediction_result(df, engine):
+    df.to_sql(
+        "prediction_result",
+        engine,
+        if_exists="append",
+        index=False
+    )
+
+def load_prediction_run(df, engine): 
+    df.to_sql(
+        "prediction_runs",
+        engine,
+        if_exists="append",
         index=False
     )
