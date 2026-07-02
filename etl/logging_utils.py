@@ -1,5 +1,7 @@
 import datetime
-from tests.etl_test import LOG_DIR
+from pathlib import Path
+LOG_DIR = Path("logs")
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 
 
 def write_log(message): 
