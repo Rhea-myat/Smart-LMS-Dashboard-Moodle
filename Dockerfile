@@ -1,3 +1,14 @@
+# Smart LMS ML Pipeline Container
+# Includes:
+# - ETL
+# - Feature Engineering
+# - Prediction
+#
+# Run examples:
+# python -m etl.main
+# python -m ml.main
+# python -m ml.predict_main
+
 # Base image
 FROM python:3.11-slim
 

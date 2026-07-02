@@ -151,8 +151,11 @@ def main():
     }
     _write_json(MODEL_DIR / f"ensemble_config_{MODEL_VERSION}.json", ensemble_config)
 
-    registry_df = register_models(MODEL_DIR)
-    print(registry_df)
+    #registry_df = register_models(MODEL_DIR)
+    #print(registry_df)
+    print("Final training completed.")
+    print(f"Model artifacts saved to: {MODEL_DIR}")
+    print("Run `python -m ml.register_model` to register the model metadata.")
 
 
 if __name__ == "__main__":
