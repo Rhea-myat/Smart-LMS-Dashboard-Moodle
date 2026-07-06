@@ -1,0 +1,57 @@
+2026-07-06T06:42:30.148847+00:00 | run_id=pipe_20260706T064230148643Z_bbe129ea | status=started | stages=online_prediction
+2026-07-06T06:42:30.198289+00:00 | stage=online_prediction | status=failed | exit_code=1 | duration_sec=0.049
+2026-07-06T06:42:30.198289+00:00 | stage=online_prediction | stderr_tail=
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/ml/predict_main.py", line 4, in <module>
+    import pandas as pd
+  File "/opt/anaconda3/lib/python3.12/site-packages/pandas/__init__.py", line 19, in <module>
+    raise ImportError(
+ImportError: Unable to import required dependencies:
+numpy: Error importing numpy: you should not try to import numpy from
+        its source directory; please exit the numpy source tree, and relaunch
+        your python interpreter from there.
+2026-07-06T06:42:30.198728+00:00 | run_id=pipe_20260706T064230148643Z_bbe129ea | status=failed | duration_sec=0.05
+2026-07-06T06:42:49.867765+00:00 | run_id=pipe_20260706T064249867517Z_d2c9ef94 | status=started | stages=online_prediction
+2026-07-06T06:42:52.037507+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.169
+2026-07-06T06:42:52.037507+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-06.
+2026-07-06T06:42:52.037995+00:00 | run_id=pipe_20260706T064249867517Z_d2c9ef94 | status=completed | duration_sec=2.17
+2026-07-06T06:43:37.073947+00:00 | run_id=pipe_20260706T064337073761Z_6ce5f7ff | status=started | stages=online_prediction
+2026-07-06T06:43:39.296402+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.222
+2026-07-06T06:43:39.296402+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-06.
+2026-07-06T06:43:39.297090+00:00 | run_id=pipe_20260706T064337073761Z_6ce5f7ff | status=completed | duration_sec=2.223
+2026-07-06T07:00:08.406496+00:00 | run_id=pipe_20260706T070008406041Z_77f4f8bf | status=started | stages=
+2026-07-06T07:00:08.406857+00:00 | run_id=pipe_20260706T070008406041Z_77f4f8bf | status=completed | duration_sec=0.0
+2026-07-06T07:00:08.431160+00:00 | run_id=pipe_20260706T070008430996Z_45215142 | status=started | stages=
+2026-07-06T07:00:08.431275+00:00 | run_id=pipe_20260706T070008430996Z_45215142 | status=completed | duration_sec=0.0
+2026-07-06T07:02:29.670360+00:00 | run_id=pipe_20260706T070229670142Z_4ae5d012 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-06T07:02:31.546368+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=1.876
+2026-07-06T07:02:31.546368+00:00 | stage=etl | stdout_tail=
+Saved to staging: /Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+Saved to staging: /Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+Saved to staging: /Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+Saved to staging: /Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+Saved to staging: /Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+Courses: (1, 6)
+Students: (1, 7)
+Enrolments: (1, 6)
+Logs: (1595, 21)
+Grades: (0, 8)
+2026-07-06T07:02:32.161155+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=0.614
+2026-07-06T07:02:32.161155+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=515 latest_snapshot_date=2026-07-06 latest_activity_date=2026-07-05 academic_period_key=2
+2026-07-06T07:02:33.166311+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=1.005
+2026-07-06T07:02:33.166311+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-06.
+2026-07-06T07:02:33.166727+00:00 | run_id=pipe_20260706T070229670142Z_4ae5d012 | status=completed | duration_sec=3.496

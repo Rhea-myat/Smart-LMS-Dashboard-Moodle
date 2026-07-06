@@ -108,5 +108,17 @@ def handle_missing_enrolment_values(enrolments):
 
     return enrolments
 
+def validate_moodle_extracts(courses, students, enrolments, logs, grades):
+    check_required_columns(courses, ["id", "fullname", "shortname"], "Moodle courses")
+    check_required_columns(students, ["id", "firstname", "lastname", "email"], "Moodle students")
+    check_required_columns(enrolments, ["student_id", "course_id"], "Moodle enrolments")
+    check_required_columns(logs, ["userid", "courseid", "timecreated", "eventname"], "Moodle activity logs")
+
+    if grades.empty:
+        print("Moodle grades is empty. This is acceptable if no assessments/grades exist yet.")
+    else:
+        check_required_columns(grades, ["userid", "courseid", "finalgrade"], "Moodle grades")
 
 
+def filter_student_logs_only(logs, dim_student):
+    return logs[logs["userid"].isin(dim_student["student_id"])]

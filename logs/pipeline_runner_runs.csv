@@ -1,0 +1,7 @@
+run_id,run_timestamp_utc,finished_at,duration_sec,data_source,stages_requested,stages_executed,stages_failed,status,strict_exit,conda_env
+pipe_20260706T064230148643Z_bbe129ea,2026-07-06T06:42:30.148847+00:00,2026-07-06T06:42:30.198728+00:00,0.05,moodle,online_prediction,1,1,failed,True,
+pipe_20260706T064249867517Z_d2c9ef94,2026-07-06T06:42:49.867765+00:00,2026-07-06T06:42:52.037995+00:00,2.17,moodle,online_prediction,1,0,completed,True,dataviz305
+pipe_20260706T064337073761Z_6ce5f7ff,2026-07-06T06:43:37.073947+00:00,2026-07-06T06:43:39.297090+00:00,2.223,moodle,online_prediction,1,0,completed,True,dataviz305
+pipe_20260706T070008406041Z_77f4f8bf,2026-07-06T07:00:08.406496+00:00,2026-07-06T07:00:08.406857+00:00,0.0,moodle,,0,0,completed,False,
+pipe_20260706T070008430996Z_45215142,2026-07-06T07:00:08.431160+00:00,2026-07-06T07:00:08.431275+00:00,0.0,moodle,,0,0,completed,False,
+pipe_20260706T070229670142Z_4ae5d012,2026-07-06T07:02:29.670360+00:00,2026-07-06T07:02:33.166727+00:00,3.496,moodle,etl;feature_engineering;online_prediction,3,0,completed,False,

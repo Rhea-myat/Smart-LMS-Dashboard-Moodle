@@ -32,3 +32,25 @@ def generate_matching_log(logs, results):
         })
 
     return pd.DataFrame(rows)
+
+def check_moodle_student_matching(students, enrolments, logs, grades):
+    student_ids = set(students["student_id"].dropna())
+    enrolment_ids = set(enrolments["student_id"].dropna())
+    log_ids = set(logs["userid"].dropna())
+
+    if grades.empty:
+        grade_ids = set()
+    else:
+        grade_ids = set(grades["userid"].dropna())
+
+    print("\nMoodle Student Matching Result")
+    print(f"Students extracted: {len(student_ids)}")
+    print(f"Students enrolled: {len(enrolment_ids)}")
+    print(f"Students with logs: {len(log_ids.intersection(student_ids))}")
+    print(f"Students with grades: {len(grade_ids.intersection(student_ids))}")
+
+    return {
+        "students_without_enrolment": student_ids - enrolment_ids,
+        "enrolled_students_without_logs": enrolment_ids - log_ids,
+        "enrolled_students_without_grades": enrolment_ids - grade_ids
+    }

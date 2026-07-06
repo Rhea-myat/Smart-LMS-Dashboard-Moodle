@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import importlib.util
 from pathlib import Path
 from ml import feature_engineering as fe_v1
 from ml import feature_engineering_v2 as fe_v2
@@ -8,7 +9,297 @@ from ml import feature_engineering_v2_1 as fe_v2_1
 from ml.db import get_ml_engine
 from ml.load import load_snapshot, load_model_registry, load_model_feature_stats, load_model_feature_baseline
 from ml.monitoring.drift_utils import save_model_baselines
-from datetime import datetime   
+from datetime import datetime, timezone
+
+
+def _load_v2_2_module():
+    module_path = Path(__file__).resolve().parent / "feature_engineering_v2.2.py"
+    spec = importlib.util.spec_from_file_location("ml_feature_engineering_v2_2", module_path)
+    module = importlib.util.module_from_spec(spec)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Unable to load module from {module_path}")
+    spec.loader.exec_module(module)
+    return module
+
+
+fe_v2_2 = _load_v2_2_module()
+
+
+def _norm_key_series(series):
+    return series.astype(str).str.strip()
+
+
+def _upsert_snapshot_csv(csv_path: Path, incoming_df: pd.DataFrame, key_columns):
+    incoming_df = incoming_df.copy()
+
+    if csv_path.exists():
+        existing_df = pd.read_csv(csv_path, keep_default_na=False)
+    else:
+        existing_df = pd.DataFrame(columns=incoming_df.columns)
+
+    for col in existing_df.columns:
+        if col not in incoming_df.columns:
+            incoming_df[col] = pd.NA
+    for col in incoming_df.columns:
+        if col not in existing_df.columns:
+            existing_df[col] = pd.NA
+
+    incoming_df = incoming_df[existing_df.columns] if not existing_df.empty else incoming_df
+    existing_df = existing_df[incoming_df.columns]
+
+    combined_df = pd.concat([existing_df, incoming_df], ignore_index=True)
+
+    valid_keys = [col for col in key_columns if col in combined_df.columns]
+    if valid_keys:
+        helper_cols = []
+        work_df = combined_df.copy()
+        for idx, key_col in enumerate(valid_keys):
+            helper_col = f"__upsert_key_{idx}"
+            helper_cols.append(helper_col)
+            work_df[helper_col] = _norm_key_series(work_df[key_col])
+        merged_df = work_df.drop_duplicates(subset=helper_cols, keep="last").drop(columns=helper_cols)
+    else:
+        merged_df = combined_df.drop_duplicates(keep="last")
+
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    merged_df.to_csv(csv_path, index=False)
+    added_rows = int(max(len(merged_df) - len(existing_df), 0))
+    return merged_df, added_rows
+
+
+def _append_feature_engineering_run_log(logs_dir: Path, run_payload: dict):
+    logs_dir.mkdir(parents=True, exist_ok=True)
+
+    csv_path = logs_dir / "feature_engineering_run_logs.csv"
+    debug_path = logs_dir / "feature_engineering_run_debug.log"
+
+    row_df = pd.DataFrame([run_payload])
+    if csv_path.exists():
+        row_df.to_csv(csv_path, mode="a", header=False, index=False)
+    else:
+        row_df.to_csv(csv_path, index=False)
+
+    debug_line = (
+        f"{run_payload['run_timestamp_utc']} | run_id={run_payload['run_id']} | "
+        f"status={run_payload['status']} | snapshot_date={run_payload['snapshot_date']} | "
+        f"academic_period_key={run_payload['academic_period_key']} | "
+        f"rows_student={run_payload['student_snapshot_rows']} | "
+        f"rows_behaviour_pred={run_payload['behaviour_prediction_snapshot_rows']} | "
+        f"rows_academic_pred={run_payload['academic_prediction_snapshot_rows']}"
+    )
+    with open(debug_path, "a", encoding="utf-8") as f:
+        f.write(debug_line + "\n")
+
+
+def _latest_snapshot_alias(df: pd.DataFrame):
+    if "snapshot_date" not in df.columns or df.empty:
+        return df.copy()
+
+    latest_snapshot_date = pd.to_datetime(df["snapshot_date"], errors="coerce").max()
+    if pd.isna(latest_snapshot_date):
+        return df.copy()
+
+    latest_date_str = latest_snapshot_date.date().isoformat()
+    return df[
+        pd.to_datetime(df["snapshot_date"], errors="coerce").dt.date.astype(str) == latest_date_str
+    ].copy()
+
+
+def run_feature_engineering_v2_2_incremental():
+    run_timestamp = datetime.now(timezone.utc)
+    run_id = run_timestamp.strftime("feat_%Y%m%dT%H%M%S%fZ")
+
+    fact_activity_log = pd.read_csv("data/warehouse/fact_activity_log.csv")
+    dim_material = pd.read_csv("data/warehouse/dim_material.csv")
+    fact_result = pd.read_csv("data/warehouse/fact_result.csv")
+    dim_time = pd.read_csv("data/warehouse/dim_time.csv")
+    dim_assessment = pd.read_csv("data/warehouse/dim_assessment.csv")
+    dim_grade = pd.read_csv("data/warehouse/dim_grade.csv")
+
+    behaviour = fe_v2_2.create_behaviour_features(
+        fact_activity_log,
+        dim_material,
+        dim_time
+    )
+
+    academic = fe_v2_2.create_academic_features(
+        fact_result,
+        dim_assessment,
+        dim_grade
+    )
+
+    moodle_activity = fact_activity_log[
+        fact_activity_log.get("source_system", pd.Series("", index=fact_activity_log.index)).astype(str).str.lower() == "moodle"
+    ].copy()
+
+    if moodle_activity.empty:
+        source_activity = fact_activity_log.copy()
+    else:
+        source_activity = moodle_activity
+
+    period_values = pd.to_numeric(source_activity.get("academic_period_key"), errors="coerce").dropna()
+    if period_values.empty:
+        raise ValueError("Cannot determine academic_period_key from activity facts.")
+    academic_period_key = int(period_values.max())
+
+    source_activity = source_activity.copy()
+    source_activity["time_key"] = pd.to_numeric(source_activity["time_key"], errors="coerce")
+    dim_time_work = dim_time.copy()
+    dim_time_work["time_key"] = pd.to_numeric(dim_time_work["time_key"], errors="coerce")
+    if "date" in dim_time_work.columns:
+        dim_time_work["date"] = pd.to_datetime(dim_time_work["date"], errors="coerce")
+
+    activity_with_date = source_activity.merge(
+        dim_time_work[["time_key", "date"]],
+        on="time_key",
+        how="left"
+    )
+    latest_activity_date = pd.to_datetime(activity_with_date["date"], errors="coerce").max()
+    if pd.isna(latest_activity_date):
+        latest_activity_date = pd.Timestamp.today()
+
+    run_snapshot_date = pd.Timestamp.today().date().isoformat()
+
+    snapshot = fe_v2_2.build_student_snapshot(
+        behaviour,
+        academic,
+        academic_period_key=academic_period_key,
+        snapshot_date=run_snapshot_date
+    )
+
+    behaviour_model_snapshot = fe_v2_2.build_behaviour_model_snapshot(snapshot)
+    academic_model_snapshot = fe_v2_2.build_academic_model_snapshot(snapshot)
+
+    behaviour_prediction_snapshot = fe_v2_2.build_behaviour_prediction_snapshot(snapshot)
+    academic_prediction_snapshot = fe_v2_2.build_academic_prediction_snapshot(snapshot)
+
+    feature_store_path = Path("ml/feature_store")
+    feature_store_path.mkdir(parents=True, exist_ok=True)
+
+    key_cols = ["student_key", "course_key", "academic_period_key", "snapshot_date"]
+
+    student_snapshot_all, student_added = _upsert_snapshot_csv(
+        feature_store_path / "student_snapshot.csv",
+        snapshot,
+        key_cols,
+    )
+    behaviour_model_snapshot_all, behaviour_model_added = _upsert_snapshot_csv(
+        feature_store_path / "behaviour_model_snapshot.csv",
+        behaviour_model_snapshot,
+        key_cols,
+    )
+    academic_model_snapshot_all, academic_model_added = _upsert_snapshot_csv(
+        feature_store_path / "academic_model_snapshot_v2.csv",
+        academic_model_snapshot,
+        key_cols,
+    )
+    behaviour_prediction_snapshot_all, behaviour_prediction_added = _upsert_snapshot_csv(
+        feature_store_path / "behaviour_prediction_snapshot.csv",
+        behaviour_prediction_snapshot,
+        key_cols,
+    )
+    academic_prediction_snapshot_all, academic_prediction_added = _upsert_snapshot_csv(
+        feature_store_path / "academic_prediction_snapshot.csv",
+        academic_prediction_snapshot,
+        key_cols,
+    )
+
+    # Keep latest aliases from the current engineered run.
+    _latest_snapshot_alias(snapshot).to_csv(
+        feature_store_path / "student_snapshot_latest.csv",
+        index=False
+    )
+    _latest_snapshot_alias(behaviour_model_snapshot).to_csv(
+        feature_store_path / "behaviour_model_snapshot_latest.csv",
+        index=False
+    )
+    _latest_snapshot_alias(academic_model_snapshot).to_csv(
+        feature_store_path / "academic_model_snapshot_v2_latest.csv",
+        index=False
+    )
+    _latest_snapshot_alias(behaviour_prediction_snapshot).to_csv(
+        feature_store_path / "behaviour_prediction_snapshot_latest.csv",
+        index=False
+    )
+    _latest_snapshot_alias(academic_prediction_snapshot).to_csv(
+        feature_store_path / "academic_prediction_snapshot_latest.csv",
+        index=False
+    )
+
+    save_model_baselines(
+        _latest_snapshot_alias(behaviour_model_snapshot_all),
+        _latest_snapshot_alias(academic_model_snapshot_all)
+    )
+
+    # Keep DB tables as latest serving snapshots.
+    engine = get_ml_engine()
+    load_snapshot(_latest_snapshot_alias(student_snapshot_all), "student_snapshot", engine)
+    load_snapshot(_latest_snapshot_alias(behaviour_model_snapshot_all), "behaviour_model_snapshot", engine)
+    load_snapshot(_latest_snapshot_alias(academic_model_snapshot_all), "academic_model_snapshot_v2", engine)
+    load_snapshot(_latest_snapshot_alias(behaviour_prediction_snapshot_all), "behaviour_prediction_snapshot", engine)
+    load_snapshot(_latest_snapshot_alias(academic_prediction_snapshot_all), "academic_prediction_snapshot", engine)
+
+    load_model_feature_stats(
+        _latest_snapshot_alias(behaviour_model_snapshot_all),
+        "model_feature_stats",
+        engine
+    )
+
+    load_model_feature_baseline(
+        _latest_snapshot_alias(behaviour_model_snapshot_all),
+        "model_feature_baseline",
+        engine
+    )
+
+    moodle_activity_rows = int(len(moodle_activity))
+    moodle_result_rows = 0
+    if "source_system" in fact_result.columns:
+        moodle_result_rows = int(
+            fact_result["source_system"].astype(str).str.lower().eq("moodle").sum()
+        )
+    else:
+        moodle_result_rows = int(len(fact_result))
+
+    _append_feature_engineering_run_log(
+        Path("logs"),
+        {
+            "run_id": run_id,
+            "run_timestamp_utc": run_timestamp.isoformat(),
+            "pipeline": "feature_engineering_v2.2_incremental",
+            "status": "completed",
+            "snapshot_date": run_snapshot_date,
+            "latest_activity_date": latest_activity_date.date().isoformat(),
+            "academic_period_key": academic_period_key,
+            "input_fact_activity_rows": int(len(fact_activity_log)),
+            "input_fact_result_rows": int(len(fact_result)),
+            "input_moodle_activity_rows": moodle_activity_rows,
+            "input_moodle_result_rows": moodle_result_rows,
+            "student_snapshot_rows": int(len(snapshot)),
+            "behaviour_model_snapshot_rows": int(len(behaviour_model_snapshot)),
+            "academic_model_snapshot_rows": int(len(academic_model_snapshot)),
+            "behaviour_prediction_snapshot_rows": int(len(behaviour_prediction_snapshot)),
+            "academic_prediction_snapshot_rows": int(len(academic_prediction_snapshot)),
+            "student_snapshot_added": student_added,
+            "behaviour_model_snapshot_added": behaviour_model_added,
+            "academic_model_snapshot_added": academic_model_added,
+            "behaviour_prediction_snapshot_added": behaviour_prediction_added,
+            "academic_prediction_snapshot_added": academic_prediction_added,
+            "student_snapshot_total": int(len(student_snapshot_all)),
+            "behaviour_model_snapshot_total": int(len(behaviour_model_snapshot_all)),
+            "academic_model_snapshot_total": int(len(academic_model_snapshot_all)),
+            "behaviour_prediction_snapshot_total": int(len(behaviour_prediction_snapshot_all)),
+            "academic_prediction_snapshot_total": int(len(academic_prediction_snapshot_all)),
+            "message": "Feature engineering snapshots upserted and latest aliases refreshed.",
+        },
+    )
+
+    print(
+        "v2.2 snapshot upsert complete | "
+        f"student_snapshot_total={len(student_snapshot_all)} "
+        f"latest_snapshot_date={run_snapshot_date} "
+        f"latest_activity_date={latest_activity_date.date().isoformat()} "
+        f"academic_period_key={academic_period_key}"
+    )
 
 
 def test_feature_engineering():
@@ -412,8 +703,6 @@ def test_academic_model_registry():
 
 
 if __name__ == "__main__":
-    test_feature_engineering_v2_1()
-    test_behaviour_model_registry()
-    test_academic_model_registry()
+    run_feature_engineering_v2_2_incremental()
 
     

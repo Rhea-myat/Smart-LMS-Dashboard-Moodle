@@ -13,13 +13,15 @@ def get_engine():
 """
 
 
-def get_engine():
+def get_engine(db_name=None):
+    if db_name is None:
+        db_name = os.getenv("DB_NAME")
+
     return create_engine(
         f"mysql+pymysql://"
         f"{os.getenv('DB_USER')}:"
         f"{os.getenv('DB_PASSWORD')}@"
         f"{os.getenv('DB_HOST')}:"
         f"{os.getenv('DB_PORT')}/"
-        f"{os.getenv('DB_NAME')}"
-
+        f"{db_name}"
     )

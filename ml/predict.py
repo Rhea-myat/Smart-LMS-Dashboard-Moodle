@@ -1,13 +1,21 @@
 import json
+import importlib.util
 from pathlib import Path
 
 import joblib
 import pandas as pd
 
-from ml.preprocessing import (
-    prepare_features,
-    apply_feature_baseline
-)
+def _load_preprocessing_v1_1():
+    module_path = Path(__file__).resolve().parent / "preprocessing_v1.1.py"
+    spec = importlib.util.spec_from_file_location("ml_preprocessing_v1_1", module_path)
+    module = importlib.util.module_from_spec(spec)
+    if spec is None or spec.loader is None:
+        raise ImportError(f"Unable to load preprocessing module from {module_path}")
+    spec.loader.exec_module(module)
+    return module
+
+
+_pre_v1_1 = _load_preprocessing_v1_1()
 
 from ml.ensemble import (
     weighted_average,
@@ -79,13 +87,13 @@ def load_ensemble_artifacts(model_dir: Path):
 
 
 def predict_behaviour(behaviour_snapshot, artifacts, baseline_dict=None):
-    X_beh = prepare_features(
+    X_beh = _pre_v1_1.prepare_features(
         behaviour_snapshot,
         artifacts["behaviour_features"]
     )
 
     if baseline_dict is not None:
-        X_beh = apply_feature_baseline(
+        X_beh = _pre_v1_1.apply_feature_baseline(
             X_beh,
             baseline_dict
         )
@@ -96,13 +104,13 @@ def predict_behaviour(behaviour_snapshot, artifacts, baseline_dict=None):
 
 
 def predict_academic(academic_snapshot, artifacts, baseline_dict=None):
-    X_aca = prepare_features(
+    X_aca = _pre_v1_1.prepare_features(
         academic_snapshot,
         artifacts["academic_features"]
     )
 
     if baseline_dict is not None:
-        X_aca = apply_feature_baseline(
+        X_aca = _pre_v1_1.apply_feature_baseline(
             X_aca,
             baseline_dict
         )

@@ -1,5 +1,6 @@
 import pandas as pd
 from pathlib import Path
+from etl.db import get_engine
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 STAGING_DIR = BASE_DIR / "data" / "staging"
@@ -32,7 +33,143 @@ def load_to_staging(df, file_path):
     df.to_csv(file_path, index=False)
     print(f"Saved to staging: {file_path}")
 
+# extract from mdl_course 
+def extract_moodle_courses(engine=None):
+    if engine is None:
+        engine = get_engine("moodle405")
+
+    sql = """
+    SELECT
+        id,
+        fullname,
+        shortname,
+        idnumber,
+        category,
+        visible
+    FROM mdl_course
+    WHERE id > 1
+    """
+
+    return pd.read_sql(sql, engine)
+
+# extract student from mdl_user
+def extract_moodle_students(engine=None):
+    if engine is None:
+        engine = get_engine("moodle405")
+
+    sql = """
+    SELECT DISTINCT
+        u.id,
+        u.username,
+        u.firstname,
+        u.lastname,
+        u.email,
+        u.suspended,
+        u.deleted
+    FROM mdl_user u
+        JOIN mdl_role_assignments ra
+            ON ra.userid = u.id
+        JOIN mdl_role r
+            ON r.id = ra.roleid
+    WHERE
+        r.shortname='student'
+        AND u.deleted=0
+    """
+
+    return pd.read_sql(sql, engine)
+
+# extract teacher (UC) from mdl_user
+def extract_moodle_teachers(engine=None):
+    if engine is None:
+        engine = get_engine("moodle405")
+
+    sql = """
+    SELECT DISTINCT
+        u.id,
+        u.firstname,
+        u.lastname,
+        u.email
+    FROM mdl_user u
+        JOIN mdl_role_assignments ra
+            ON ra.userid=u.id
+        JOIN mdl_role r
+            ON r.id=ra.roleid
+    WHERE r.shortname IN ('teacher', 'editingteacher')
+    """
+
+    return pd.read_sql(sql, engine)
+
+# extract enrolments from mdl_user, mdl_role_assignments, mdl_context, mdl_course, mdl_role
+def extract_moodle_enrolments(engine=None):
+    if engine is None:
+        engine = get_engine("moodle405")
+
+    sql = """
+    SELECT DISTINCT
+        ue.id         AS user_enrolment_id,
+        ue.userid     AS student_id,
+        e.courseid    AS course_id,
+        c.fullname,
+        ue.status,
+        r.shortname   AS role
+    FROM mdl_user_enrolments ue
+        JOIN mdl_enrol e
+            ON e.id = ue.enrolid
+        JOIN mdl_course c
+            ON c.id = e.courseid
+        JOIN mdl_role_assignments ra
+            ON ra.userid = ue.userid
+        JOIN mdl_context ctx
+            ON ctx.id = ra.contextid
+        JOIN mdl_role r
+            ON r.id = ra.roleid
+    WHERE
+        ctx.contextlevel = 50
+        AND ctx.instanceid = c.id
+        AND r.shortname = 'student'
+    """
+
+    return pd.read_sql(sql, engine)
+
+# extract activity logs from mdl_logstore_standard_log
+def extract_moodle_logs(engine=None):
+    if engine is None:
+        engine = get_engine("moodle405")
+
+    sql = """
+    SELECT *
+    FROM mdl_logstore_standard_log
+    """
+
+    return pd.read_sql(sql, engine)
+
+# extract results from mdl_grade_grades, mdl_grade_items, mdl_user, mdl_course
+def extract_moodle_grades(engine=None):
+    if engine is None:
+        engine = get_engine("moodle405")
+
+    sql = """
+    SELECT
+        gg.id AS grade_id,
+        gg.userid,
+        gi.courseid,
+        gi.id AS itemid,
+        gi.itemname,
+        gi.itemtype,
+        gg.finalgrade,
+        gg.timemodified
+    FROM mdl_grade_grades gg
+        JOIN mdl_grade_items gi
+            ON gg.itemid=gi.id
+    """
+
+    return pd.read_sql(sql, engine)
+
+
 def main():
+    """
+    historical extraction for logs and results from the provided Excel files, 
+    and save them to staging as CSVs.
     logs = BASE_DIR / "data" / "raw" / "ICT001 S1 2025 Logs RELEASED V1.0.xlsx"
     results = BASE_DIR / "data" / "raw" / "cleaned_standard_results.xlsx"
     staging_path_logs = STAGING_DIR / "logs.csv"
@@ -44,7 +181,29 @@ def main():
 
     df_results = extract_data(results)
     load_to_staging(df_results, staging_path_results)
-    print(f"Extracted results data shape: {df_results.shape}")
+    print(f"Extracted results data shape: {df_results.shape}")"""
+
+    #moodle extraction
+    df_courses = extract_moodle_courses()
+    load_to_staging(df_courses, STAGING_DIR / "courses.csv")
+
+    df_students = extract_moodle_students()
+    load_to_staging(df_students, STAGING_DIR / "students.csv")
+
+    df_teachers = extract_moodle_teachers()
+    load_to_staging(df_teachers, STAGING_DIR / "teachers.csv")
+
+    df_enrolments = extract_moodle_enrolments()
+    load_to_staging(df_enrolments, STAGING_DIR / "enrolments.csv")
+
+    df_logs = extract_moodle_logs()
+    load_to_staging(df_logs, STAGING_DIR / "activity_logs.csv")
+
+    df_grades = extract_moodle_grades()
+    load_to_staging(df_grades, STAGING_DIR / "grades.csv")
+    
+
+
 
 if __name__ == "__main__":
     main()
