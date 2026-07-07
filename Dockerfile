@@ -27,7 +27,7 @@ COPY etl/ etl/
 COPY data/ data/
 COPY ml/ ml/
 
-# If you have configuration files
-# COPY config/ config/
+# Copy pipeline runner
+COPY pipeline_runner.py .
 
-CMD ["python", "-m", "ml.predict_main"]
+CMD ["python", "pipeline_runner.py"]
