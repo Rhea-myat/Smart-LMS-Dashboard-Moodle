@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-from etl.db import get_engine
+from etl.db import get_engine, get_source_engine
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 STAGING_DIR = BASE_DIR / "data" / "staging"
@@ -36,7 +36,7 @@ def load_to_staging(df, file_path):
 # extract from mdl_course 
 def extract_moodle_courses(engine=None):
     if engine is None:
-        engine = get_engine("moodle405")
+        engine = get_source_engine()
 
     sql = """
     SELECT
@@ -55,7 +55,7 @@ def extract_moodle_courses(engine=None):
 # extract student from mdl_user
 def extract_moodle_students(engine=None):
     if engine is None:
-        engine = get_engine("moodle405")
+        engine = get_source_engine()
 
     sql = """
     SELECT DISTINCT
@@ -81,7 +81,7 @@ def extract_moodle_students(engine=None):
 # extract teacher (UC) from mdl_user
 def extract_moodle_teachers(engine=None):
     if engine is None:
-        engine = get_engine("moodle405")
+        engine = get_source_engine()
 
     sql = """
     SELECT DISTINCT
@@ -102,7 +102,7 @@ def extract_moodle_teachers(engine=None):
 # extract enrolments from mdl_user, mdl_role_assignments, mdl_context, mdl_course, mdl_role
 def extract_moodle_enrolments(engine=None):
     if engine is None:
-        engine = get_engine("moodle405")
+        engine = get_source_engine()
 
     sql = """
     SELECT DISTINCT
@@ -134,7 +134,7 @@ def extract_moodle_enrolments(engine=None):
 # extract activity logs from mdl_logstore_standard_log
 def extract_moodle_logs(engine=None):
     if engine is None:
-        engine = get_engine("moodle405")
+        engine = get_source_engine()
 
     sql = """
     SELECT *
@@ -146,7 +146,7 @@ def extract_moodle_logs(engine=None):
 # extract results from mdl_grade_grades, mdl_grade_items, mdl_user, mdl_course
 def extract_moodle_grades(engine=None):
     if engine is None:
-        engine = get_engine("moodle405")
+        engine = get_source_engine()
 
     sql = """
     SELECT

@@ -18,7 +18,7 @@ from etl.transform import (
     create_fact_result,
     create_fact_enrolment,
 )
-from etl.db import get_engine
+from etl.db import get_engine, get_source_engine
 from etl.load import load_warehouse_incremental
 from etl.data_quality_rules_v2 import (
     standardise_column_names,
@@ -496,7 +496,7 @@ def run_historical_etl():
 
     tables = save_tables_to_local_csv(tables, "historical")
 
-    analytics_engine = get_engine("analytics_db")
+    analytics_engine = get_engine(os.getenv("DB_NAME"))
     load_counts = load_warehouse_incremental(tables, analytics_engine)
 
     transformed_counts = {table_name: int(len(df)) for table_name, df in tables.items()}
@@ -525,8 +525,8 @@ def run_moodle_etl():
     from etl.transform_moodle import transform_moodle_data
     from etl.load import cleanup_non_student_moodle_records
 
-    moodle_engine = get_engine("moodle405")
-    analytics_engine = get_engine("analytics_db")
+    moodle_engine = get_source_engine()
+    analytics_engine = get_engine(os.getenv("DB_NAME"))
 
     datasets = load_moodle_sources(moodle_engine)
     courses = datasets["courses"]
