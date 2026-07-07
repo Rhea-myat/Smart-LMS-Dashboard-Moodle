@@ -1,2 +1,7 @@
 2026-07-06T06:34:56.342804+00:00 | run_id=feat_20260706T063456342804Z | status=completed | snapshot_date=2026-07-06 | academic_period_key=2 | rows_student=172 | rows_behaviour_pred=172 | rows_academic_pred=172
 2026-07-06T07:02:31.792060+00:00 | run_id=feat_20260706T070231792060Z | status=completed | snapshot_date=2026-07-06 | academic_period_key=2 | rows_student=172 | rows_behaviour_pred=172 | rows_academic_pred=172
+2026-07-07T11:22:32.099302+00:00 | run_id=feat_20260707T112232099302Z | status=completed | snapshot_date=2026-07-07 | academic_period_key=2 | rows_student=172 | rows_behaviour_pred=172 | rows_academic_pred=172
+2026-07-07T11:26:57.496607+00:00 | run_id=feat_20260707T112657496607Z | status=completed | snapshot_date=2026-07-07 | academic_period_key=2 | rows_student=172 | rows_behaviour_pred=172 | rows_academic_pred=172
+2026-07-07T11:57:18.146562+00:00 | run_id=feat_20260707T115718146562Z | status=completed | snapshot_date=2026-07-07 | academic_period_key=2 | rows_student=172 | rows_behaviour_pred=172 | rows_academic_pred=172
+2026-07-07T12:02:15.394895+00:00 | run_id=feat_20260707T120215394895Z | status=completed | snapshot_date=2026-07-07 | academic_period_key=2 | rows_student=173 | rows_behaviour_pred=173 | rows_academic_pred=173
+2026-07-07T12:06:37.804800+00:00 | run_id=feat_20260707T120637804800Z | status=completed | snapshot_date=2026-07-07 | academic_period_key=2 | rows_student=173 | rows_behaviour_pred=173 | rows_academic_pred=173

@@ -343,4 +343,4 @@ enrolment_fact_id,student_key,course_key,academic_period_key,time_key,enrolment_
 169,74,1,1,,Assumed Enrolled,Both
 170,28,1,1,,Assumed Enrolled,Both
 171,1,1,1,,Assumed Enrolled,ActivityOnly
-3,172,2,2,51950,0,Moodle
+3,173,3,2,51974,0,Moodle

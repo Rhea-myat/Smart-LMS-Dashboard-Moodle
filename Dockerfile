@@ -20,7 +20,7 @@ WORKDIR /app
 
 # Install dependencies first
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt cryptography
 
 # Copy only what the prediction pipeline needs
 COPY etl/ etl/

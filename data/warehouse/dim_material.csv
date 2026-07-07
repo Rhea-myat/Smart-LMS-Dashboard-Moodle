@@ -90,12 +90,12 @@ material_key,context,component,material_type
 89,Assignment: Submit the Assessed Exercise of Week 7 (Students enrolled in Online Flexible Model),File submissions,Assignment
 90,Assignment: Submit the Assessed Exercise of Week 6,System,Assignment
 91,Assignment: Submit the Assessed Exercise of Week 6,File submissions,Assignment
-92,user,core,Other
 93,user_profile,core,Lecture Material
 94,dashboard,core,Other
 95,tour,tool_usertours,Other
 96,course_category,core,Other
 97,mycourses,core,Other
-98,user_enrolment,core,Other
 99,email,core,Other
+92,user,core,Other
+98,user_enrolment,core,Other
 100,role,core,Other

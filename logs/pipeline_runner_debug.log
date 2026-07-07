@@ -1,57 +1,274 @@
-2026-07-06T06:42:30.148847+00:00 | run_id=pipe_20260706T064230148643Z_bbe129ea | status=started | stages=online_prediction
-2026-07-06T06:42:30.198289+00:00 | stage=online_prediction | status=failed | exit_code=1 | duration_sec=0.049
-2026-07-06T06:42:30.198289+00:00 | stage=online_prediction | stderr_tail=
-Traceback (most recent call last):
-  File "<frozen runpy>", line 198, in _run_module_as_main
-  File "<frozen runpy>", line 88, in _run_code
-  File "/Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/ml/predict_main.py", line 4, in <module>
-    import pandas as pd
-  File "/opt/anaconda3/lib/python3.12/site-packages/pandas/__init__.py", line 19, in <module>
-    raise ImportError(
-ImportError: Unable to import required dependencies:
-numpy: Error importing numpy: you should not try to import numpy from
-        its source directory; please exit the numpy source tree, and relaunch
-        your python interpreter from there.
-2026-07-06T06:42:30.198728+00:00 | run_id=pipe_20260706T064230148643Z_bbe129ea | status=failed | duration_sec=0.05
-2026-07-06T06:42:49.867765+00:00 | run_id=pipe_20260706T064249867517Z_d2c9ef94 | status=started | stages=online_prediction
-2026-07-06T06:42:52.037507+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.169
-2026-07-06T06:42:52.037507+00:00 | stage=online_prediction | stdout_tail=
+2026-07-07T11:26:56.238102+00:00 | run_id=pipe_20260707T112656238001Z_d16d75e5 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-07T11:26:56.953014+00:00 | stage=etl | status=failed | exit_code=1 | duration_sec=0.715
+2026-07-07T11:26:56.953014+00:00 | stage=etl | stderr_tail=
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 979, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 241, in caching_sha2_password_auth
+    pkt = conn._read_packet()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1044, "Access denied for user 'ft04user'@'localhost' to database 'moodle405'")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-07T11:26:59.457627+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=2.503
+2026-07-07T11:26:59.457627+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=687 latest_snapshot_date=2026-07-07 latest_activity_date=2026-07-05 academic_period_key=2
+2026-07-07T11:27:01.593401+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.135
+2026-07-07T11:27:01.593401+00:00 | stage=online_prediction | stdout_tail=
 Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
 Dropping unexpected features: ['assessments_attempted']
-Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-06.
-2026-07-06T06:42:52.037995+00:00 | run_id=pipe_20260706T064249867517Z_d2c9ef94 | status=completed | duration_sec=2.17
-2026-07-06T06:43:37.073947+00:00 | run_id=pipe_20260706T064337073761Z_6ce5f7ff | status=started | stages=online_prediction
-2026-07-06T06:43:39.296402+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.222
-2026-07-06T06:43:39.296402+00:00 | stage=online_prediction | stdout_tail=
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-07.
+2026-07-07T11:27:01.593838+00:00 | run_id=pipe_20260707T112656238001Z_d16d75e5 | status=failed | duration_sec=5.356
+2026-07-07T11:29:59.698504+00:00 | run_id=pipe_20260707T112959698403Z_a83809a3 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-07T11:30:00.448006+00:00 | stage=etl | status=failed | exit_code=1 | duration_sec=0.749
+2026-07-07T11:30:00.448006+00:00 | stage=etl | stderr_tail=
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 979, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 267, in caching_sha2_password_auth
+    data = sha2_rsa_encrypt(conn.password, conn.salt, conn.server_public_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 144, in sha2_rsa_encrypt
+    raise RuntimeError(
+RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2026-07-07T11:30:01.745520+00:00 | stage=feature_engineering | status=failed | exit_code=1 | duration_sec=1.297
+2026-07-07T11:30:01.745520+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+2026-07-07T11:30:01.745520+00:00 | stage=feature_engineering | stderr_tail=
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 979, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 267, in caching_sha2_password_auth
+    data = sha2_rsa_encrypt(conn.password, conn.salt, conn.server_public_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 144, in sha2_rsa_encrypt
+    raise RuntimeError(
+RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2026-07-07T11:30:03.787572+00:00 | stage=online_prediction | status=failed | exit_code=1 | duration_sec=2.042
+2026-07-07T11:30:03.787572+00:00 | stage=online_prediction | stdout_tail=
 Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
 Dropping unexpected features: ['assessments_attempted']
-Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-06.
-2026-07-06T06:43:39.297090+00:00 | run_id=pipe_20260706T064337073761Z_6ce5f7ff | status=completed | duration_sec=2.223
-2026-07-06T07:00:08.406496+00:00 | run_id=pipe_20260706T070008406041Z_77f4f8bf | status=started | stages=
-2026-07-06T07:00:08.406857+00:00 | run_id=pipe_20260706T070008406041Z_77f4f8bf | status=completed | duration_sec=0.0
-2026-07-06T07:00:08.431160+00:00 | run_id=pipe_20260706T070008430996Z_45215142 | status=started | stages=
-2026-07-06T07:00:08.431275+00:00 | run_id=pipe_20260706T070008430996Z_45215142 | status=completed | duration_sec=0.0
-2026-07-06T07:02:29.670360+00:00 | run_id=pipe_20260706T070229670142Z_4ae5d012 | status=started | stages=etl,feature_engineering,online_prediction
-2026-07-06T07:02:31.546368+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=1.876
-2026-07-06T07:02:31.546368+00:00 | stage=etl | stdout_tail=
-Saved to staging: /Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
-Saved to staging: /Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
-Saved to staging: /Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
-Saved to staging: /Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
-Saved to staging: /Users/ayemyatmyathmwe/Documents/Murdoch Singapore/BIT_AIAS&BIS_Murdoch/TMA_2026/ICT302/Smart LMS Dashboard/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+2026-07-07T11:30:03.787572+00:00 | stage=online_prediction | stderr_tail=
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 979, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 267, in caching_sha2_password_auth
+    data = sha2_rsa_encrypt(conn.password, conn.salt, conn.server_public_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 144, in sha2_rsa_encrypt
+    raise RuntimeError(
+RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2026-07-07T11:30:03.789026+00:00 | run_id=pipe_20260707T112959698403Z_a83809a3 | status=failed | duration_sec=4.091
+2026-07-07T11:33:10.572017+00:00 | run_id=pipe_20260707T113310571904Z_394e399f | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-07T11:33:11.593069+00:00 | stage=etl | status=failed | exit_code=1 | duration_sec=1.011
+2026-07-07T11:33:11.593069+00:00 | stage=etl | stderr_tail=
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 979, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 267, in caching_sha2_password_auth
+    data = sha2_rsa_encrypt(conn.password, conn.salt, conn.server_public_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 144, in sha2_rsa_encrypt
+    raise RuntimeError(
+RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2026-07-07T11:33:12.946427+00:00 | stage=feature_engineering | status=failed | exit_code=1 | duration_sec=1.332
+2026-07-07T11:33:12.946427+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+2026-07-07T11:33:12.946427+00:00 | stage=feature_engineering | stderr_tail=
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 979, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 267, in caching_sha2_password_auth
+    data = sha2_rsa_encrypt(conn.password, conn.salt, conn.server_public_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 144, in sha2_rsa_encrypt
+    raise RuntimeError(
+RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2026-07-07T11:33:14.983510+00:00 | stage=online_prediction | status=failed | exit_code=1 | duration_sec=2.036
+2026-07-07T11:33:14.983510+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+2026-07-07T11:33:14.983510+00:00 | stage=online_prediction | stderr_tail=
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/create.py", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/sqlalchemy/engine/default.py", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 979, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 267, in caching_sha2_password_auth
+    data = sha2_rsa_encrypt(conn.password, conn.salt, conn.server_public_key)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 144, in sha2_rsa_encrypt
+    raise RuntimeError(
+RuntimeError: 'cryptography' package is required for sha256_password or caching_sha2_password auth methods
+2026-07-07T11:33:14.984408+00:00 | run_id=pipe_20260707T113310571904Z_394e399f | status=failed | duration_sec=4.412
+2026-07-07T11:57:16.003207+00:00 | run_id=pipe_20260707T115716002872Z_c09aca93 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-07T11:57:17.539373+00:00 | stage=etl | status=failed | exit_code=1 | duration_sec=1.525
+2026-07-07T11:57:17.539373+00:00 | stage=etl | stderr_tail=
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 361, in __init__
+    self.connect()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 669, in connect
+    self._request_authentication()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 979, in _request_authentication
+    auth_packet = _auth.caching_sha2_password_auth(self, auth_packet)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/_auth.py", line 241, in caching_sha2_password_auth
+    pkt = conn._read_packet()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/usr/local/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/usr/local/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+sqlalchemy.exc.OperationalError: (pymysql.err.OperationalError) (1044, "Access denied for user 'ft04user'@'localhost' to database 'moodle405'")
+(Background on this error at: https://sqlalche.me/e/20/e3q8)
+2026-07-07T11:57:20.514118+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=2.924
+2026-07-07T11:57:20.514118+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=687 latest_snapshot_date=2026-07-07 latest_activity_date=2026-07-05 academic_period_key=2
+2026-07-07T11:57:22.725082+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.21
+2026-07-07T11:57:22.725082+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-07.
+2026-07-07T11:57:22.725836+00:00 | run_id=pipe_20260707T115716002872Z_c09aca93 | status=failed | duration_sec=6.723
+2026-07-07T12:02:05.133382+00:00 | run_id=pipe_20260707T120205133107Z_e7639be6 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-07T12:02:14.787402+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=9.63
+2026-07-07T12:02:14.787402+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
 Courses: (1, 6)
 Students: (1, 7)
 Enrolments: (1, 6)
-Logs: (1595, 21)
+Logs: (1242, 21)
 Grades: (0, 8)
-2026-07-06T07:02:32.161155+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=0.614
-2026-07-06T07:02:32.161155+00:00 | stage=feature_engineering | stdout_tail=
+2026-07-07T12:02:14.787402+00:00 | stage=etl | stderr_tail=
+/app/etl/transform_moodle.py:389: FutureWarning: The behavior of array concatenation with empty entries is deprecated. In a future version, this will no longer exclude empty items when determining the result dtype. To retain the old behavior, exclude the empty entries before the concat operation.
+  fact["student_key"] = fact["student_key_from_user"].combine_first(fact["student_key_from_related"])
+2026-07-07T12:02:18.325368+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=3.499
+2026-07-07T12:02:18.325368+00:00 | stage=feature_engineering | stdout_tail=
 Saved: ml/baselines/model_feature_stats.csv
 Saved: ml/baselines/model_feature_baseline.csv
-v2.2 snapshot upsert complete | student_snapshot_total=515 latest_snapshot_date=2026-07-06 latest_activity_date=2026-07-05 academic_period_key=2
-2026-07-06T07:02:33.166311+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=1.005
-2026-07-06T07:02:33.166311+00:00 | stage=online_prediction | stdout_tail=
+v2.2 snapshot upsert complete | student_snapshot_total=688 latest_snapshot_date=2026-07-07 latest_activity_date=2026-07-07 academic_period_key=2
+2026-07-07T12:02:20.788092+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.462
+2026-07-07T12:02:20.788092+00:00 | stage=online_prediction | stdout_tail=
 Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
 Dropping unexpected features: ['assessments_attempted']
-Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-06.
-2026-07-06T07:02:33.166727+00:00 | run_id=pipe_20260706T070229670142Z_4ae5d012 | status=completed | duration_sec=3.496
+Online prediction pipeline completed.
+     student_key  course_key  ...  final_risk_label ensemble_model_version
+172          173           3  ...                 1                     v1
+
+[1 rows x 9 columns]
+2026-07-07T12:02:20.789009+00:00 | run_id=pipe_20260707T120205133107Z_e7639be6 | status=completed | duration_sec=15.656
+2026-07-07T12:06:28.982937+00:00 | run_id=pipe_20260707T120628982831Z_62390793 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-07T12:06:37.268563+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=8.286
+2026-07-07T12:06:37.268563+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (1, 6)
+Students: (1, 7)
+Enrolments: (1, 6)
+Logs: (1242, 21)
+Grades: (0, 8)
+2026-07-07T12:06:37.268563+00:00 | stage=etl | stderr_tail=
+/app/etl/transform_moodle.py:389: FutureWarning: The behavior of array concatenation with empty entries is deprecated. In a future version, this will no longer exclude empty items when determining the result dtype. To retain the old behavior, exclude the empty entries before the concat operation.
+  fact["student_key"] = fact["student_key_from_user"].combine_first(fact["student_key_from_related"])
+2026-07-07T12:06:39.850319+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=2.581
+2026-07-07T12:06:39.850319+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=688 latest_snapshot_date=2026-07-07 latest_activity_date=2026-07-07 academic_period_key=2
+2026-07-07T12:06:41.974094+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.123
+2026-07-07T12:06:41.974094+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-07.
+2026-07-07T12:06:41.975139+00:00 | run_id=pipe_20260707T120628982831Z_62390793 | status=completed | duration_sec=12.992

@@ -15,7 +15,6 @@ event_key,event_name
 14,Submission removed.
 15,Unit module completion updated
 16,Comment deleted
-17,\core\event\user_created
 18,\core\event\user_profile_viewed
 19,\core\event\user_loggedin
 20,\core\event\dashboard_viewed
@@ -24,6 +23,7 @@ event_key,event_name
 23,\core\event\course_category_viewed
 24,\core\event\mycourses_viewed
 25,\core\event\user_loggedout
-26,\core\event\user_enrolment_created
 27,\core\event\email_failed
+17,\core\event\user_created
+26,\core\event\user_enrolment_created
 28,\core\event\role_assigned

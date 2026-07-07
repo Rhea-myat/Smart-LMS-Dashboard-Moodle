@@ -1,7 +1,7 @@
-run_id,run_timestamp_utc,finished_at,duration_sec,data_source,stages_requested,stages_executed,stages_failed,status,strict_exit,conda_env
-pipe_20260706T064230148643Z_bbe129ea,2026-07-06T06:42:30.148847+00:00,2026-07-06T06:42:30.198728+00:00,0.05,moodle,online_prediction,1,1,failed,True,
-pipe_20260706T064249867517Z_d2c9ef94,2026-07-06T06:42:49.867765+00:00,2026-07-06T06:42:52.037995+00:00,2.17,moodle,online_prediction,1,0,completed,True,dataviz305
-pipe_20260706T064337073761Z_6ce5f7ff,2026-07-06T06:43:37.073947+00:00,2026-07-06T06:43:39.297090+00:00,2.223,moodle,online_prediction,1,0,completed,True,dataviz305
-pipe_20260706T070008406041Z_77f4f8bf,2026-07-06T07:00:08.406496+00:00,2026-07-06T07:00:08.406857+00:00,0.0,moodle,,0,0,completed,False,
-pipe_20260706T070008430996Z_45215142,2026-07-06T07:00:08.431160+00:00,2026-07-06T07:00:08.431275+00:00,0.0,moodle,,0,0,completed,False,
-pipe_20260706T070229670142Z_4ae5d012,2026-07-06T07:02:29.670360+00:00,2026-07-06T07:02:33.166727+00:00,3.496,moodle,etl;feature_engineering;online_prediction,3,0,completed,False,
+run_id,run_timestamp_utc,finished_at,duration_sec,data_source,stages_requested,stages_executed,stages_failed,status,strict_exit,conda_env,reuse_staging,refresh_staging_effective
+pipe_20260707T112656238001Z_d16d75e5,2026-07-07T11:26:56.238102+00:00,2026-07-07T11:27:01.593838+00:00,5.356,moodle,etl;feature_engineering;online_prediction,3,1,failed,False,,False,True
+pipe_20260707T112959698403Z_a83809a3,2026-07-07T11:29:59.698504+00:00,2026-07-07T11:30:03.789026+00:00,4.091,moodle,etl;feature_engineering;online_prediction,3,3,failed,False,,False,True
+pipe_20260707T113310571904Z_394e399f,2026-07-07T11:33:10.572017+00:00,2026-07-07T11:33:14.984408+00:00,4.412,moodle,etl;feature_engineering;online_prediction,3,3,failed,False,,False,True
+pipe_20260707T115716002872Z_c09aca93,2026-07-07T11:57:16.003207+00:00,2026-07-07T11:57:22.725836+00:00,6.723,moodle,etl;feature_engineering;online_prediction,3,1,failed,False,,False,True
+pipe_20260707T120205133107Z_e7639be6,2026-07-07T12:02:05.133382+00:00,2026-07-07T12:02:20.789009+00:00,15.656,moodle,etl;feature_engineering;online_prediction,3,0,completed,False,,False,True
+pipe_20260707T120628982831Z_62390793,2026-07-07T12:06:28.982937+00:00,2026-07-07T12:06:41.975139+00:00,12.992,moodle,etl;feature_engineering;online_prediction,3,0,completed,True,,False,True

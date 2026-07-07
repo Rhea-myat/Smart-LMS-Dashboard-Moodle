@@ -54511,3 +54511,5 @@ activity_fact_id,student_key,course_key,time_key,academic_period_key,event_key,m
 54508,103,1,51949,1,1,1,The user with id '20458' viewed the course with id '26692'.,1,Historical
 1569,172,2,51973,2,26,98,created user_enrolment,1,Moodle
 1571,172,2,51973,2,28,100,assigned role,1,Moodle
+1236,173,3,51975,2,26,98,created user_enrolment,1,Moodle
+1237,173,3,51975,2,28,100,assigned role,1,Moodle
