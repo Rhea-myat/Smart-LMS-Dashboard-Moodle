@@ -28,7 +28,7 @@ def load_to_mysql_initial(df, table_name, engine):
     )
 
 # incremental loading to MySQL - Production use 
-def load_to_mysql_incremental(df, table_name, engine, key_columns):
+def load_to_mysql_incremental(df, table_name, engine, key_columns, skip_existing_keys=True):
     from sqlalchemy import inspect, text
 
     inspector = inspect(engine)
@@ -62,7 +62,7 @@ def load_to_mysql_incremental(df, table_name, engine, key_columns):
     skipped_batch_duplicates = int(incoming_rows - deduped_rows)
 
     existing_key_matches = 0
-    if valid_key_columns and not aligned_df.empty:
+    if skip_existing_keys and valid_key_columns and not aligned_df.empty:
         key_query = text(f"SELECT {', '.join(valid_key_columns)} FROM {table_name}")
         existing_keys_df = pd.read_sql(key_query, engine)
 
@@ -139,6 +139,102 @@ def load_to_mysql_incremental(df, table_name, engine, key_columns):
         "rows_added": int(max(after_count - before_count, 0)),
         "skipped_existing": existing_key_matches,
         "skipped_batch_duplicates": skipped_batch_duplicates
+    }
+
+
+def load_dim_course_merge_replace(df, engine):
+    from sqlalchemy import inspect
+
+    table_name = "dim_course"
+    inspector = inspect(engine)
+
+    incoming_df = df.copy()
+    incoming_rows = int(len(incoming_df))
+
+    if inspector.has_table(table_name):
+        existing_df = pd.read_sql(f"SELECT * FROM {table_name}", engine)
+    else:
+        existing_df = pd.DataFrame(columns=incoming_df.columns)
+
+    for col in existing_df.columns:
+        if col not in incoming_df.columns:
+            incoming_df[col] = None
+    for col in incoming_df.columns:
+        if col not in existing_df.columns:
+            existing_df[col] = None
+
+    incoming_df = incoming_df[existing_df.columns] if not existing_df.empty else incoming_df
+    existing_df = existing_df[incoming_df.columns]
+
+    before_count = int(len(existing_df))
+    merged_df = pd.concat([existing_df, incoming_df], ignore_index=True)
+    if "course_id" in merged_df.columns:
+        merged_df["course_id"] = merged_df["course_id"].astype(str).str.strip()
+        merged_df = merged_df.drop_duplicates(subset=["course_id"], keep="last")
+    else:
+        merged_df = merged_df.drop_duplicates(keep="last")
+
+    merged_df.to_sql(table_name, engine, if_exists="replace", index=False)
+
+    after_count = int(len(merged_df))
+    rows_added = int(max(after_count - before_count, 0))
+    skipped_existing = int(max(incoming_rows - rows_added, 0))
+
+    return {
+        "incoming_rows": incoming_rows,
+        "rows_to_insert": incoming_rows,
+        "rows_after_load": after_count,
+        "rows_added": rows_added,
+        "skipped_existing": skipped_existing,
+        "skipped_batch_duplicates": 0,
+    }
+
+
+def load_dim_student_merge_replace(df, engine):
+    from sqlalchemy import inspect
+
+    table_name = "dim_student"
+    inspector = inspect(engine)
+
+    incoming_df = df.copy()
+    incoming_rows = int(len(incoming_df))
+
+    if inspector.has_table(table_name):
+        existing_df = pd.read_sql(f"SELECT * FROM {table_name}", engine)
+    else:
+        existing_df = pd.DataFrame(columns=incoming_df.columns)
+
+    for col in existing_df.columns:
+        if col not in incoming_df.columns:
+            incoming_df[col] = None
+    for col in incoming_df.columns:
+        if col not in existing_df.columns:
+            existing_df[col] = None
+
+    incoming_df = incoming_df[existing_df.columns] if not existing_df.empty else incoming_df
+    existing_df = existing_df[incoming_df.columns]
+
+    before_count = int(len(existing_df))
+    merged_df = pd.concat([existing_df, incoming_df], ignore_index=True)
+    if "student_id" in merged_df.columns:
+        merged_df["student_id"] = merged_df["student_id"].astype(str).str.strip()
+        merged_df = merged_df.drop_duplicates(subset=["student_id"], keep="last")
+    else:
+        merged_df = merged_df.drop_duplicates(keep="last")
+
+    merged_df.to_sql(table_name, engine, if_exists="replace", index=False)
+
+    after_count = int(len(merged_df))
+    rows_added = int(max(after_count - before_count, 0))
+    skipped_existing = int(max(incoming_rows - rows_added, 0))
+
+    return {
+        "incoming_rows": incoming_rows,
+        "rows_to_insert": incoming_rows,
+        "rows_after_load": after_count,
+        "rows_added": rows_added,
+        "skipped_existing": skipped_existing,
+        "skipped_batch_duplicates": 0,
     }
 
 """
@@ -231,7 +327,7 @@ def load_warehouse_incremental(tables, engine):
 
     load_stats = {}
 
-    load_stats["dim_student"] = load_to_mysql_incremental(tables["dim_student"], "dim_student", engine, ["student_id"])
+    load_stats["dim_student"] = load_dim_student_merge_replace(tables["dim_student"], engine)
     load_stats["dim_time"] = load_to_mysql_incremental(tables["dim_time"], "dim_time", engine, ["time"])
     load_stats["dim_academic_period"] = load_to_mysql_incremental(
         tables["dim_academic_period"],
@@ -239,7 +335,7 @@ def load_warehouse_incremental(tables, engine):
         engine,
         ["semester", "academic_year"]
     )
-    load_stats["dim_course"] = load_to_mysql_incremental(tables["dim_course"], "dim_course", engine, ["course_id"])
+    load_stats["dim_course"] = load_dim_course_merge_replace(tables["dim_course"], engine)
     load_stats["dim_event"] = load_to_mysql_incremental(tables["dim_event"], "dim_event", engine, ["event_name"])
     load_stats["dim_material"] = load_to_mysql_incremental(
         tables["dim_material"],

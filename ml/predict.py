@@ -1,8 +1,10 @@
 import json
 import importlib.util
+import sys
 from pathlib import Path
 
 import joblib
+import numpy as np
 import pandas as pd
 
 def _load_preprocessing_v1_1():
@@ -22,6 +24,23 @@ from ml.ensemble import (
     apply_threshold,
     build_prediction_result
 )
+
+
+def _load_joblib_with_numpy_compat(path: Path):
+    try:
+        return joblib.load(path)
+    except ModuleNotFoundError as exc:
+        # Models may be serialized in an env that references numpy._core.
+        # Python 3.8-compatible NumPy uses numpy.core; alias and retry once.
+        if exc.name != "numpy._core":
+            raise
+
+        import numpy as np
+
+        sys.modules.setdefault("numpy._core", np.core)
+        sys.modules.setdefault("numpy._core.multiarray", np.core.multiarray)
+        sys.modules.setdefault("numpy._core.numeric", np.core.numeric)
+        return joblib.load(path)
 
 
 def load_configured_feature_baseline(model_dir: Path, config: dict):
@@ -78,11 +97,11 @@ def load_ensemble_artifacts(model_dir: Path):
 
     return {
         "config": config,
-        "behaviour_model": joblib.load(model_dir / config["behaviour_model"]),
-        "academic_model": joblib.load(model_dir / config["academic_model"]),
-        "behaviour_scaler": joblib.load(model_dir / config["behaviour_scaler"]),
-        "behaviour_features": joblib.load(model_dir / config["behaviour_features"]),
-        "academic_features": joblib.load(model_dir / config["academic_features"])
+        "behaviour_model": _load_joblib_with_numpy_compat(model_dir / config["behaviour_model"]),
+        "academic_model": _load_joblib_with_numpy_compat(model_dir / config["academic_model"]),
+        "behaviour_scaler": _load_joblib_with_numpy_compat(model_dir / config["behaviour_scaler"]),
+        "behaviour_features": _load_joblib_with_numpy_compat(model_dir / config["behaviour_features"]),
+        "academic_features": _load_joblib_with_numpy_compat(model_dir / config["academic_features"])
     }
 
 
@@ -118,6 +137,14 @@ def predict_academic(academic_snapshot, artifacts, baseline_dict=None):
     return artifacts["academic_model"].predict_proba(X_aca)[:, 1]
 
 
+def _academic_evidence_mask(academic_snapshot: pd.DataFrame) -> pd.Series:
+    if "assessments_attempted" not in academic_snapshot.columns:
+        return pd.Series(True, index=academic_snapshot.index)
+
+    attempted = pd.to_numeric(academic_snapshot["assessments_attempted"], errors="coerce").fillna(0)
+    return attempted > 0
+
+
 def predict_ensemble(
     metadata: pd.DataFrame,
     behaviour_snapshot: pd.DataFrame,
@@ -135,18 +162,24 @@ def predict_ensemble(
         baseline_dict
     )
 
-    academic_prob = predict_academic(
-        academic_snapshot,
-        artifacts,
-        baseline_dict
-    )
+    evidence_mask = _academic_evidence_mask(academic_snapshot)
+    academic_prob = np.full(len(academic_snapshot), np.nan, dtype=float)
 
-    final_prob = weighted_average(
-        behaviour_prob,
-        academic_prob,
-        config["behaviour_weight"],
-        config["academic_weight"]
-    )
+    if evidence_mask.any():
+        academic_prob[evidence_mask.to_numpy()] = predict_academic(
+            academic_snapshot.loc[evidence_mask].copy(),
+            artifacts,
+            baseline_dict
+        )
+
+    final_prob = np.asarray(behaviour_prob, dtype=float).copy()
+    if evidence_mask.any():
+        final_prob[evidence_mask.to_numpy()] = weighted_average(
+            np.asarray(behaviour_prob, dtype=float)[evidence_mask.to_numpy()],
+            academic_prob[evidence_mask.to_numpy()],
+            config["behaviour_weight"],
+            config["academic_weight"]
+        )
 
     final_label = apply_threshold(
         final_prob,

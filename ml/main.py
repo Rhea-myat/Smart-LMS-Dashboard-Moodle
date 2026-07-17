@@ -29,6 +29,40 @@ def _norm_key_series(series):
     return series.astype(str).str.strip()
 
 
+def _valid_course_period_pairs(*fact_dfs: pd.DataFrame):
+    pairs = set()
+    for df in fact_dfs:
+        if df is None or df.empty:
+            continue
+        if "course_key" not in df.columns or "academic_period_key" not in df.columns:
+            continue
+        work = df[["course_key", "academic_period_key"]].copy()
+        work["course_key"] = pd.to_numeric(work["course_key"], errors="coerce")
+        work["academic_period_key"] = pd.to_numeric(work["academic_period_key"], errors="coerce")
+        work = work.dropna().drop_duplicates()
+        for row in work.itertuples(index=False):
+            pairs.add((int(row.course_key), int(row.academic_period_key)))
+    return pairs
+
+
+def _filter_valid_course_period_rows(df: pd.DataFrame, valid_pairs):
+    if df.empty or not valid_pairs:
+        return df.copy()
+    if "course_key" not in df.columns or "academic_period_key" not in df.columns:
+        return df.copy()
+
+    work = df.copy()
+    work["course_key"] = pd.to_numeric(work["course_key"], errors="coerce")
+    work["academic_period_key"] = pd.to_numeric(work["academic_period_key"], errors="coerce")
+
+    keep_mask = [
+        (int(course), int(period)) in valid_pairs if pd.notna(course) and pd.notna(period) else False
+        for course, period in zip(work["course_key"], work["academic_period_key"])
+    ]
+
+    return work.loc[keep_mask].copy()
+
+
 def _upsert_snapshot_csv(csv_path: Path, incoming_df: pd.DataFrame, key_columns):
     incoming_df = incoming_df.copy()
 
@@ -110,6 +144,7 @@ def run_feature_engineering_v2_2_incremental():
     run_id = run_timestamp.strftime("feat_%Y%m%dT%H%M%S%fZ")
 
     fact_activity_log = pd.read_csv("data/warehouse/fact_activity_log.csv")
+    fact_enrolment = pd.read_csv("data/warehouse/fact_enrolment.csv")
     dim_material = pd.read_csv("data/warehouse/dim_material.csv")
     fact_result = pd.read_csv("data/warehouse/fact_result.csv")
     dim_time = pd.read_csv("data/warehouse/dim_time.csv")
@@ -132,17 +167,32 @@ def run_feature_engineering_v2_2_incremental():
         fact_activity_log.get("source_system", pd.Series("", index=fact_activity_log.index)).astype(str).str.lower() == "moodle"
     ].copy()
 
-    if moodle_activity.empty:
-        source_activity = fact_activity_log.copy()
-    else:
-        source_activity = moodle_activity
+    # Use all activity rows for course-period mapping.
+    # Restricting to moodle-only rows can exclude historical units (e.g., ICT001)
+    # and incorrectly fall back to another period.
+    source_activity = fact_activity_log.copy()
 
     period_values = pd.to_numeric(source_activity.get("academic_period_key"), errors="coerce").dropna()
     if period_values.empty:
         raise ValueError("Cannot determine academic_period_key from activity facts.")
-    academic_period_key = int(period_values.max())
+    default_academic_period_key = int(period_values.max())
 
     source_activity = source_activity.copy()
+    source_activity["course_key"] = pd.to_numeric(source_activity.get("course_key"), errors="coerce")
+    source_activity["academic_period_key"] = pd.to_numeric(
+        source_activity.get("academic_period_key"), errors="coerce"
+    )
+
+    # Preserve period integrity per course_key instead of stamping one global period.
+    # Use the most frequent observed period per course as the default for that course.
+    course_period_map = (
+        source_activity[["course_key", "academic_period_key"]]
+        .dropna()
+        .groupby("course_key", as_index=False)["academic_period_key"]
+        .agg(lambda values: int(pd.Series(values).astype(int).mode().iloc[0]))
+        .rename(columns={"academic_period_key": "derived_academic_period_key"})
+    )
+
     source_activity["time_key"] = pd.to_numeric(source_activity["time_key"], errors="coerce")
     dim_time_work = dim_time.copy()
     dim_time_work["time_key"] = pd.to_numeric(dim_time_work["time_key"], errors="coerce")
@@ -160,12 +210,24 @@ def run_feature_engineering_v2_2_incremental():
 
     run_snapshot_date = pd.Timestamp.today().date().isoformat()
 
+    valid_pairs = _valid_course_period_pairs(fact_activity_log, fact_result, fact_enrolment)
+
     snapshot = fe_v2_2.build_student_snapshot(
         behaviour,
         academic,
-        academic_period_key=academic_period_key,
+        academic_period_key=default_academic_period_key,
         snapshot_date=run_snapshot_date
     )
+
+    snapshot["course_key"] = pd.to_numeric(snapshot.get("course_key"), errors="coerce")
+    snapshot = snapshot.merge(course_period_map, on="course_key", how="left")
+    snapshot["academic_period_key"] = (
+        pd.to_numeric(snapshot["derived_academic_period_key"], errors="coerce")
+        .fillna(default_academic_period_key)
+        .astype(int)
+    )
+    snapshot = snapshot.drop(columns=["derived_academic_period_key"])
+    snapshot = _filter_valid_course_period_rows(snapshot, valid_pairs)
 
     behaviour_model_snapshot = fe_v2_2.build_behaviour_model_snapshot(snapshot)
     academic_model_snapshot = fe_v2_2.build_academic_model_snapshot(snapshot)
@@ -203,6 +265,19 @@ def run_feature_engineering_v2_2_incremental():
         academic_prediction_snapshot,
         key_cols,
     )
+
+    # Keep persisted snapshot CSVs clean: remove stale invalid course-period rows.
+    student_snapshot_all = _filter_valid_course_period_rows(student_snapshot_all, valid_pairs)
+    behaviour_model_snapshot_all = _filter_valid_course_period_rows(behaviour_model_snapshot_all, valid_pairs)
+    academic_model_snapshot_all = _filter_valid_course_period_rows(academic_model_snapshot_all, valid_pairs)
+    behaviour_prediction_snapshot_all = _filter_valid_course_period_rows(behaviour_prediction_snapshot_all, valid_pairs)
+    academic_prediction_snapshot_all = _filter_valid_course_period_rows(academic_prediction_snapshot_all, valid_pairs)
+
+    student_snapshot_all.to_csv(feature_store_path / "student_snapshot.csv", index=False)
+    behaviour_model_snapshot_all.to_csv(feature_store_path / "behaviour_model_snapshot.csv", index=False)
+    academic_model_snapshot_all.to_csv(feature_store_path / "academic_model_snapshot_v2.csv", index=False)
+    behaviour_prediction_snapshot_all.to_csv(feature_store_path / "behaviour_prediction_snapshot.csv", index=False)
+    academic_prediction_snapshot_all.to_csv(feature_store_path / "academic_prediction_snapshot.csv", index=False)
 
     # Keep latest aliases from the current engineered run.
     _latest_snapshot_alias(snapshot).to_csv(
@@ -269,7 +344,7 @@ def run_feature_engineering_v2_2_incremental():
             "status": "completed",
             "snapshot_date": run_snapshot_date,
             "latest_activity_date": latest_activity_date.date().isoformat(),
-            "academic_period_key": academic_period_key,
+            "academic_period_key": default_academic_period_key,
             "input_fact_activity_rows": int(len(fact_activity_log)),
             "input_fact_result_rows": int(len(fact_result)),
             "input_moodle_activity_rows": moodle_activity_rows,
@@ -298,7 +373,7 @@ def run_feature_engineering_v2_2_incremental():
         f"student_snapshot_total={len(student_snapshot_all)} "
         f"latest_snapshot_date={run_snapshot_date} "
         f"latest_activity_date={latest_activity_date.date().isoformat()} "
-        f"academic_period_key={academic_period_key}"
+        f"academic_period_key_default={default_academic_period_key}"
     )
 
 

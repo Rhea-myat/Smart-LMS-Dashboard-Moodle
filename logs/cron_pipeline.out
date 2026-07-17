@@ -1,0 +1,1107 @@
+2026-07-07T13:38:54Z INFO: nightly pipeline starting
+2026-07-07T13:38:54Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0
+2026-07-07T13:38:54Z INFO: loaded environment from /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T13:38:54Z INFO: python_bin=/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/bin/python
+2026-07-07T13:38:54Z INFO: validating required dependencies from /home/ft04/Smart-LMS-Dashboard-Moodle/requirements.txt
+ERROR: dependency mismatch:
+ - pandas==2.3.0 (not installed)
+ - numpy==2.3.1 (not installed)
+ - scikit-learn==1.7.2 (not installed)
+ - SQLAlchemy==2.0.43 (not installed)
+ - PyMySQL==1.1.1 (not installed)
+ - python-dotenv==1.1.0 (not installed)
+ - joblib==1.5.1 (not installed)
+ - openpyxl==3.1.5 (not installed)
+2026-07-07T13:38:54Z ERROR: run_nightly failed at line 96 with exit code 1
+2026-07-07T13:39:08Z INFO: nightly pipeline starting
+2026-07-07T13:39:08Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0
+2026-07-07T13:39:08Z INFO: loaded environment from /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T13:39:08Z INFO: python_bin=/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/bin/python
+2026-07-07T13:39:08Z INFO: installing/updating dependencies from /home/ft04/Smart-LMS-Dashboard-Moodle/requirements.txt
+ERROR: Could not find a version that satisfies the requirement pandas==2.3.0 (from -r /home/ft04/Smart-LMS-Dashboard-Moodle/requirements.txt (line 1)) (from versions: 0.1, 0.2, 0.3.0, 0.4.0, 0.4.1, 0.4.2, 0.4.3, 0.5.0, 0.6.0, 0.6.1, 0.7.0, 0.7.1, 0.7.2, 0.7.3, 0.8.0, 0.8.1, 0.9.0, 0.9.1, 0.10.0, 0.10.1, 0.11.0, 0.12.0, 0.13.0, 0.13.1, 0.14.0, 0.14.1, 0.15.0, 0.15.1, 0.15.2, 0.16.0, 0.16.1, 0.16.2, 0.17.0, 0.17.1, 0.18.0, 0.18.1, 0.19.0, 0.19.1, 0.19.2, 0.20.0, 0.20.1, 0.20.2, 0.20.3, 0.21.0, 0.21.1, 0.22.0, 0.23.0, 0.23.1, 0.23.2, 0.23.3, 0.23.4, 0.24.0, 0.24.1, 0.24.2, 0.25.0, 0.25.1, 0.25.2, 0.25.3, 1.0.0, 1.0.1, 1.0.2, 1.0.3, 1.0.4, 1.0.5, 1.1.0, 1.1.1, 1.1.2, 1.1.3, 1.1.4, 1.1.5, 1.2.0, 1.2.1, 1.2.2, 1.2.3, 1.2.4, 1.2.5, 1.3.0, 1.3.1, 1.3.2, 1.3.3, 1.3.4, 1.3.5, 1.4.0, 1.4.1, 1.4.2, 1.4.3, 1.4.4, 1.5.0, 1.5.1, 1.5.2, 1.5.3, 2.0.0, 2.0.1, 2.0.2, 2.0.3)
+ERROR: No matching distribution found for pandas==2.3.0 (from -r /home/ft04/Smart-LMS-Dashboard-Moodle/requirements.txt (line 1))
+2026-07-07T13:39:09Z ERROR: run_nightly failed at line 93 with exit code 1
+2026-07-07T13:40:51Z INFO: nightly pipeline starting
+2026-07-07T13:40:51Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T13:40:51Z INFO: DRY_RUN=1, skipping image build for smart-lms-ml:nightly
+2026-07-07T13:40:51Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T13:40:51Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707214051 -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+2026-07-07T13:40:51Z INFO: DRY_RUN=1, skipping execution
+2026-07-07T13:40:51Z INFO: nightly pipeline finished successfully in 0s
+2026-07-07T13:40:59Z INFO: nightly pipeline starting
+2026-07-07T13:40:59Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T13:40:59Z INFO: building docker image smart-lms-ml:nightly
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  30.99MB
+
+Step 1/10 : FROM python:3.11-slim
+ ---> b7486dbe03b3
+Step 2/10 : ENV PYTHONUNBUFFERED=1
+ ---> Using cache
+ ---> b7862343d7da
+Step 3/10 : WORKDIR /app
+ ---> Using cache
+ ---> e37c8a03e35b
+Step 4/10 : COPY requirements.txt .
+ ---> Using cache
+ ---> 9a596d97c24f
+Step 5/10 : RUN pip install --no-cache-dir -r requirements.txt
+ ---> Using cache
+ ---> 09050c24dd0f
+Step 6/10 : COPY etl/ etl/
+ ---> Using cache
+ ---> 449b50c0c203
+Step 7/10 : COPY data/ data/
+ ---> 60f1ac60a244
+Step 8/10 : COPY ml/ ml/
+ ---> 9ce0277c1f06
+Step 9/10 : COPY pipeline_runner.py .
+ ---> d56dbee5559b
+Step 10/10 : CMD ["python", "pipeline_runner.py"]
+ ---> Running in e4e27692c963
+ ---> Removed intermediate container e4e27692c963
+ ---> bfdad9748bd3
+Successfully built bfdad9748bd3
+Successfully tagged smart-lms-ml:nightly
+2026-07-07T13:41:01Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T13:41:01Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707214101 -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T134102037012Z_d5853d49",
+  "status": "failed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "duration_sec": 4.065,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T13:41:06Z ERROR: run_nightly failed at line 219 with exit code 1
+2026-07-07T13:42:05Z INFO: nightly pipeline starting
+2026-07-07T13:42:05Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T13:42:05Z INFO: building docker image smart-lms-ml:nightly
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  30.99MB
+
+Step 1/10 : FROM python:3.11-slim
+ ---> b7486dbe03b3
+Step 2/10 : ENV PYTHONUNBUFFERED=1
+ ---> Using cache
+ ---> b7862343d7da
+Step 3/10 : WORKDIR /app
+ ---> Using cache
+ ---> e37c8a03e35b
+Step 4/10 : COPY requirements.txt .
+ ---> Using cache
+ ---> 9a596d97c24f
+Step 5/10 : RUN pip install --no-cache-dir -r requirements.txt cryptography
+ ---> Running in 2427c0bfa212
+Collecting cryptography
+  Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+Collecting pandas==2.3.0 (from -r requirements.txt (line 1))
+  Downloading pandas-2.3.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.2/91.2 kB 30.5 MB/s eta 0:00:00
+Collecting numpy==2.3.1 (from -r requirements.txt (line 2))
+  Downloading numpy-2.3.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 185.0 MB/s eta 0:00:00
+Collecting scikit-learn==1.7.2 (from -r requirements.txt (line 3))
+  Downloading scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+Collecting SQLAlchemy==2.0.43 (from -r requirements.txt (line 4))
+  Downloading sqlalchemy-2.0.43-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+Collecting PyMySQL==1.1.1 (from -r requirements.txt (line 5))
+  Downloading PyMySQL-1.1.1-py3-none-any.whl.metadata (4.4 kB)
+Collecting python-dotenv==1.1.0 (from -r requirements.txt (line 6))
+  Downloading python_dotenv-1.1.0-py3-none-any.whl.metadata (24 kB)
+Collecting joblib==1.5.1 (from -r requirements.txt (line 7))
+  Downloading joblib-1.5.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting openpyxl==3.1.5 (from -r requirements.txt (line 8))
+  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting python-dateutil>=2.8.2 (from pandas==2.3.0->-r requirements.txt (line 1))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2020.1 (from pandas==2.3.0->-r requirements.txt (line 1))
+  Downloading pytz-2026.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas==2.3.0->-r requirements.txt (line 1))
+  Downloading tzdata-2026.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting scipy>=1.8.0 (from scikit-learn==1.7.2->-r requirements.txt (line 3))
+  Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 213.6 MB/s eta 0:00:00
+Collecting threadpoolctl>=3.1.0 (from scikit-learn==1.7.2->-r requirements.txt (line 3))
+  Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+Collecting greenlet>=1 (from SQLAlchemy==2.0.43->-r requirements.txt (line 4))
+  Downloading greenlet-3.5.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting typing-extensions>=4.6.0 (from SQLAlchemy==2.0.43->-r requirements.txt (line 4))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting et-xmlfile (from openpyxl==3.1.5->-r requirements.txt (line 8))
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting cffi>=2.0.0 (from cryptography)
+  Downloading cffi-2.1.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography)
+  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas==2.3.0->-r requirements.txt (line 1))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading pandas-2.3.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 86.1 MB/s eta 0:00:00
+Downloading numpy-2.3.1-cp311-cp311-manylinux_2_28_x86_64.whl (16.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 100.4 MB/s eta 0:00:00
+Downloading scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 102.6 MB/s eta 0:00:00
+Downloading sqlalchemy-2.0.43-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 100.3 MB/s eta 0:00:00
+Downloading PyMySQL-1.1.1-py3-none-any.whl (44 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.0/45.0 kB 128.2 MB/s eta 0:00:00
+Downloading python_dotenv-1.1.0-py3-none-any.whl (20 kB)
+Downloading joblib-1.5.1-py3-none-any.whl (307 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 67.2 MB/s eta 0:00:00
+Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.9/250.9 kB 80.9 MB/s eta 0:00:00
+Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 101.1 MB/s eta 0:00:00
+Downloading cffi-2.1.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (217 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 217.9/217.9 kB 76.1 MB/s eta 0:00:00
+Downloading greenlet-3.5.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (617 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 617.4/617.4 kB 80.2 MB/s eta 0:00:00
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 82.1 MB/s eta 0:00:00
+Downloading pytz-2026.2-py2.py3-none-any.whl (510 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 510.1/510.1 kB 98.1 MB/s eta 0:00:00
+Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 101.7 MB/s eta 0:00:00
+Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 108.1 MB/s eta 0:00:00
+Downloading tzdata-2026.2-py2.py3-none-any.whl (349 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 349.3/349.3 kB 86.8 MB/s eta 0:00:00
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.2/48.2 kB 109.1 MB/s eta 0:00:00
+Installing collected packages: pytz, tzdata, typing-extensions, threadpoolctl, six, python-dotenv, PyMySQL, pycparser, numpy, joblib, greenlet, et-xmlfile, SQLAlchemy, scipy, python-dateutil, openpyxl, cffi, scikit-learn, pandas, cryptography
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[0mSuccessfully installed PyMySQL-1.1.1 SQLAlchemy-2.0.43 cffi-2.1.0 cryptography-49.0.0 et-xmlfile-2.0.0 greenlet-3.5.3 joblib-1.5.1 numpy-2.3.1 openpyxl-3.1.5 pandas-2.3.0 pycparser-3.0 python-dateutil-2.9.0.post0 python-dotenv-1.1.0 pytz-2026.2 scikit-learn-1.7.2 scipy-1.17.1 six-1.17.0 threadpoolctl-3.6.0 typing-extensions-4.16.0 tzdata-2026.2
+[91m
+[notice] A new release of pip is available: 24.0 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+[0m ---> Removed intermediate container 2427c0bfa212
+ ---> 02174a5e87f7
+Step 6/10 : COPY etl/ etl/
+ ---> 6bccfc6e406c
+Step 7/10 : COPY data/ data/
+ ---> 489675281f0f
+Step 8/10 : COPY ml/ ml/
+ ---> 520fad71feff
+Step 9/10 : COPY pipeline_runner.py .
+ ---> 8651256ffda8
+Step 10/10 : CMD ["python", "pipeline_runner.py"]
+ ---> Running in 89251f8f1de1
+ ---> Removed intermediate container 89251f8f1de1
+ ---> a4dc7f523ec0
+Successfully built a4dc7f523ec0
+Successfully tagged smart-lms-ml:nightly
+2026-07-07T13:42:47Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T13:42:47Z INFO: overriding DB_HOST for docker to host.docker.internal
+2026-07-07T13:42:47Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707214247 --add-host host.docker.internal:host-gateway -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env --env DB_HOST=host.docker.internal smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T134248622705Z_e693d942",
+  "status": "failed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "duration_sec": 4.944,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T13:42:53Z ERROR: run_nightly failed at line 235 with exit code 1
+2026-07-07T13:43:39Z INFO: nightly pipeline starting
+2026-07-07T13:43:39Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T13:43:39Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-07T13:43:39Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T13:43:39Z INFO: overriding DB host env vars for docker to host.docker.internal
+2026-07-07T13:43:39Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707214339 --add-host host.docker.internal:host-gateway -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env --env DB_HOST=host.docker.internal --env MOODLE_DB_HOST=host.docker.internal --env SOURCE_DB_HOST=host.docker.internal --env ML_DB_HOST=host.docker.internal smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T134340154494Z_ace8b264",
+  "status": "failed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "duration_sec": 4.072,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T13:43:44Z ERROR: run_nightly failed at line 240 with exit code 1
+2026-07-07T13:44:13Z INFO: nightly pipeline starting
+2026-07-07T13:44:13Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T13:44:13Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-07T13:44:13Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T13:44:13Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707214413 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T134414073166Z_ec9fc671",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 12.889,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T13:44:27Z INFO: nightly pipeline finished successfully in 14s
+2026-07-07T13:55:30Z INFO: nightly pipeline starting
+2026-07-07T13:55:30Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T13:55:31Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-07T13:55:31Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T13:55:31Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707215531 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T135531598444Z_f1298973",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 12.965,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T13:55:44Z INFO: nightly pipeline finished successfully in 13s
+2026-07-07T14:05:25Z INFO: nightly pipeline starting
+2026-07-07T14:05:25Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T14:05:25Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-07T14:05:25Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T14:05:25Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707220525 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T140526488445Z_c5f92354",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 12.766,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T14:05:39Z INFO: nightly pipeline finished successfully in 14s
+2026-07-07T14:47:17Z INFO: nightly pipeline starting
+2026-07-07T14:47:17Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T14:47:17Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-07T14:47:17Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T14:47:17Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707224717 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T144718817899Z_b7e3c701",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 14.952,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T14:47:34Z INFO: nightly pipeline finished successfully in 17s
+2026-07-07T14:48:01Z INFO: nightly pipeline starting
+2026-07-07T14:48:01Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T14:48:01Z INFO: building docker image smart-lms-ml:nightly
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon     31MB
+
+Step 1/10 : FROM python:3.11-slim
+ ---> b7486dbe03b3
+Step 2/10 : ENV PYTHONUNBUFFERED=1
+ ---> Using cache
+ ---> b7862343d7da
+Step 3/10 : WORKDIR /app
+ ---> Using cache
+ ---> e37c8a03e35b
+Step 4/10 : COPY requirements.txt .
+ ---> Using cache
+ ---> 9a596d97c24f
+Step 5/10 : RUN pip install --no-cache-dir -r requirements.txt cryptography
+ ---> Using cache
+ ---> 02174a5e87f7
+Step 6/10 : COPY etl/ etl/
+ ---> Using cache
+ ---> 6bccfc6e406c
+Step 7/10 : COPY data/ data/
+ ---> 9e6225c6150f
+Step 8/10 : COPY ml/ ml/
+ ---> 59d86182d780
+Step 9/10 : COPY pipeline_runner.py .
+ ---> 0a4c1b15ee32
+Step 10/10 : CMD ["python", "pipeline_runner.py"]
+ ---> Running in b3211e8671f6
+ ---> Removed intermediate container b3211e8671f6
+ ---> 6c697dae8894
+Successfully built 6c697dae8894
+Successfully tagged smart-lms-ml:nightly
+2026-07-07T14:48:03Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T14:48:03Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707224803 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T144803558214Z_2af67d0f",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 12.76,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T14:48:16Z INFO: nightly pipeline finished successfully in 13s
+2026-07-07T14:49:52Z INFO: nightly pipeline starting
+2026-07-07T14:49:52Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T14:49:52Z INFO: building docker image smart-lms-ml:nightly
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon     31MB
+
+Step 1/10 : FROM python:3.11-slim
+ ---> b7486dbe03b3
+Step 2/10 : ENV PYTHONUNBUFFERED=1
+ ---> Using cache
+ ---> b7862343d7da
+Step 3/10 : WORKDIR /app
+ ---> Using cache
+ ---> e37c8a03e35b
+Step 4/10 : COPY requirements.txt .
+ ---> Using cache
+ ---> 9a596d97c24f
+Step 5/10 : RUN pip install --no-cache-dir -r requirements.txt cryptography
+ ---> Using cache
+ ---> 02174a5e87f7
+Step 6/10 : COPY etl/ etl/
+ ---> Using cache
+ ---> 6bccfc6e406c
+Step 7/10 : COPY data/ data/
+ ---> Using cache
+ ---> 9e6225c6150f
+Step 8/10 : COPY ml/ ml/
+ ---> 7ceff67fa8c8
+Step 9/10 : COPY pipeline_runner.py .
+ ---> 7eb4fa73b30e
+Step 10/10 : CMD ["python", "pipeline_runner.py"]
+ ---> Running in 5e4dcf7d19e4
+ ---> Removed intermediate container 5e4dcf7d19e4
+ ---> 7625881e9f84
+Successfully built 7625881e9f84
+Successfully tagged smart-lms-ml:nightly
+2026-07-07T14:49:53Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T14:49:53Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707224953 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T144953685274Z_6684d01b",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 15.225,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T14:50:09Z INFO: nightly pipeline finished successfully in 16s
+2026-07-07T14:51:38Z INFO: nightly pipeline starting
+2026-07-07T14:51:38Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T14:51:38Z INFO: building docker image smart-lms-ml:nightly
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  31.35MB
+
+Step 1/10 : FROM python:3.11-slim
+ ---> b7486dbe03b3
+Step 2/10 : ENV PYTHONUNBUFFERED=1
+ ---> Using cache
+ ---> b7862343d7da
+Step 3/10 : WORKDIR /app
+ ---> Using cache
+ ---> e37c8a03e35b
+Step 4/10 : COPY requirements.txt .
+ ---> Using cache
+ ---> 9a596d97c24f
+Step 5/10 : RUN pip install --no-cache-dir -r requirements.txt cryptography
+ ---> Using cache
+ ---> 02174a5e87f7
+Step 6/10 : COPY etl/ etl/
+ ---> Using cache
+ ---> 6bccfc6e406c
+Step 7/10 : COPY data/ data/
+ ---> Using cache
+ ---> 9e6225c6150f
+Step 8/10 : COPY ml/ ml/
+ ---> 848894047e98
+Step 9/10 : COPY pipeline_runner.py .
+ ---> e1b122ae7758
+Step 10/10 : CMD ["python", "pipeline_runner.py"]
+ ---> Running in 5844d237ede3
+ ---> Removed intermediate container 5844d237ede3
+ ---> f17b03a3e267
+Successfully built f17b03a3e267
+Successfully tagged smart-lms-ml:nightly
+2026-07-07T14:51:39Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T14:51:39Z INFO: running command: docker run --rm --name smart-lms-nightly-20260707225139 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T145139592420Z_28557134",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 12.916,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T14:51:52Z INFO: nightly pipeline finished successfully in 13s
+2026-07-07T17:30:01Z INFO: nightly pipeline starting
+2026-07-07T17:30:01Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-07T17:30:01Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-07T17:30:01Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-07T17:30:01Z INFO: running command: docker run --rm --name smart-lms-nightly-20260708013001 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260707T173002025046Z_94e29eb9",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 12.747,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-07T17:30:14Z INFO: nightly pipeline finished successfully in 13s
+2026-07-08T17:30:01Z INFO: nightly pipeline starting
+2026-07-08T17:30:01Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-08T17:30:01Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-08T17:30:01Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-08T17:30:01Z INFO: running command: docker run --rm --name smart-lms-nightly-20260709013001 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260708T173002336135Z_9092a0a2",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 13.119,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-08T17:30:15Z INFO: nightly pipeline finished successfully in 14s
+2026-07-09T15:01:29Z INFO: nightly pipeline starting
+2026-07-09T15:01:29Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-09T15:01:29Z INFO: building docker image smart-lms-ml:nightly
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  30.89MB
+Step 1/10 : FROM python:3.11-slim
+ ---> b7486dbe03b3
+Step 2/10 : ENV PYTHONUNBUFFERED=1
+ ---> Using cache
+ ---> b7862343d7da
+Step 3/10 : WORKDIR /app
+ ---> Using cache
+ ---> e37c8a03e35b
+Step 4/10 : COPY requirements.txt .
+ ---> a4ed6f9337e1
+Step 5/10 : RUN pip install --no-cache-dir -r requirements.txt cryptography
+ ---> Running in 6dcfa3dc9c79
+Ignoring pandas: markers 'python_version < "3.9"' don't match your environment
+Ignoring numpy: markers 'python_version < "3.9"' don't match your environment
+Ignoring scikit-learn: markers 'python_version < "3.9"' don't match your environment
+Ignoring python-dotenv: markers 'python_version < "3.9"' don't match your environment
+Ignoring joblib: markers 'python_version < "3.9"' don't match your environment
+Collecting cryptography
+  Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl.metadata (4.3 kB)
+Collecting pandas==2.3.0 (from -r requirements.txt (line 1))
+  Downloading pandas-2.3.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (91 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 91.2/91.2 kB 34.8 MB/s eta 0:00:00
+Collecting numpy==2.3.1 (from -r requirements.txt (line 3))
+  Downloading numpy-2.3.1-cp311-cp311-manylinux_2_28_x86_64.whl.metadata (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 149.6 MB/s eta 0:00:00
+Collecting scikit-learn==1.7.2 (from -r requirements.txt (line 5))
+  Downloading scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+Collecting SQLAlchemy==2.0.43 (from -r requirements.txt (line 7))
+  Downloading sqlalchemy-2.0.43-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (9.6 kB)
+Collecting PyMySQL==1.1.1 (from -r requirements.txt (line 8))
+  Downloading PyMySQL-1.1.1-py3-none-any.whl.metadata (4.4 kB)
+Collecting python-dotenv==1.1.0 (from -r requirements.txt (line 9))
+  Downloading python_dotenv-1.1.0-py3-none-any.whl.metadata (24 kB)
+Collecting joblib==1.5.1 (from -r requirements.txt (line 11))
+  Downloading joblib-1.5.1-py3-none-any.whl.metadata (5.6 kB)
+Collecting openpyxl==3.1.5 (from -r requirements.txt (line 13))
+  Downloading openpyxl-3.1.5-py2.py3-none-any.whl.metadata (2.5 kB)
+Collecting python-dateutil>=2.8.2 (from pandas==2.3.0->-r requirements.txt (line 1))
+  Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting pytz>=2020.1 (from pandas==2.3.0->-r requirements.txt (line 1))
+  Downloading pytz-2026.2-py2.py3-none-any.whl.metadata (22 kB)
+Collecting tzdata>=2022.7 (from pandas==2.3.0->-r requirements.txt (line 1))
+  Downloading tzdata-2026.2-py2.py3-none-any.whl.metadata (1.4 kB)
+Collecting scipy>=1.8.0 (from scikit-learn==1.7.2->-r requirements.txt (line 5))
+  Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.1/62.1 kB 201.0 MB/s eta 0:00:00
+Collecting threadpoolctl>=3.1.0 (from scikit-learn==1.7.2->-r requirements.txt (line 5))
+  Downloading threadpoolctl-3.6.0-py3-none-any.whl.metadata (13 kB)
+Collecting greenlet>=1 (from SQLAlchemy==2.0.43->-r requirements.txt (line 7))
+  Downloading greenlet-3.5.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+Collecting typing-extensions>=4.6.0 (from SQLAlchemy==2.0.43->-r requirements.txt (line 7))
+  Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+Collecting et-xmlfile (from openpyxl==3.1.5->-r requirements.txt (line 13))
+  Downloading et_xmlfile-2.0.0-py3-none-any.whl.metadata (2.7 kB)
+Collecting cffi>=2.0.0 (from cryptography)
+  Downloading cffi-2.1.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.5 kB)
+Collecting pycparser (from cffi>=2.0.0->cryptography)
+  Downloading pycparser-3.0-py3-none-any.whl.metadata (8.2 kB)
+Collecting six>=1.5 (from python-dateutil>=2.8.2->pandas==2.3.0->-r requirements.txt (line 1))
+  Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+Downloading pandas-2.3.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (12.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 12.4/12.4 MB 25.9 MB/s eta 0:00:00
+Downloading numpy-2.3.1-cp311-cp311-manylinux_2_28_x86_64.whl (16.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.9/16.9 MB 80.6 MB/s eta 0:00:00
+Downloading scikit_learn-1.7.2-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (9.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 9.7/9.7 MB 8.2 MB/s eta 0:00:00
+Downloading sqlalchemy-2.0.43-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.3/3.3 MB 11.5 MB/s eta 0:00:00
+Downloading PyMySQL-1.1.1-py3-none-any.whl (44 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.0/45.0 kB 209.0 MB/s eta 0:00:00
+Downloading python_dotenv-1.1.0-py3-none-any.whl (20 kB)
+Downloading joblib-1.5.1-py3-none-any.whl (307 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 307.7/307.7 kB 68.8 MB/s eta 0:00:00
+Downloading openpyxl-3.1.5-py2.py3-none-any.whl (250 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 250.9/250.9 kB 69.0 MB/s eta 0:00:00
+Downloading cryptography-49.0.0-cp311-abi3-manylinux_2_34_x86_64.whl (4.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.7/4.7 MB 99.0 MB/s eta 0:00:00
+Downloading cffi-2.1.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (217 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 217.9/217.9 kB 89.9 MB/s eta 0:00:00
+Downloading greenlet-3.5.3-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (617 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 617.4/617.4 kB 91.8 MB/s eta 0:00:00
+Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 229.9/229.9 kB 76.9 MB/s eta 0:00:00
+Downloading pytz-2026.2-py2.py3-none-any.whl (510 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 510.1/510.1 kB 90.4 MB/s eta 0:00:00
+Downloading scipy-1.17.1-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 35.3/35.3 MB 100.2 MB/s eta 0:00:00
+Downloading threadpoolctl-3.6.0-py3-none-any.whl (18 kB)
+Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 45.6/45.6 kB 192.6 MB/s eta 0:00:00
+Downloading tzdata-2026.2-py2.py3-none-any.whl (349 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 349.3/349.3 kB 85.9 MB/s eta 0:00:00
+Downloading et_xmlfile-2.0.0-py3-none-any.whl (18 kB)
+Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+Downloading pycparser-3.0-py3-none-any.whl (48 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 48.2/48.2 kB 218.2 MB/s eta 0:00:00
+Installing collected packages: pytz, tzdata, typing-extensions, threadpoolctl, six, python-dotenv, PyMySQL, pycparser, numpy, joblib, greenlet, et-xmlfile, SQLAlchemy, scipy, python-dateutil, openpyxl, cffi, scikit-learn, pandas, cryptography
+Successfully installed PyMySQL-1.1.1 SQLAlchemy-2.0.43 cffi-2.1.0 cryptography-49.0.0 et-xmlfile-2.0.0 greenlet-3.5.3 joblib-1.5.1 numpy-2.3.1 openpyxl-3.1.5 pandas-2.3.0 pycparser-3.0 python-dateutil-2.9.0.post0 python-dotenv-1.1.0 pytz-2026.2 scikit-learn-1.7.2 scipy-1.17.1 six-1.17.0 threadpoolctl-3.6.0 typing-extensions-4.16.0 tzdata-2026.2
+[91mWARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+[0m[91m
+[notice] A new release of pip is available: 24.0 -> 26.1.2
+[notice] To update, run: pip install --upgrade pip
+[0m ---> Removed intermediate container 6dcfa3dc9c79
+ ---> f1a7695a984f
+Step 6/10 : COPY etl/ etl/
+ ---> 2b8ad1824b5a
+Step 7/10 : COPY data/ data/
+ ---> d7cd446fecfc
+Step 8/10 : COPY ml/ ml/
+ ---> 9d30e8c1c634
+Step 9/10 : COPY pipeline_runner.py .
+ ---> 9cdcbdcc5207
+Step 10/10 : CMD ["python", "pipeline_runner.py"]
+ ---> Running in d8579b1aba70
+ ---> Removed intermediate container d8579b1aba70
+ ---> 1f5c60089a0a
+Successfully built 1f5c60089a0a
+Successfully tagged smart-lms-ml:nightly
+2026-07-09T15:02:23Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-09T15:02:23Z INFO: running command: docker run --rm --name smart-lms-nightly-20260709230223 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260709T150223647046Z_cb8b7a25",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 14.758,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-09T15:02:38Z INFO: nightly pipeline finished successfully in 15s
+2026-07-09T17:30:01Z INFO: nightly pipeline starting
+2026-07-09T17:30:01Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-09T17:30:01Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-09T17:30:01Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-09T17:30:01Z INFO: running command: docker run --rm --name smart-lms-nightly-20260710013001 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260709T173002087147Z_48ed21a0",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 13.186,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-09T17:30:15Z INFO: nightly pipeline finished successfully in 14s
+2026-07-10T17:30:01Z INFO: nightly pipeline starting
+2026-07-10T17:30:01Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-10T17:30:01Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-10T17:30:01Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-10T17:30:01Z INFO: running command: docker run --rm --name smart-lms-nightly-20260711013001 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260710T173001808755Z_4e5aadf3",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 13.372,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-10T17:30:15Z INFO: nightly pipeline finished successfully in 14s
+2026-07-11T17:30:01Z INFO: nightly pipeline starting
+2026-07-11T17:30:01Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-11T17:30:01Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-11T17:30:01Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-11T17:30:01Z INFO: running command: docker run --rm --name smart-lms-nightly-20260712013001 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260711T173001779975Z_f9fbc12e",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 13.783,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-11T17:30:15Z INFO: nightly pipeline finished successfully in 14s
+2026-07-12T17:30:01Z INFO: nightly pipeline starting
+2026-07-12T17:30:01Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-12T17:30:01Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-12T17:30:01Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-12T17:30:01Z INFO: running command: docker run --rm --name smart-lms-nightly-20260713013001 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260712T173003250168Z_bf01e923",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 15.226,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-12T17:30:18Z INFO: nightly pipeline finished successfully in 17s
+2026-07-13T14:18:23Z INFO: nightly pipeline starting
+2026-07-13T14:18:23Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-13T14:18:23Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-13T14:18:23Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-13T14:18:23Z INFO: running command: docker run --rm --name smart-lms-nightly-20260713221823 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260713T141825033473Z_ef99c3fc",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 14.74,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-13T14:18:40Z INFO: nightly pipeline finished successfully in 17s
+2026-07-13T14:34:17Z INFO: nightly pipeline starting
+2026-07-13T14:34:17Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-13T14:34:17Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-13T14:34:17Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-13T14:34:17Z INFO: running command: docker run --rm --name smart-lms-nightly-20260713223417 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260713T143418681608Z_edd68100",
+  "status": "failed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [
+    "online_prediction"
+  ],
+  "duration_sec": 13.161,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-13T14:34:32Z ERROR: run_nightly failed at line 248 with exit code 1
+2026-07-13T14:35:41Z INFO: nightly pipeline starting
+2026-07-13T14:35:41Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-13T14:35:41Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-13T14:35:41Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-13T14:35:41Z INFO: running command: docker run --rm --name smart-lms-nightly-20260713223541 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260713T143541619303Z_afde86a9",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 13.055,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-13T14:35:54Z INFO: nightly pipeline finished successfully in 13s
+2026-07-13T14:45:10Z INFO: nightly pipeline starting
+2026-07-13T14:45:10Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-13T14:45:10Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-13T14:45:10Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-13T14:45:10Z INFO: running command: docker run --rm --name smart-lms-nightly-20260713224510 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260713T144511111623Z_b281aa49",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 13.427,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-13T14:45:24Z INFO: nightly pipeline finished successfully in 14s
+2026-07-13T17:30:02Z INFO: nightly pipeline starting
+2026-07-13T17:30:02Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-13T17:30:02Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-13T17:30:02Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-13T17:30:02Z INFO: running command: docker run --rm --name smart-lms-nightly-20260714013002 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260713T173003081033Z_43b07a5c",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 16.273,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-13T17:30:20Z INFO: nightly pipeline finished successfully in 18s
+2026-07-14T05:04:36Z INFO: nightly pipeline starting
+2026-07-14T05:04:36Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-14T05:04:36Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-14T05:04:36Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-14T05:04:36Z INFO: running command: docker run --rm --name smart-lms-nightly-20260714130436 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260714T050437294824Z_b20085e9",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 15.293,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-14T05:04:52Z INFO: nightly pipeline finished successfully in 16s
+2026-07-14T17:30:02Z INFO: nightly pipeline starting
+2026-07-14T17:30:02Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-14T17:30:03Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-14T17:30:03Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-14T17:30:03Z INFO: running command: docker run --rm --name smart-lms-nightly-20260715013003 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260714T173005396174Z_7eacc1f9",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 26.356,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-14T17:30:32Z INFO: nightly pipeline finished successfully in 29s
+2026-07-15T17:30:01Z INFO: nightly pipeline starting
+2026-07-15T17:30:01Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-15T17:30:01Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-15T17:30:01Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-15T17:30:01Z INFO: running command: docker run --rm --name smart-lms-nightly-20260716013001 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260715T173001880019Z_a4959472",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 14.306,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-15T17:30:16Z INFO: nightly pipeline finished successfully in 15s
+2026-07-16T17:30:02Z INFO: nightly pipeline starting
+2026-07-16T17:30:02Z INFO: project_root=/home/ft04/Smart-LMS-Dashboard-Moodle data_source=moodle reuse_staging=0 use_docker=1
+2026-07-16T17:30:02Z INFO: using existing docker image smart-lms-ml:nightly
+2026-07-16T17:30:02Z INFO: using docker env file /home/ft04/Smart-LMS-Dashboard-Moodle/.env
+2026-07-16T17:30:02Z INFO: running command: docker run --rm --name smart-lms-nightly-20260717013002 --network host -v /home/ft04/Smart-LMS-Dashboard-Moodle:/app -v /home/ft04/Smart-LMS-Dashboard-Moodle/logs:/app/logs -w /app --env-file /home/ft04/Smart-LMS-Dashboard-Moodle/.env smart-lms-ml:nightly python pipeline_runner.py --data-source moodle --strict-exit
+{
+  "run_id": "pipe_20260716T173004221519Z_06f8bf46",
+  "status": "completed",
+  "data_source": "moodle",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": true,
+  "stages": [
+    "etl",
+    "feature_engineering",
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 15.155,
+  "logs": {
+    "run_summary": "/app/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/app/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/app/logs/pipeline_runner_debug.log"
+  }
+}
+2026-07-16T17:30:20Z INFO: nightly pipeline finished successfully in 18s

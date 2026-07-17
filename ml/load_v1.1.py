@@ -1,4 +1,5 @@
 from sqlalchemy import text
+import pandas as pd
 
 def load_snapshot(df, table_name, engine):
     df.to_sql(
@@ -44,7 +45,11 @@ def upsert_table(df, table_name, engine, key_columns):
 
     with engine.begin() as conn:
         for _, row in df.iterrows():
-            conn.execute(query, row.to_dict())
+            payload = {
+                key: (None if pd.isna(value) else value)
+                for key, value in row.to_dict().items()
+            }
+            conn.execute(query, payload)
 
 def load_model_registry(df, table_name, engine):
     df.to_sql(
@@ -84,6 +89,39 @@ def load_prediction_result(df, engine):
             "ensemble_model_version"
         ]
     )
+
+
+def prune_stale_prediction_result(engine, target_snapshot_date, active_course_keys):
+    target_snapshot_date = str(target_snapshot_date).strip()
+    if target_snapshot_date == "":
+        return 0
+
+    with engine.begin() as conn:
+        if active_course_keys:
+            placeholders = []
+            params = {"target_snapshot_date": target_snapshot_date}
+            for idx, key in enumerate(active_course_keys):
+                param_name = f"course_key_{idx}"
+                placeholders.append(f":{param_name}")
+                params[param_name] = str(key)
+
+            query = text(
+                """
+                DELETE FROM prediction_result
+                 WHERE snapshot_date < :target_snapshot_date
+                   AND CAST(course_key AS CHAR) NOT IN (""" + ", ".join(placeholders) + ")"
+            )
+            result = conn.execute(query, params)
+            return int(result.rowcount or 0)
+
+        query = text(
+            """
+            DELETE FROM prediction_result
+             WHERE snapshot_date < :target_snapshot_date
+            """
+        )
+        result = conn.execute(query, {"target_snapshot_date": target_snapshot_date})
+        return int(result.rowcount or 0)
 
 def load_prediction_run(df, engine): 
     df.to_sql(

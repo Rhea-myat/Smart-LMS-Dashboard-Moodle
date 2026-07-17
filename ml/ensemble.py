@@ -1,6 +1,7 @@
 # ml/ensemble.py
 
 import numpy as np
+import pandas as pd
 
 def weighted_average(
     behaviour_prob,
@@ -41,14 +42,16 @@ def build_prediction_result(
 
     prediction_result = metadata.copy()
 
+    rounded_academic = [
+        None if pd.isna(value) else float(round(float(value), 2))
+        for value in np.asarray(academic_prob, dtype=float)
+    ]
+
     prediction_result["behaviour_probability"] = np.round(
         behaviour_prob,
         2
     ).astype(float)
-    prediction_result["academic_probability"] = np.round(
-        academic_prob,
-        2
-    ).astype(float)
+    prediction_result["academic_probability"] = rounded_academic
     prediction_result["final_risk_probability"] = np.round(
         final_prob,
         2

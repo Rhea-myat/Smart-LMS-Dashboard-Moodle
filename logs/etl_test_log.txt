@@ -2595,3 +2595,1085 @@ dtype: int64
 2026-07-07 12:06:37.137930: Loaded fact_activity_log | incoming=54514 inserted=4 skipped_existing=54510 skipped_batch_duplicates=0
 2026-07-07 12:06:37.138053: Loaded fact_result | incoming=6676 inserted=0 skipped_existing=6676 skipped_batch_duplicates=0
 2026-07-07 12:06:37.138184: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-07 13:44:14.675146: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-07 13:44:14.678248: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-07 13:44:14.681047: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-07 13:44:14.735481: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-07 13:44:14.738969: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-07 13:44:20.496865: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54514
+2026-07-07 13:44:20.533047: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=6676
+2026-07-07 13:44:20.566297: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-07 13:44:20.566378: Aligned keys for dim_student from moodle | incoming=1
+2026-07-07 13:44:20.566433: Aligned keys for dim_time from moodle | incoming=2
+2026-07-07 13:44:20.566483: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-07 13:44:20.566531: Aligned keys for dim_course from moodle | incoming=1
+2026-07-07 13:44:20.566578: Aligned keys for dim_event from moodle | incoming=3
+2026-07-07 13:44:20.566624: Aligned keys for dim_material from moodle | incoming=3
+2026-07-07 13:44:20.566670: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-07 13:44:20.566716: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-07 13:44:22.092366: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 13:44:22.092570: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-07 13:44:22.092705: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 13:44:22.092830: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 13:44:22.092947: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 13:44:22.093061: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 13:44:22.093174: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-07 13:44:22.093339: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-07 13:44:22.093460: Loaded fact_activity_log | incoming=54514 inserted=4 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-07 13:44:22.093573: Loaded fact_result | incoming=6676 inserted=0 skipped_existing=6676 skipped_batch_duplicates=0
+2026-07-07 13:44:22.093684: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-07 13:55:32.522590: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-07 13:55:32.526533: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-07 13:55:32.529644: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-07 13:55:32.583556: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-07 13:55:32.587025: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-07 13:55:38.252265: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54514
+2026-07-07 13:55:38.285879: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=6676
+2026-07-07 13:55:38.295316: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-07 13:55:38.295375: Aligned keys for dim_student from moodle | incoming=1
+2026-07-07 13:55:38.295415: Aligned keys for dim_time from moodle | incoming=2
+2026-07-07 13:55:38.295464: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-07 13:55:38.295497: Aligned keys for dim_course from moodle | incoming=1
+2026-07-07 13:55:38.295530: Aligned keys for dim_event from moodle | incoming=3
+2026-07-07 13:55:38.295562: Aligned keys for dim_material from moodle | incoming=3
+2026-07-07 13:55:38.295593: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-07 13:55:38.295624: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-07 13:55:39.835471: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 13:55:39.835548: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-07 13:55:39.835591: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 13:55:39.835630: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 13:55:39.835667: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 13:55:39.835704: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 13:55:39.835762: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-07 13:55:39.835818: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-07 13:55:39.835868: Loaded fact_activity_log | incoming=54514 inserted=4 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-07 13:55:39.835918: Loaded fact_result | incoming=6676 inserted=0 skipped_existing=6676 skipped_batch_duplicates=0
+2026-07-07 13:55:39.835967: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-07 14:05:27.102554: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-07 14:05:27.106343: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-07 14:05:27.110204: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-07 14:05:27.162836: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-07 14:05:27.166482: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-07 14:05:32.884978: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54514
+2026-07-07 14:05:32.920434: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=6676
+2026-07-07 14:05:32.929774: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-07 14:05:32.929833: Aligned keys for dim_student from moodle | incoming=1
+2026-07-07 14:05:32.929873: Aligned keys for dim_time from moodle | incoming=2
+2026-07-07 14:05:32.929910: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-07 14:05:32.929946: Aligned keys for dim_course from moodle | incoming=1
+2026-07-07 14:05:32.929989: Aligned keys for dim_event from moodle | incoming=3
+2026-07-07 14:05:32.930023: Aligned keys for dim_material from moodle | incoming=3
+2026-07-07 14:05:32.930057: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-07 14:05:32.930091: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-07 14:05:34.479613: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:05:34.479824: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-07 14:05:34.479959: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:05:34.480081: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:05:34.480197: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 14:05:34.480297: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 14:05:34.480396: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-07 14:05:34.480506: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-07 14:05:34.480605: Loaded fact_activity_log | incoming=54514 inserted=4 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-07 14:05:34.480703: Loaded fact_result | incoming=6676 inserted=0 skipped_existing=6676 skipped_batch_duplicates=0
+2026-07-07 14:05:34.480801: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-07 14:47:20.761485: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-07 14:47:20.767433: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-07 14:47:20.771588: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-07 14:47:20.826881: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-07 14:47:20.830637: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-07 14:47:26.670633: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54514
+2026-07-07 14:47:26.706571: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=6676
+2026-07-07 14:47:26.716463: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-07 14:47:26.716522: Aligned keys for dim_student from moodle | incoming=1
+2026-07-07 14:47:26.716562: Aligned keys for dim_time from moodle | incoming=2
+2026-07-07 14:47:26.716599: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-07 14:47:26.716634: Aligned keys for dim_course from moodle | incoming=1
+2026-07-07 14:47:26.716668: Aligned keys for dim_event from moodle | incoming=3
+2026-07-07 14:47:26.716702: Aligned keys for dim_material from moodle | incoming=3
+2026-07-07 14:47:26.716735: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-07 14:47:26.716769: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-07 14:47:28.260456: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:47:28.260656: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-07 14:47:28.260790: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:47:28.260910: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:47:28.261023: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 14:47:28.261136: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 14:47:28.261287: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-07 14:47:28.261421: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-07 14:47:28.261557: Loaded fact_activity_log | incoming=54514 inserted=4 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-07 14:47:28.261666: Loaded fact_result | incoming=6676 inserted=0 skipped_existing=6676 skipped_batch_duplicates=0
+2026-07-07 14:47:28.261774: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-07 14:48:04.161068: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-07 14:48:04.164567: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-07 14:48:04.168115: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-07 14:48:04.220738: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-07 14:48:04.227982: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-07 14:48:09.974737: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54514
+2026-07-07 14:48:10.012425: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=6676
+2026-07-07 14:48:10.023282: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-07 14:48:10.023343: Aligned keys for dim_student from moodle | incoming=1
+2026-07-07 14:48:10.023382: Aligned keys for dim_time from moodle | incoming=2
+2026-07-07 14:48:10.023419: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-07 14:48:10.023454: Aligned keys for dim_course from moodle | incoming=1
+2026-07-07 14:48:10.023488: Aligned keys for dim_event from moodle | incoming=3
+2026-07-07 14:48:10.023522: Aligned keys for dim_material from moodle | incoming=3
+2026-07-07 14:48:10.023556: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-07 14:48:10.023589: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-07 14:48:11.602818: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:48:11.602906: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-07 14:48:11.602959: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:48:11.603005: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:48:11.603050: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 14:48:11.603094: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 14:48:11.603138: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-07 14:48:11.603192: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-07 14:48:11.603237: Loaded fact_activity_log | incoming=54514 inserted=4 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-07 14:48:11.603280: Loaded fact_result | incoming=6676 inserted=0 skipped_existing=6676 skipped_batch_duplicates=0
+2026-07-07 14:48:11.603323: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-07 14:49:54.285974: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-07 14:49:54.289720: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-07 14:49:54.293215: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-07 14:49:54.346329: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-07 14:49:54.349927: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-07 14:50:00.039956: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54514
+2026-07-07 14:50:00.076504: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=6676
+2026-07-07 14:50:00.085962: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-07 14:50:00.086029: Aligned keys for dim_student from moodle | incoming=1
+2026-07-07 14:50:00.086068: Aligned keys for dim_time from moodle | incoming=2
+2026-07-07 14:50:00.086104: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-07 14:50:00.086138: Aligned keys for dim_course from moodle | incoming=1
+2026-07-07 14:50:00.086172: Aligned keys for dim_event from moodle | incoming=3
+2026-07-07 14:50:00.086206: Aligned keys for dim_material from moodle | incoming=3
+2026-07-07 14:50:00.086238: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-07 14:50:00.086271: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-07 14:50:01.638892: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:50:01.638988: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-07 14:50:01.639045: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:50:01.639095: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:50:01.639143: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 14:50:01.639191: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 14:50:01.639238: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-07 14:50:01.639303: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-07 14:50:01.639352: Loaded fact_activity_log | incoming=54514 inserted=4 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-07 14:50:01.639399: Loaded fact_result | incoming=6676 inserted=0 skipped_existing=6676 skipped_batch_duplicates=0
+2026-07-07 14:50:01.639445: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-07 14:51:40.216143: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-07 14:51:40.220143: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-07 14:51:40.223990: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-07 14:51:40.278064: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-07 14:51:40.281798: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-07 14:51:46.076959: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54514
+2026-07-07 14:51:46.115568: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=6676
+2026-07-07 14:51:46.126494: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-07 14:51:46.126563: Aligned keys for dim_student from moodle | incoming=1
+2026-07-07 14:51:46.126610: Aligned keys for dim_time from moodle | incoming=2
+2026-07-07 14:51:46.126652: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-07 14:51:46.126693: Aligned keys for dim_course from moodle | incoming=1
+2026-07-07 14:51:46.126733: Aligned keys for dim_event from moodle | incoming=3
+2026-07-07 14:51:46.126774: Aligned keys for dim_material from moodle | incoming=3
+2026-07-07 14:51:46.126814: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-07 14:51:46.126854: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-07 14:51:47.681066: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:51:47.681336: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-07 14:51:47.681487: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:51:47.681617: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 14:51:47.681778: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 14:51:47.681896: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 14:51:47.682011: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-07 14:51:47.682138: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-07 14:51:47.682269: Loaded fact_activity_log | incoming=54514 inserted=4 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-07 14:51:47.682377: Loaded fact_result | incoming=6676 inserted=0 skipped_existing=6676 skipped_batch_duplicates=0
+2026-07-07 14:51:47.682486: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-07 17:30:02.624144: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-07 17:30:02.627428: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-07 17:30:02.630667: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-07 17:30:02.683146: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-07 17:30:02.686805: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-07 17:30:08.349416: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54514
+2026-07-07 17:30:08.383810: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=6676
+2026-07-07 17:30:08.393274: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-07 17:30:08.393336: Aligned keys for dim_student from moodle | incoming=1
+2026-07-07 17:30:08.393377: Aligned keys for dim_time from moodle | incoming=2
+2026-07-07 17:30:08.393414: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-07 17:30:08.393450: Aligned keys for dim_course from moodle | incoming=1
+2026-07-07 17:30:08.393486: Aligned keys for dim_event from moodle | incoming=3
+2026-07-07 17:30:08.393521: Aligned keys for dim_material from moodle | incoming=3
+2026-07-07 17:30:08.393556: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-07 17:30:08.393591: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-07 17:30:09.904093: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 17:30:09.904203: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-07 17:30:09.904268: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 17:30:09.904327: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-07 17:30:09.904383: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 17:30:09.904438: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-07 17:30:09.904507: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-07 17:30:09.904569: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-07 17:30:09.904623: Loaded fact_activity_log | incoming=54514 inserted=4 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-07 17:30:09.904676: Loaded fact_result | incoming=6676 inserted=0 skipped_existing=6676 skipped_batch_duplicates=0
+2026-07-07 17:30:09.904728: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-08 17:30:02.954204: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-08 17:30:02.959083: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-08 17:30:02.962809: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-08 17:30:03.017688: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-08 17:30:03.021103: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-08 17:30:08.582522: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54514
+2026-07-08 17:30:08.616204: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=6676
+2026-07-08 17:30:08.625419: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-08 17:30:08.625475: Aligned keys for dim_student from moodle | incoming=1
+2026-07-08 17:30:08.625512: Aligned keys for dim_time from moodle | incoming=2
+2026-07-08 17:30:08.625546: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-08 17:30:08.625579: Aligned keys for dim_course from moodle | incoming=1
+2026-07-08 17:30:08.625610: Aligned keys for dim_event from moodle | incoming=3
+2026-07-08 17:30:08.625642: Aligned keys for dim_material from moodle | incoming=3
+2026-07-08 17:30:08.625674: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-08 17:30:08.625706: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-08 17:30:10.167219: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-08 17:30:10.167313: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-08 17:30:10.167368: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-08 17:30:10.167415: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-08 17:30:10.167460: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-08 17:30:10.167505: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-08 17:30:10.167548: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-08 17:30:10.167597: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-08 17:30:10.167642: Loaded fact_activity_log | incoming=54514 inserted=4 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-08 17:30:10.167688: Loaded fact_result | incoming=6676 inserted=0 skipped_existing=6676 skipped_batch_duplicates=0
+2026-07-08 17:30:10.167733: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-09 22:52:28.832959: Starting ETL tests.
+2026-07-09 22:52:33.654962: Moodle logs loaded: 54812 rows
+2026-07-09 22:52:33.655085: Results data loaded: 236 rows
+2026-07-09 22:52:33.675892: Missing values in logs: 54812 total
+2026-07-09 22:52:33.676379: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-07-09 22:52:33.677139: Missing values in results: 853 total
+2026-07-09 22:52:33.677628: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-07-09 22:52:33.784754: Duplicate check completed for logs: 304 duplicates
+2026-07-09 22:52:33.790348: Duplicate check completed for results: 0 duplicates
+2026-07-09 22:52:33.891730: Matched students: 168
+2026-07-09 22:52:33.891831: Log-only students: 1
+2026-07-09 22:52:33.891874: Result-only students: 2
+2026-07-09 22:53:41.417433: Starting ETL tests.
+2026-07-09 22:53:46.266332: Moodle logs loaded: 54812 rows
+2026-07-09 22:53:46.266452: Results data loaded: 236 rows
+2026-07-09 22:53:46.289164: Missing values in logs: 54812 total
+2026-07-09 22:53:46.289800: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-07-09 22:53:46.290779: Missing values in results: 853 total
+2026-07-09 22:53:46.291326: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-07-09 22:53:46.401657: Duplicate check completed for logs: 304 duplicates
+2026-07-09 22:53:46.407051: Duplicate check completed for results: 0 duplicates
+2026-07-09 22:53:46.507615: Matched students: 168
+2026-07-09 22:53:46.507714: Log-only students: 1
+2026-07-09 22:53:46.507763: Result-only students: 2
+2026-07-09 22:53:54.187146: Extracted courses from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+2026-07-09 22:53:54.190890: Extracted students from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+2026-07-09 22:53:54.194795: Extracted enrolments from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+2026-07-09 22:53:54.250755: Extracted logs from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+2026-07-09 22:53:54.254792: Extracted grades from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+2026-07-09 22:54:00.910589: Upserted fact_activity_log from moodle | incoming=2 added=2 skipped_duplicates=0 total=54510
+2026-07-09 22:54:00.933755: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-09 22:54:00.977787: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-09 22:54:00.977898: Aligned keys for dim_student from moodle | incoming=1
+2026-07-09 22:54:00.977953: Aligned keys for dim_time from moodle | incoming=2
+2026-07-09 22:54:00.978002: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-09 22:54:00.978049: Aligned keys for dim_course from moodle | incoming=1
+2026-07-09 22:54:00.978094: Aligned keys for dim_event from moodle | incoming=3
+2026-07-09 22:54:00.978139: Aligned keys for dim_material from moodle | incoming=3
+2026-07-09 22:54:00.978184: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-09 22:54:00.978229: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-09 22:54:06.101690: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:54:06.102029: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-09 22:54:06.102210: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:54:06.102342: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:54:06.102505: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 22:54:06.102654: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 22:54:06.102796: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 22:54:06.102937: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-09 22:54:06.103148: Loaded fact_activity_log | incoming=54510 inserted=0 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-09 22:54:06.103309: Loaded fact_result | incoming=3060 inserted=3060 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 22:54:06.103452: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-09 22:54:58.512277: Extracted courses from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+2026-07-09 22:54:58.516348: Extracted students from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+2026-07-09 22:54:58.520453: Extracted enrolments from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+2026-07-09 22:54:58.577134: Extracted logs from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+2026-07-09 22:54:58.581240: Extracted grades from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+2026-07-09 22:55:05.747146: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54510
+2026-07-09 22:55:05.767845: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-09 22:55:05.781415: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-09 22:55:05.781504: Aligned keys for dim_student from moodle | incoming=1
+2026-07-09 22:55:05.781555: Aligned keys for dim_time from moodle | incoming=2
+2026-07-09 22:55:05.781601: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-09 22:55:05.781646: Aligned keys for dim_course from moodle | incoming=1
+2026-07-09 22:55:05.781689: Aligned keys for dim_event from moodle | incoming=3
+2026-07-09 22:55:05.781740: Aligned keys for dim_material from moodle | incoming=3
+2026-07-09 22:55:05.781777: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-09 22:55:05.781813: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-09 22:55:07.460676: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:55:07.460937: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-09 22:55:07.461495: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:55:07.461758: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:55:07.461935: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 22:55:07.462085: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 22:55:07.462229: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 22:55:07.462375: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-09 22:55:07.462520: Loaded fact_activity_log | incoming=54510 inserted=0 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-09 22:55:07.462665: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-09 22:55:07.462810: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-09 22:55:27.274208: Starting ETL tests.
+2026-07-09 22:55:31.999913: Moodle logs loaded: 54812 rows
+2026-07-09 22:55:32.000030: Results data loaded: 236 rows
+2026-07-09 22:55:32.021608: Missing values in logs: 54812 total
+2026-07-09 22:55:32.022151: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-07-09 22:55:32.023072: Missing values in results: 853 total
+2026-07-09 22:55:32.023514: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-07-09 22:55:32.138332: Duplicate check completed for logs: 304 duplicates
+2026-07-09 22:55:32.143736: Duplicate check completed for results: 0 duplicates
+2026-07-09 22:55:32.243064: Matched students: 168
+2026-07-09 22:55:32.243219: Log-only students: 1
+2026-07-09 22:55:32.243296: Result-only students: 2
+2026-07-09 22:55:39.479544: Extracted courses from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+2026-07-09 22:55:39.482711: Extracted students from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+2026-07-09 22:55:39.485779: Extracted enrolments from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+2026-07-09 22:55:39.621376: Extracted logs from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+2026-07-09 22:55:39.625099: Extracted grades from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+2026-07-09 22:55:46.177900: Upserted fact_activity_log from moodle | incoming=2 added=2 skipped_duplicates=0 total=54510
+2026-07-09 22:55:46.200755: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-09 22:55:46.213991: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-09 22:55:46.214114: Aligned keys for dim_student from moodle | incoming=1
+2026-07-09 22:55:46.214204: Aligned keys for dim_time from moodle | incoming=2
+2026-07-09 22:55:46.214286: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-09 22:55:46.214366: Aligned keys for dim_course from moodle | incoming=1
+2026-07-09 22:55:46.214443: Aligned keys for dim_event from moodle | incoming=3
+2026-07-09 22:55:46.214522: Aligned keys for dim_material from moodle | incoming=3
+2026-07-09 22:55:46.214600: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-09 22:55:46.214707: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-09 22:55:51.309412: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:55:51.309514: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-09 22:55:51.309573: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:55:51.309618: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:55:51.309659: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 22:55:51.309699: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 22:55:51.309756: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 22:55:51.309796: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-09 22:55:51.309835: Loaded fact_activity_log | incoming=54510 inserted=0 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-09 22:55:51.309874: Loaded fact_result | incoming=3060 inserted=3060 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 22:55:51.309913: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-09 22:56:56.224210: Starting ETL tests.
+2026-07-09 22:57:01.048440: Moodle logs loaded: 54812 rows
+2026-07-09 22:57:01.048546: Results data loaded: 236 rows
+2026-07-09 22:57:01.069724: Missing values in logs: 54812 total
+2026-07-09 22:57:01.070228: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-07-09 22:57:01.070979: Missing values in results: 853 total
+2026-07-09 22:57:01.071469: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-07-09 22:57:01.181318: Duplicate check completed for logs: 304 duplicates
+2026-07-09 22:57:01.186615: Duplicate check completed for results: 0 duplicates
+2026-07-09 22:57:01.288177: Matched students: 168
+2026-07-09 22:57:01.288269: Log-only students: 1
+2026-07-09 22:57:01.288313: Result-only students: 2
+2026-07-09 22:57:08.625561: Extracted courses from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+2026-07-09 22:57:08.629546: Extracted students from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+2026-07-09 22:57:08.633510: Extracted enrolments from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+2026-07-09 22:57:08.686995: Extracted logs from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+2026-07-09 22:57:08.690799: Extracted grades from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+2026-07-09 22:57:15.325875: Upserted fact_activity_log from moodle | incoming=2 added=2 skipped_duplicates=0 total=54510
+2026-07-09 22:57:15.346637: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-09 22:57:15.360272: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-09 22:57:15.360406: Aligned keys for dim_student from moodle | incoming=1
+2026-07-09 22:57:15.360506: Aligned keys for dim_time from moodle | incoming=2
+2026-07-09 22:57:15.360597: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-09 22:57:15.360686: Aligned keys for dim_course from moodle | incoming=1
+2026-07-09 22:57:15.360773: Aligned keys for dim_event from moodle | incoming=3
+2026-07-09 22:57:15.360860: Aligned keys for dim_material from moodle | incoming=3
+2026-07-09 22:57:15.360947: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-09 22:57:15.361019: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-09 22:57:20.782002: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:57:20.782278: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-09 22:57:20.782443: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:57:20.782592: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:57:20.782734: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 22:57:20.782869: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 22:57:20.783006: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 22:57:20.783141: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-09 22:57:20.783276: Loaded fact_activity_log | incoming=54510 inserted=0 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-09 22:57:20.783400: Loaded fact_result | incoming=3060 inserted=3060 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 22:57:20.783536: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-09 22:58:18.467433: Extracted courses from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+2026-07-09 22:58:18.471351: Extracted students from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+2026-07-09 22:58:18.475429: Extracted enrolments from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+2026-07-09 22:58:18.531483: Extracted logs from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+2026-07-09 22:58:18.535529: Extracted grades from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+2026-07-09 22:58:25.081507: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54510
+2026-07-09 22:58:25.101912: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-09 22:58:25.114407: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-09 22:58:25.114483: Aligned keys for dim_student from moodle | incoming=1
+2026-07-09 22:58:25.114528: Aligned keys for dim_time from moodle | incoming=2
+2026-07-09 22:58:25.114584: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-09 22:58:25.114623: Aligned keys for dim_course from moodle | incoming=1
+2026-07-09 22:58:25.114671: Aligned keys for dim_event from moodle | incoming=3
+2026-07-09 22:58:25.114718: Aligned keys for dim_material from moodle | incoming=3
+2026-07-09 22:58:25.114765: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-09 22:58:25.114815: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-09 22:58:26.774919: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:58:26.775291: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-09 22:58:26.775516: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:58:26.775709: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 22:58:26.775892: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 22:58:26.776073: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 22:58:26.776251: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 22:58:26.776426: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-09 22:58:26.776604: Loaded fact_activity_log | incoming=54510 inserted=0 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-09 22:58:26.776810: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-09 22:58:26.776990: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-09 15:02:25.222065: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-09 15:02:25.225200: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-09 15:02:25.228308: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-09 15:02:25.286576: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-09 15:02:25.289943: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-09 15:02:31.242539: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54510
+2026-07-09 15:02:31.265580: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-09 15:02:31.277303: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-09 15:02:31.277406: Aligned keys for dim_student from moodle | incoming=1
+2026-07-09 15:02:31.277464: Aligned keys for dim_time from moodle | incoming=2
+2026-07-09 15:02:31.277518: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-09 15:02:31.277563: Aligned keys for dim_course from moodle | incoming=1
+2026-07-09 15:02:31.277604: Aligned keys for dim_event from moodle | incoming=3
+2026-07-09 15:02:31.277645: Aligned keys for dim_material from moodle | incoming=3
+2026-07-09 15:02:31.277686: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-09 15:02:31.277726: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-09 15:02:32.966985: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 15:02:32.967232: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-09 15:02:32.967370: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 15:02:32.967492: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 15:02:32.967608: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 15:02:32.967722: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 15:02:32.967857: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 15:02:32.968003: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-09 15:02:32.968143: Loaded fact_activity_log | incoming=54510 inserted=0 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-09 15:02:32.968259: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-09 15:02:32.968374: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-09 23:11:59.617531: Extracted courses from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+2026-07-09 23:11:59.620955: Extracted students from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+2026-07-09 23:11:59.624213: Extracted enrolments from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+2026-07-09 23:11:59.699714: Extracted logs from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+2026-07-09 23:11:59.704325: Extracted grades from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+2026-07-09 23:12:06.564545: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54510
+2026-07-09 23:12:06.585651: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-09 23:12:06.599577: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-09 23:12:06.599662: Aligned keys for dim_student from moodle | incoming=1
+2026-07-09 23:12:06.599714: Aligned keys for dim_time from moodle | incoming=2
+2026-07-09 23:12:06.599760: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-09 23:12:06.599804: Aligned keys for dim_course from moodle | incoming=1
+2026-07-09 23:12:06.599848: Aligned keys for dim_event from moodle | incoming=3
+2026-07-09 23:12:06.599891: Aligned keys for dim_material from moodle | incoming=3
+2026-07-09 23:12:06.599933: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-09 23:12:06.599976: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-09 23:12:08.402003: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 23:12:08.402203: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-09 23:12:08.402302: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 23:12:08.402395: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 23:12:08.402476: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 23:12:08.402555: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 23:12:08.402633: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 23:12:08.402715: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-09 23:12:08.402798: Loaded fact_activity_log | incoming=54510 inserted=0 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-09 23:12:08.402880: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-09 23:12:08.402962: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-09 17:30:02.720295: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-09 17:30:02.725051: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-09 17:30:02.729094: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-09 17:30:02.786701: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-09 17:30:02.790733: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-09 17:30:08.681321: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54510
+2026-07-09 17:30:08.703128: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-09 17:30:08.713717: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-09 17:30:08.713787: Aligned keys for dim_student from moodle | incoming=1
+2026-07-09 17:30:08.713835: Aligned keys for dim_time from moodle | incoming=2
+2026-07-09 17:30:08.713878: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-09 17:30:08.713920: Aligned keys for dim_course from moodle | incoming=1
+2026-07-09 17:30:08.713961: Aligned keys for dim_event from moodle | incoming=3
+2026-07-09 17:30:08.714002: Aligned keys for dim_material from moodle | incoming=3
+2026-07-09 17:30:08.714042: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-09 17:30:08.714081: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-09 17:30:10.335226: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 17:30:10.335308: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-09 17:30:10.335358: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 17:30:10.335405: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-09 17:30:10.335464: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 17:30:10.335508: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-09 17:30:10.335550: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-09 17:30:10.335610: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-09 17:30:10.335651: Loaded fact_activity_log | incoming=54510 inserted=0 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-09 17:30:10.335689: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-09 17:30:10.335726: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-10 17:30:02.447719: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-10 17:30:02.451267: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-10 17:30:02.454592: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-10 17:30:02.524672: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-10 17:30:02.528421: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-10 17:30:08.321378: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54510
+2026-07-10 17:30:08.343854: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-10 17:30:08.354968: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-10 17:30:08.355039: Aligned keys for dim_student from moodle | incoming=1
+2026-07-10 17:30:08.355090: Aligned keys for dim_time from moodle | incoming=2
+2026-07-10 17:30:08.355135: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-10 17:30:08.355179: Aligned keys for dim_course from moodle | incoming=1
+2026-07-10 17:30:08.355222: Aligned keys for dim_event from moodle | incoming=3
+2026-07-10 17:30:08.355264: Aligned keys for dim_material from moodle | incoming=3
+2026-07-10 17:30:08.355306: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-10 17:30:08.355347: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-10 17:30:09.976367: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-10 17:30:09.976472: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-10 17:30:09.976537: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-10 17:30:09.976596: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-10 17:30:09.976651: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-10 17:30:09.976706: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-10 17:30:09.976759: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-10 17:30:09.976819: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-10 17:30:09.976873: Loaded fact_activity_log | incoming=54510 inserted=0 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-10 17:30:09.976927: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-10 17:30:09.976980: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-11 17:30:02.430878: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-11 17:30:02.436194: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-11 17:30:02.439560: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-11 17:30:02.496738: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-11 17:30:02.500542: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-11 17:30:08.138581: Upserted fact_activity_log from moodle | incoming=2 added=0 skipped_duplicates=2 total=54510
+2026-07-11 17:30:08.157534: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-11 17:30:08.167522: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-11 17:30:08.167602: Aligned keys for dim_student from moodle | incoming=1
+2026-07-11 17:30:08.167649: Aligned keys for dim_time from moodle | incoming=2
+2026-07-11 17:30:08.167691: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-11 17:30:08.167731: Aligned keys for dim_course from moodle | incoming=1
+2026-07-11 17:30:08.167771: Aligned keys for dim_event from moodle | incoming=3
+2026-07-11 17:30:08.167811: Aligned keys for dim_material from moodle | incoming=3
+2026-07-11 17:30:08.167849: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-11 17:30:08.167889: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-11 17:30:09.951770: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-11 17:30:09.951844: Loaded dim_time | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-11 17:30:09.951886: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-11 17:30:09.951923: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-11 17:30:09.951959: Loaded dim_event | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-11 17:30:09.951993: Loaded dim_material | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-11 17:30:09.952028: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-11 17:30:09.952066: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-11 17:30:09.952100: Loaded fact_activity_log | incoming=54510 inserted=0 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-11 17:30:09.952133: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-11 17:30:09.952166: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-12 17:30:04.976967: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-12 17:30:04.982564: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-12 17:30:04.985737: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-12 17:30:05.052949: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-12 17:30:05.056122: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-12 17:30:10.859115: Upserted fact_activity_log from moodle | incoming=3 added=1 skipped_duplicates=2 total=54511
+2026-07-12 17:30:10.884648: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-12 17:30:10.894495: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-12 17:30:10.894563: Aligned keys for dim_student from moodle | incoming=1
+2026-07-12 17:30:10.894611: Aligned keys for dim_time from moodle | incoming=17
+2026-07-12 17:30:10.894655: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-12 17:30:10.894698: Aligned keys for dim_course from moodle | incoming=2
+2026-07-12 17:30:10.894739: Aligned keys for dim_event from moodle | incoming=11
+2026-07-12 17:30:10.894781: Aligned keys for dim_material from moodle | incoming=8
+2026-07-12 17:30:10.894821: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-12 17:30:10.894861: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-12 17:30:12.726840: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-12 17:30:12.726960: Loaded dim_time | incoming=17 inserted=15 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-12 17:30:12.727025: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-12 17:30:12.727083: Loaded dim_course | incoming=2 inserted=1 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-12 17:30:12.727138: Loaded dim_event | incoming=11 inserted=8 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-12 17:30:12.727192: Loaded dim_material | incoming=8 inserted=5 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-12 17:30:12.727246: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-12 17:30:12.727305: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-12 17:30:12.727359: Loaded fact_activity_log | incoming=54511 inserted=1 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-12 17:30:12.727412: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-12 17:30:12.727465: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-13 14:18:26.551384: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-13 14:18:26.554933: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-13 14:18:26.558166: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-13 14:18:26.636114: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-13 14:18:26.639888: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-13 14:18:32.310572: Upserted fact_activity_log from moodle | incoming=3 added=0 skipped_duplicates=3 total=54511
+2026-07-13 14:18:32.331893: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-13 14:18:32.342965: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-13 14:18:32.343034: Aligned keys for dim_student from moodle | incoming=1
+2026-07-13 14:18:32.343082: Aligned keys for dim_time from moodle | incoming=17
+2026-07-13 14:18:32.343127: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-13 14:18:32.343170: Aligned keys for dim_course from moodle | incoming=2
+2026-07-13 14:18:32.343239: Aligned keys for dim_event from moodle | incoming=11
+2026-07-13 14:18:32.343282: Aligned keys for dim_material from moodle | incoming=8
+2026-07-13 14:18:32.343325: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-13 14:18:32.343367: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-13 14:18:34.088389: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-13 14:18:34.088605: Loaded dim_time | incoming=17 inserted=0 skipped_existing=17 skipped_batch_duplicates=0
+2026-07-13 14:18:34.088746: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-13 14:18:34.088871: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-13 14:18:34.088989: Loaded dim_event | incoming=11 inserted=0 skipped_existing=11 skipped_batch_duplicates=0
+2026-07-13 14:18:34.089106: Loaded dim_material | incoming=8 inserted=0 skipped_existing=8 skipped_batch_duplicates=0
+2026-07-13 14:18:34.089222: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-13 14:18:34.089393: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-13 14:18:34.089516: Loaded fact_activity_log | incoming=54511 inserted=1 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-13 14:18:34.089631: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-13 14:18:34.089744: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-13 14:34:19.287700: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-13 14:34:19.290798: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-13 14:34:19.293776: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-13 14:34:19.373955: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-13 14:34:19.377807: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-13 14:34:25.076129: Upserted fact_activity_log from moodle | incoming=3 added=0 skipped_duplicates=3 total=54511
+2026-07-13 14:34:25.094342: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-13 14:34:25.103716: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-13 14:34:25.103794: Aligned keys for dim_student from moodle | incoming=1
+2026-07-13 14:34:25.103836: Aligned keys for dim_time from moodle | incoming=17
+2026-07-13 14:34:25.103873: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-13 14:34:25.103907: Aligned keys for dim_course from moodle | incoming=2
+2026-07-13 14:34:25.103940: Aligned keys for dim_event from moodle | incoming=11
+2026-07-13 14:34:25.103974: Aligned keys for dim_material from moodle | incoming=8
+2026-07-13 14:34:25.104008: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-13 14:34:25.104042: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-13 14:34:26.757049: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-13 14:34:26.757318: Loaded dim_time | incoming=17 inserted=0 skipped_existing=17 skipped_batch_duplicates=0
+2026-07-13 14:34:26.757575: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-13 14:34:26.757714: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-13 14:34:26.757831: Loaded dim_event | incoming=11 inserted=0 skipped_existing=11 skipped_batch_duplicates=0
+2026-07-13 14:34:26.757947: Loaded dim_material | incoming=8 inserted=0 skipped_existing=8 skipped_batch_duplicates=0
+2026-07-13 14:34:26.758060: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-13 14:34:26.758186: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-13 14:34:26.758299: Loaded fact_activity_log | incoming=54511 inserted=1 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-13 14:34:26.758411: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-13 14:34:26.758523: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-13 14:35:42.262944: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-13 14:35:42.267570: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-13 14:35:42.271918: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-13 14:35:42.336817: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-13 14:35:42.340451: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-13 14:35:47.920873: Upserted fact_activity_log from moodle | incoming=3 added=0 skipped_duplicates=3 total=54511
+2026-07-13 14:35:47.940256: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-13 14:35:47.950472: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-13 14:35:47.950540: Aligned keys for dim_student from moodle | incoming=1
+2026-07-13 14:35:47.950587: Aligned keys for dim_time from moodle | incoming=17
+2026-07-13 14:35:47.950649: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-13 14:35:47.950704: Aligned keys for dim_course from moodle | incoming=2
+2026-07-13 14:35:47.950736: Aligned keys for dim_event from moodle | incoming=11
+2026-07-13 14:35:47.950767: Aligned keys for dim_material from moodle | incoming=8
+2026-07-13 14:35:47.950798: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-13 14:35:47.950829: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-13 14:35:49.637799: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-13 14:35:49.637889: Loaded dim_time | incoming=17 inserted=0 skipped_existing=17 skipped_batch_duplicates=0
+2026-07-13 14:35:49.637943: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-13 14:35:49.637990: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-13 14:35:49.638035: Loaded dim_event | incoming=11 inserted=0 skipped_existing=11 skipped_batch_duplicates=0
+2026-07-13 14:35:49.638142: Loaded dim_material | incoming=8 inserted=0 skipped_existing=8 skipped_batch_duplicates=0
+2026-07-13 14:35:49.638193: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-13 14:35:49.638243: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-13 14:35:49.638288: Loaded fact_activity_log | incoming=54511 inserted=1 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-13 14:35:49.638331: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-13 14:35:49.638375: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-13 14:45:11.726361: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-13 14:45:11.730167: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-13 14:45:11.734021: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-13 14:45:11.802008: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-13 14:45:11.805658: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-13 14:45:17.647292: Upserted fact_activity_log from moodle | incoming=3 added=0 skipped_duplicates=3 total=54511
+2026-07-13 14:45:17.670108: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-13 14:45:17.681624: Upserted fact_enrolment from moodle | incoming=1 added=0 skipped_duplicates=1 total=345
+2026-07-13 14:45:17.681697: Aligned keys for dim_student from moodle | incoming=1
+2026-07-13 14:45:17.681757: Aligned keys for dim_time from moodle | incoming=17
+2026-07-13 14:45:17.681806: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-13 14:45:17.681852: Aligned keys for dim_course from moodle | incoming=2
+2026-07-13 14:45:17.681896: Aligned keys for dim_event from moodle | incoming=11
+2026-07-13 14:45:17.681941: Aligned keys for dim_material from moodle | incoming=8
+2026-07-13 14:45:17.681984: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-13 14:45:17.682027: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-13 14:45:19.628940: Loaded dim_student | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-13 14:45:19.629068: Loaded dim_time | incoming=17 inserted=0 skipped_existing=17 skipped_batch_duplicates=0
+2026-07-13 14:45:19.629149: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-13 14:45:19.629219: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-13 14:45:19.629314: Loaded dim_event | incoming=11 inserted=0 skipped_existing=11 skipped_batch_duplicates=0
+2026-07-13 14:45:19.629384: Loaded dim_material | incoming=8 inserted=0 skipped_existing=8 skipped_batch_duplicates=0
+2026-07-13 14:45:19.629450: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-13 14:45:19.629546: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-13 14:45:19.629613: Loaded fact_activity_log | incoming=54511 inserted=1 skipped_existing=54510 skipped_batch_duplicates=0
+2026-07-13 14:45:19.629678: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-13 14:45:19.629743: Loaded fact_enrolment | incoming=345 inserted=1 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-13 17:30:05.139116: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-13 17:30:05.144150: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-13 17:30:05.148151: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-13 17:30:05.218741: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-13 17:30:05.222560: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-13 17:30:11.187950: Upserted fact_activity_log from moodle | incoming=16 added=13 skipped_duplicates=3 total=54524
+2026-07-13 17:30:11.213242: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-13 17:30:11.227084: Upserted fact_enrolment from moodle | incoming=2 added=1 skipped_duplicates=1 total=346
+2026-07-13 17:30:11.227163: Aligned keys for dim_student from moodle | incoming=2
+2026-07-13 17:30:11.227214: Aligned keys for dim_time from moodle | incoming=42
+2026-07-13 17:30:11.227270: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-13 17:30:11.227320: Aligned keys for dim_course from moodle | incoming=2
+2026-07-13 17:30:11.227361: Aligned keys for dim_event from moodle | incoming=15
+2026-07-13 17:30:11.227432: Aligned keys for dim_material from moodle | incoming=11
+2026-07-13 17:30:11.227492: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-13 17:30:11.227572: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-13 17:30:13.192447: Loaded dim_student | incoming=2 inserted=1 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-13 17:30:13.192660: Loaded dim_time | incoming=42 inserted=25 skipped_existing=17 skipped_batch_duplicates=0
+2026-07-13 17:30:13.192797: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-13 17:30:13.192918: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-13 17:30:13.193033: Loaded dim_event | incoming=15 inserted=4 skipped_existing=11 skipped_batch_duplicates=0
+2026-07-13 17:30:13.193146: Loaded dim_material | incoming=11 inserted=3 skipped_existing=8 skipped_batch_duplicates=0
+2026-07-13 17:30:13.193314: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-13 17:30:13.193448: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-13 17:30:13.193562: Loaded fact_activity_log | incoming=54524 inserted=15 skipped_existing=54509 skipped_batch_duplicates=0
+2026-07-13 17:30:13.193673: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-13 17:30:13.193784: Loaded fact_enrolment | incoming=346 inserted=2 skipped_existing=344 skipped_batch_duplicates=0
+2026-07-14 05:04:39.313888: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-14 05:04:39.319338: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-14 05:04:39.322605: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-14 05:04:39.408016: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-14 05:04:39.411766: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-14 05:04:45.284912: Upserted fact_activity_log from moodle | incoming=16 added=0 skipped_duplicates=16 total=54524
+2026-07-14 05:04:45.305581: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-14 05:04:45.315869: Upserted fact_enrolment from moodle | incoming=2 added=0 skipped_duplicates=2 total=346
+2026-07-14 05:04:45.315935: Aligned keys for dim_student from moodle | incoming=2
+2026-07-14 05:04:45.315981: Aligned keys for dim_time from moodle | incoming=42
+2026-07-14 05:04:45.316023: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-14 05:04:45.316064: Aligned keys for dim_course from moodle | incoming=2
+2026-07-14 05:04:45.316105: Aligned keys for dim_event from moodle | incoming=15
+2026-07-14 05:04:45.316144: Aligned keys for dim_material from moodle | incoming=11
+2026-07-14 05:04:45.316183: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-14 05:04:45.316222: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-14 05:04:47.110902: Loaded dim_student | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-14 05:04:47.110981: Loaded dim_time | incoming=42 inserted=0 skipped_existing=42 skipped_batch_duplicates=0
+2026-07-14 05:04:47.111020: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-14 05:04:47.111055: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-14 05:04:47.111088: Loaded dim_event | incoming=15 inserted=0 skipped_existing=15 skipped_batch_duplicates=0
+2026-07-14 05:04:47.111120: Loaded dim_material | incoming=11 inserted=0 skipped_existing=11 skipped_batch_duplicates=0
+2026-07-14 05:04:47.111152: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-14 05:04:47.111187: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-14 05:04:47.111219: Loaded fact_activity_log | incoming=54524 inserted=0 skipped_existing=54524 skipped_batch_duplicates=0
+2026-07-14 05:04:47.111251: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-14 05:04:47.111282: Loaded fact_enrolment | incoming=346 inserted=0 skipped_existing=346 skipped_batch_duplicates=0
+2026-07-14 17:30:11.370315: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-14 17:30:11.380793: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-14 17:30:11.386919: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-14 17:30:11.468504: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-14 17:30:11.472675: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-14 17:30:17.601614: Upserted fact_activity_log from moodle | incoming=16 added=0 skipped_duplicates=16 total=54524
+2026-07-14 17:30:17.625985: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-14 17:30:17.639952: Upserted fact_enrolment from moodle | incoming=2 added=0 skipped_duplicates=2 total=346
+2026-07-14 17:30:17.640020: Aligned keys for dim_student from moodle | incoming=2
+2026-07-14 17:30:17.640068: Aligned keys for dim_time from moodle | incoming=42
+2026-07-14 17:30:17.640112: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-14 17:30:17.640153: Aligned keys for dim_course from moodle | incoming=2
+2026-07-14 17:30:17.640194: Aligned keys for dim_event from moodle | incoming=15
+2026-07-14 17:30:17.640235: Aligned keys for dim_material from moodle | incoming=11
+2026-07-14 17:30:17.640275: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-14 17:30:17.640315: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-14 17:30:20.570858: Loaded dim_student | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-14 17:30:20.570934: Loaded dim_time | incoming=42 inserted=0 skipped_existing=42 skipped_batch_duplicates=0
+2026-07-14 17:30:20.570975: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-14 17:30:20.571045: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-14 17:30:20.571080: Loaded dim_event | incoming=15 inserted=0 skipped_existing=15 skipped_batch_duplicates=0
+2026-07-14 17:30:20.571114: Loaded dim_material | incoming=11 inserted=0 skipped_existing=11 skipped_batch_duplicates=0
+2026-07-14 17:30:20.571147: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-14 17:30:20.571184: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-14 17:30:20.571217: Loaded fact_activity_log | incoming=54524 inserted=0 skipped_existing=54524 skipped_batch_duplicates=0
+2026-07-14 17:30:20.571250: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-14 17:30:20.571282: Loaded fact_enrolment | incoming=346 inserted=0 skipped_existing=346 skipped_batch_duplicates=0
+2026-07-15 17:30:02.579619: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-15 17:30:02.583638: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-15 17:30:02.587132: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-15 17:30:02.684554: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-15 17:30:02.689022: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-15 17:30:08.596842: Upserted fact_activity_log from moodle | incoming=16 added=0 skipped_duplicates=16 total=54524
+2026-07-15 17:30:08.621467: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-15 17:30:08.632338: Upserted fact_enrolment from moodle | incoming=2 added=0 skipped_duplicates=2 total=346
+2026-07-15 17:30:08.632408: Aligned keys for dim_student from moodle | incoming=2
+2026-07-15 17:30:08.632451: Aligned keys for dim_time from moodle | incoming=42
+2026-07-15 17:30:08.632489: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-15 17:30:08.632525: Aligned keys for dim_course from moodle | incoming=2
+2026-07-15 17:30:08.632560: Aligned keys for dim_event from moodle | incoming=15
+2026-07-15 17:30:08.632595: Aligned keys for dim_material from moodle | incoming=11
+2026-07-15 17:30:08.632629: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-15 17:30:08.632663: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-15 17:30:10.511127: Loaded dim_student | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-15 17:30:10.511219: Loaded dim_time | incoming=42 inserted=0 skipped_existing=42 skipped_batch_duplicates=0
+2026-07-15 17:30:10.511257: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-15 17:30:10.511290: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-15 17:30:10.511321: Loaded dim_event | incoming=15 inserted=0 skipped_existing=15 skipped_batch_duplicates=0
+2026-07-15 17:30:10.511351: Loaded dim_material | incoming=11 inserted=0 skipped_existing=11 skipped_batch_duplicates=0
+2026-07-15 17:30:10.511381: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-15 17:30:10.511415: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-15 17:30:10.511445: Loaded fact_activity_log | incoming=54524 inserted=0 skipped_existing=54524 skipped_batch_duplicates=0
+2026-07-15 17:30:10.511476: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-15 17:30:10.511534: Loaded fact_enrolment | incoming=346 inserted=0 skipped_existing=346 skipped_batch_duplicates=0
+2026-07-17 00:52:16.410614: Loaded courses from staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+2026-07-17 00:52:16.417770: Loaded students from staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+2026-07-17 00:52:16.422272: Loaded enrolments from staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+2026-07-17 00:52:16.440942: Loaded logs from staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+2026-07-17 00:52:16.446007: Loaded grades from staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+2026-07-17 00:52:23.095103: Upserted fact_activity_log from moodle | incoming=16 added=0 skipped_duplicates=16 total=54524
+2026-07-17 00:52:23.133321: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-17 00:52:23.153039: Upserted fact_enrolment from moodle | incoming=2 added=0 skipped_duplicates=2 total=346
+2026-07-17 00:52:23.153110: Aligned keys for dim_student from moodle | incoming=2
+2026-07-17 00:52:23.153170: Aligned keys for dim_time from moodle | incoming=42
+2026-07-17 00:52:23.153209: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-17 00:52:23.153259: Aligned keys for dim_course from moodle | incoming=2
+2026-07-17 00:52:23.153299: Aligned keys for dim_event from moodle | incoming=15
+2026-07-17 00:52:23.153334: Aligned keys for dim_material from moodle | incoming=11
+2026-07-17 00:52:23.153369: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-17 00:52:23.153404: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-17 00:52:25.029616: Loaded dim_student | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-17 00:52:25.029716: Loaded dim_time | incoming=42 inserted=0 skipped_existing=42 skipped_batch_duplicates=0
+2026-07-17 00:52:25.029770: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-17 00:52:25.029816: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-17 00:52:25.029861: Loaded dim_event | incoming=15 inserted=0 skipped_existing=15 skipped_batch_duplicates=0
+2026-07-17 00:52:25.029904: Loaded dim_material | incoming=11 inserted=0 skipped_existing=11 skipped_batch_duplicates=0
+2026-07-17 00:52:25.029946: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-17 00:52:25.029988: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-17 00:52:25.030030: Loaded fact_activity_log | incoming=54524 inserted=0 skipped_existing=54524 skipped_batch_duplicates=0
+2026-07-17 00:52:25.030072: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-17 00:52:25.030114: Loaded fact_enrolment | incoming=346 inserted=0 skipped_existing=346 skipped_batch_duplicates=0
+2026-07-17 00:58:19.988080: Starting ETL tests.
+2026-07-17 00:58:25.214817: Moodle logs loaded: 54812 rows
+2026-07-17 00:58:25.214898: Results data loaded: 236 rows
+2026-07-17 00:58:25.235502: Missing values in logs: 54812 total
+2026-07-17 00:58:25.235979: Missing values by column in logs:
+Time                  0
+User full name        0
+Username              0
+Affected user         0
+Event context         0
+Component             0
+Event name            0
+Description           0
+Origin                0
+IP Address        54812
+dtype: int64
+2026-07-17 00:58:25.236734: Missing values in results: 853 total
+2026-07-17 00:58:25.237128: Missing values by column in results:
+Person Id                     0
+Surname                       0
+Mark                          3
+Grade                         0
+Ass Ex 1                     21
+Ass Ex 2                     18
+Ass Ex 3                     33
+Ass Ex 4                     41
+Ass Ex 5                     43
+Ass Ex 6                     45
+Ass Ex 7                     52
+Ass Ex 8                     56
+Ass Ex 9                     67
+Ass Ex 10                    65
+Weekly Lab Quizzes / 100      0
+Assignment 1 / 100           17
+Delay (days)                170
+Ass 1 with Penalty /100       0
+Ass 2 /100                   25
+Delay (days).1              170
+Ass 2 with Penalty /100       0
+Exam/ 100                    27
+Total/ 100                    0
+Rounded Total/ 100            0
+Cal G                         0
+dtype: int64
+2026-07-17 00:58:25.343804: Duplicate check completed for logs: 304 duplicates
+2026-07-17 00:58:25.349535: Duplicate check completed for results: 0 duplicates
+2026-07-17 00:58:25.451864: Matched students: 168
+2026-07-17 00:58:25.451940: Log-only students: 1
+2026-07-17 00:58:25.452026: Result-only students: 2
+2026-07-17 01:02:45.334128: Extracted courses from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+2026-07-17 01:02:45.338265: Extracted students from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+2026-07-17 01:02:45.342611: Extracted enrolments from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+2026-07-17 01:02:45.423562: Extracted logs from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+2026-07-17 01:02:45.427476: Extracted grades from Moodle DB and staged to: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+2026-07-17 01:02:51.780622: Upserted fact_activity_log from moodle | incoming=25 added=9 skipped_duplicates=16 total=54533
+2026-07-17 01:02:51.803191: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-17 01:02:51.816689: Upserted fact_enrolment from moodle | incoming=3 added=1 skipped_duplicates=2 total=347
+2026-07-17 01:02:51.816765: Aligned keys for dim_student from moodle | incoming=3
+2026-07-17 01:02:51.816815: Aligned keys for dim_time from moodle | incoming=56
+2026-07-17 01:02:51.816859: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-17 01:02:51.816901: Aligned keys for dim_course from moodle | incoming=2
+2026-07-17 01:02:51.816942: Aligned keys for dim_event from moodle | incoming=19
+2026-07-17 01:02:51.816983: Aligned keys for dim_material from moodle | incoming=15
+2026-07-17 01:02:51.817024: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-17 01:02:51.817064: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-17 01:02:53.908007: Loaded dim_student | incoming=3 inserted=1 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-17 01:02:53.908113: Loaded dim_time | incoming=56 inserted=14 skipped_existing=42 skipped_batch_duplicates=0
+2026-07-17 01:02:53.908170: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-17 01:02:53.908223: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-17 01:02:53.908271: Loaded dim_event | incoming=19 inserted=4 skipped_existing=15 skipped_batch_duplicates=0
+2026-07-17 01:02:53.908319: Loaded dim_material | incoming=15 inserted=4 skipped_existing=11 skipped_batch_duplicates=0
+2026-07-17 01:02:53.908366: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-17 01:02:53.908412: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-17 01:02:53.908459: Loaded fact_activity_log | incoming=54533 inserted=9 skipped_existing=54524 skipped_batch_duplicates=0
+2026-07-17 01:02:53.908505: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-17 01:02:53.908551: Loaded fact_enrolment | incoming=347 inserted=1 skipped_existing=346 skipped_batch_duplicates=0
+2026-07-16 17:30:05.773010: Extracted courses from Moodle DB and staged to: /app/data/staging/courses.csv
+2026-07-16 17:30:05.776546: Extracted students from Moodle DB and staged to: /app/data/staging/students.csv
+2026-07-16 17:30:05.779965: Extracted enrolments from Moodle DB and staged to: /app/data/staging/enrolments.csv
+2026-07-16 17:30:05.866712: Extracted logs from Moodle DB and staged to: /app/data/staging/activity_logs.csv
+2026-07-16 17:30:05.870154: Extracted grades from Moodle DB and staged to: /app/data/staging/grades.csv
+2026-07-16 17:30:11.667182: Upserted fact_activity_log from moodle | incoming=25 added=0 skipped_duplicates=25 total=54533
+2026-07-16 17:30:11.688656: Upserted fact_result from moodle | incoming=0 added=0 skipped_duplicates=0 total=3060
+2026-07-16 17:30:11.699562: Upserted fact_enrolment from moodle | incoming=3 added=0 skipped_duplicates=3 total=347
+2026-07-16 17:30:11.699629: Aligned keys for dim_student from moodle | incoming=3
+2026-07-16 17:30:11.699676: Aligned keys for dim_time from moodle | incoming=56
+2026-07-16 17:30:11.699719: Aligned keys for dim_academic_period from moodle | incoming=1
+2026-07-16 17:30:11.699759: Aligned keys for dim_course from moodle | incoming=2
+2026-07-16 17:30:11.699799: Aligned keys for dim_event from moodle | incoming=19
+2026-07-16 17:30:11.699839: Aligned keys for dim_material from moodle | incoming=15
+2026-07-16 17:30:11.699878: Aligned keys for dim_assessment from moodle | incoming=0
+2026-07-16 17:30:11.699917: Aligned keys for dim_grade from moodle | incoming=22
+2026-07-16 17:30:13.774750: Loaded dim_student | incoming=3 inserted=0 skipped_existing=3 skipped_batch_duplicates=0
+2026-07-16 17:30:13.774832: Loaded dim_time | incoming=56 inserted=0 skipped_existing=56 skipped_batch_duplicates=0
+2026-07-16 17:30:13.774874: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-07-16 17:30:13.774920: Loaded dim_course | incoming=2 inserted=0 skipped_existing=2 skipped_batch_duplicates=0
+2026-07-16 17:30:13.774953: Loaded dim_event | incoming=19 inserted=0 skipped_existing=19 skipped_batch_duplicates=0
+2026-07-16 17:30:13.774986: Loaded dim_material | incoming=15 inserted=0 skipped_existing=15 skipped_batch_duplicates=0
+2026-07-16 17:30:13.775018: Loaded dim_assessment | incoming=0 inserted=0 skipped_existing=0 skipped_batch_duplicates=0
+2026-07-16 17:30:13.775053: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-07-16 17:30:13.775085: Loaded fact_activity_log | incoming=54533 inserted=0 skipped_existing=54533 skipped_batch_duplicates=0
+2026-07-16 17:30:13.775117: Loaded fact_result | incoming=3060 inserted=0 skipped_existing=3060 skipped_batch_duplicates=0
+2026-07-16 17:30:13.775149: Loaded fact_enrolment | incoming=347 inserted=0 skipped_existing=347 skipped_batch_duplicates=0

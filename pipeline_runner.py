@@ -7,6 +7,7 @@ import time
 import uuid
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import List
 
 
 def utc_now_iso():
@@ -42,7 +43,7 @@ def append_debug_line(debug_path: Path, line: str):
         f.write(line + "\n")
 
 
-def run_stage(stage_name: str, command: list[str], env: dict, cwd: Path, debug_log: Path):
+def run_stage(stage_name: str, command: List[str], env: dict, cwd: Path, debug_log: Path):
     started_at = utc_now_iso()
     start_ts = time.time()
 

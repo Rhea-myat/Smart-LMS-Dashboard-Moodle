@@ -15,15 +15,22 @@ event_key,event_name
 14,Submission removed.
 15,Unit module completion updated
 16,Comment deleted
-18,\core\event\user_profile_viewed
-19,\core\event\user_loggedin
-20,\core\event\dashboard_viewed
-21,\tool_usertours\event\tour_started
-22,\tool_usertours\event\tour_ended
-23,\core\event\course_category_viewed
-24,\core\event\mycourses_viewed
-25,\core\event\user_loggedout
-27,\core\event\email_failed
 17,\core\event\user_created
-26,\core\event\user_enrolment_created
-28,\core\event\role_assigned
+18,\core\event\user_enrolment_created
+19,\core\event\role_assigned
+20,\core\event\user_profile_viewed
+21,\core\event\user_loggedin
+22,\core\event\dashboard_viewed
+23,\tool_usertours\event\tour_started
+24,\tool_usertours\event\tour_ended
+25,\core\event\mycourses_viewed
+26,\core\event\course_viewed
+27,\core\event\user_loggedout
+28,\core\event\user_updated
+29,\mod_forum\event\course_module_viewed
+30,\gradereport_user\event\grade_report_viewed
+31,\core\event\user_list_viewed
+32,\core\event\notification_sent
+33,\mod_quiz\event\course_module_viewed
+34,\core\event\course_module_completion_updated
+35,\mod_resource\event\course_module_viewed

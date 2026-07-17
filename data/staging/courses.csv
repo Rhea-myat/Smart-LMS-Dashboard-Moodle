@@ -1,2 +1,3 @@
 id,fullname,shortname,idnumber,category,visible
 2,Demo Course 1,DC1,DEMO_1,1,1
+3,Demo Course 2,DC2,,1,1

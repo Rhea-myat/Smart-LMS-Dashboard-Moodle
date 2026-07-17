@@ -170,5 +170,6 @@ student_key,student_id,full_name,email
 169,15925041,Joy Surname041,15925041@student.murdoch.edu.au
 170,15925092,,
 171,15925165,,
-172,3,Student Test1,charlotte.ayemyat@gmail.com
-173,4,Student Test1,studenttest1@murdoch.edu.au
+172,4,Student Test1,studenttest1@murdoch.edu.au
+173,6,Student Test2,studenttest2@murdoch.edu.au
+174,7,Student Test3,studenttest3@murdoch.edu.au

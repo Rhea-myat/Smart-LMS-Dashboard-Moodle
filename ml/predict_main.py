@@ -2,7 +2,7 @@
 from pathlib import Path
 import importlib.util
 import pandas as pd
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 from ml.db import get_ml_engine
 from ml.predict import predict_ensemble
@@ -228,6 +228,14 @@ def main():
     )
 
     ml_engine = get_ml_engine()
+    active_course_keys = sorted(
+        behaviour_snapshot["course_key"].dropna().astype(str).str.strip().unique().tolist()
+    ) if "course_key" in behaviour_snapshot.columns else []
+    pruned_rows = load_v1_1.prune_stale_prediction_result(
+        ml_engine,
+        run_snapshot_date,
+        active_course_keys,
+    )
 
     load_v1_1.load_prediction_result(
         prediction_result,
@@ -270,7 +278,8 @@ def run_online_prediction():
         academic_snapshot,
     )
 
-    run_snapshot_date = pd.Timestamp.today().date().isoformat()
+    # Use local SGT/AWST date for snapshot labeling so 01:30 runs are not stamped as previous UTC day.
+    run_snapshot_date = datetime.now(timezone(timedelta(hours=8))).date().isoformat()
     behaviour_snapshot["snapshot_date"] = run_snapshot_date
     academic_snapshot["snapshot_date"] = run_snapshot_date
 
@@ -285,6 +294,14 @@ def run_online_prediction():
     _upsert_snapshot_csv(feature_store_dir / "academic_prediction_snapshot.csv", academic_snapshot, key_cols)
 
     ml_engine = get_ml_engine()
+    active_course_keys = sorted(
+        behaviour_snapshot["course_key"].dropna().astype(str).str.strip().unique().tolist()
+    ) if "course_key" in behaviour_snapshot.columns else []
+    pruned_rows = load_v1_1.prune_stale_prediction_result(
+        ml_engine,
+        run_snapshot_date,
+        active_course_keys,
+    )
 
     metadata_cols = [
         "student_key",
@@ -362,7 +379,10 @@ def run_online_prediction():
                 "rows_inserted": 0,
                 "prediction_store_path": str(prediction_store_dir / "prediction_result.csv"),
                 "model_dir": str(model_dir),
-                "message": "No unseen Moodle rows for target snapshot date; reused existing prediction_result rows.",
+                "message": (
+                    "No unseen Moodle rows for target snapshot date; reused existing prediction_result rows. "
+                    f"Pruned stale rows={pruned_rows}."
+                ),
             },
         )
 
@@ -403,7 +423,7 @@ def run_online_prediction():
             "rows_inserted": int(len(prediction_result)),
             "prediction_store_path": str(prediction_store_dir / "prediction_result.csv"),
             "model_dir": str(model_dir),
-            "message": "Prediction scored and upserted successfully.",
+            "message": f"Prediction scored and upserted successfully. Pruned stale rows={pruned_rows}.",
         },
     )
 

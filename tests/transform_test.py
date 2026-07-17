@@ -50,6 +50,7 @@ from etl.transform import (
     create_dim_student,
     create_dim_time,
     create_dim_academic_period,
+    parse_academic_period_from_label,
     create_dim_course_from_historical_logs,
     create_dim_event,
     create_dim_material,
@@ -60,7 +61,10 @@ from etl.transform import (
 )
 
 dim_time = create_dim_time(logs)
-dim_academic_period = create_dim_academic_period(dim_time)
+semester, academic_year = parse_academic_period_from_label(
+    (RAW_DIR / "ICT001 S1 2025 Logs RELEASED V1.0.xlsx").stem
+)
+dim_academic_period = create_dim_academic_period(semester, academic_year)
 dim_course, course_lookup = create_dim_course_from_historical_logs(logs)
 dim_event = create_dim_event(logs)
 dim_material = create_dim_material(logs)

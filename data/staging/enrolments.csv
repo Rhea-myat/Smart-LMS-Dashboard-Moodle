@@ -1,2 +1,4 @@
 user_enrolment_id,student_id,course_id,fullname,status,role
 3,4,2,Demo Course 1,0,student
+6,6,3,Demo Course 2,0,student
+7,7,3,Demo Course 2,0,student
