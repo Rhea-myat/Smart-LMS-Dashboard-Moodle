@@ -90,7 +90,6 @@ material_key,context,component,material_type
 90,Assignment: Submit the Assessed Exercise of Week 7 (Students enrolled in Online Flexible Model),File submissions,Assignment
 91,Assignment: Submit the Assessed Exercise of Week 6,System,Assignment
 92,Assignment: Submit the Assessed Exercise of Week 6,File submissions,Assignment
-93,user,core,Other
 94,user_enrolment,core,Other
 95,role,core,Other
 96,user_profile,core,Lecture Material
@@ -105,3 +104,8 @@ material_key,context,component,material_type
 105,course_module,mod_quiz,Quiz
 106,course_module_completion,core,Other
 107,course_module,mod_resource,Lecture Material
+108,attempt,mod_quiz,Quiz
+109,attempt_summary,mod_quiz,Quiz
+93,user,core,Other
+110,course_module,mod_assign,Assignment
+111,submission_status,mod_assign,Assignment

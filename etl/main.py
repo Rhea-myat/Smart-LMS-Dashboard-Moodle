@@ -263,6 +263,12 @@ def _reconcile_dimension_keys(tables, warehouse_root):
             incoming_df["semester"] = incoming_df["semester"].apply(_normalize_murdoch_semester)
             existing_df["semester"] = existing_df["semester"].apply(_normalize_murdoch_semester)
 
+        if dim_table == "dim_assessment" and "assessment_name" in incoming_df.columns:
+            incoming_df["assessment_name"] = incoming_df["assessment_name"].fillna("").astype(str).str.strip()
+            existing_df["assessment_name"] = existing_df["assessment_name"].fillna("").astype(str).str.strip()
+            incoming_df = incoming_df[incoming_df["assessment_name"] != ""].copy()
+            existing_df = existing_df[existing_df["assessment_name"] != ""].copy()
+
         existing_df[sk_col] = pd.to_numeric(existing_df[sk_col], errors="coerce").astype("Int64")
 
         helper_cols = []
@@ -365,6 +371,13 @@ def save_tables_to_local_csv(tables, source_name):
             continue
 
         csv_path = warehouse_root / f"{table_name}.csv"
+
+        if source_name == "moodle" and table_name == "fact_result" and csv_path.exists():
+            existing_fact = pd.read_csv(csv_path, keep_default_na=False)
+            if "source_system" in existing_fact.columns:
+                existing_fact["source_system"] = existing_fact["source_system"].fillna("").astype(str).str.strip()
+                existing_fact = existing_fact[existing_fact["source_system"].str.lower() != "moodle"]
+                existing_fact.to_csv(csv_path, index=False)
 
         merged_df, added_rows, skipped_duplicates, prepared_incoming_df = _upsert_csv_file(
             csv_path,

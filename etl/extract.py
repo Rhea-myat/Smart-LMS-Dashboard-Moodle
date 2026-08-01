@@ -156,11 +156,50 @@ def extract_moodle_grades(engine=None):
         gi.id AS itemid,
         gi.itemname,
         gi.itemtype,
+        gi.itemmodule,
+        gi.grademax,
+        CASE
+            WHEN gi.itemmodule = 'quiz' THEN q.timeclose
+            WHEN gi.itemmodule = 'assign' THEN a.duedate
+            ELSE NULL
+        END AS due_timestamp,
+        COALESCE(qa.has_finished_attempt, 0) AS has_finished_attempt,
+        COALESCE(asub.has_submission, 0) AS has_submission,
         gg.finalgrade,
         gg.timemodified
     FROM mdl_grade_grades gg
         JOIN mdl_grade_items gi
             ON gg.itemid=gi.id
+        LEFT JOIN mdl_quiz q
+            ON gi.itemmodule = 'quiz'
+            AND q.id = gi.iteminstance
+        LEFT JOIN mdl_assign a
+            ON gi.itemmodule = 'assign'
+            AND a.id = gi.iteminstance
+        LEFT JOIN (
+            SELECT
+                quiz,
+                userid,
+                MAX(CASE WHEN preview = 0 AND state = 'finished' THEN 1 ELSE 0 END) AS has_finished_attempt
+            FROM mdl_quiz_attempts
+            GROUP BY quiz, userid
+        ) qa
+            ON gi.itemmodule = 'quiz'
+            AND qa.quiz = gi.iteminstance
+            AND qa.userid = gg.userid
+        LEFT JOIN (
+            SELECT
+                assignment,
+                userid,
+                MAX(CASE WHEN status = 'submitted' THEN 1 ELSE 0 END) AS has_submission
+            FROM mdl_assign_submission
+            GROUP BY assignment, userid
+        ) asub
+            ON gi.itemmodule = 'assign'
+            AND asub.assignment = gi.iteminstance
+            AND asub.userid = gg.userid
+    WHERE gi.itemtype = 'mod'
+      AND gi.itemmodule IN ('quiz', 'assign')
     """
 
     return pd.read_sql(sql, engine)

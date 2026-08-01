@@ -218,6 +218,14 @@ def create_dim_assessment_from_moodle_grades(grades):
             "itemname": "assessment_name",
             "itemtype": "assessment_type"
         })
+
+        # Ensure every Moodle assessment has a stable, non-empty display label.
+        dim_assessment["assessment_name"] = dim_assessment["assessment_name"].fillna("").astype(str).str.strip()
+        missing_name_mask = dim_assessment["assessment_name"] == ""
+        if missing_name_mask.any():
+            dim_assessment.loc[missing_name_mask, "assessment_name"] = (
+                "Assessment " + dim_assessment.loc[missing_name_mask, "assessment_id"].astype(str)
+            )
     else:
         dim_assessment = grades[["itemname"]].drop_duplicates().copy()
         dim_assessment = dim_assessment.rename(columns={
@@ -229,6 +237,49 @@ def create_dim_assessment_from_moodle_grades(grades):
     dim_assessment.insert(0, "assessment_key", range(1, len(dim_assessment) + 1))
 
     return dim_assessment
+
+
+def normalize_moodle_assessment_scores(fact):
+    fact = fact.copy()
+    fact["assessment_score"] = pd.to_numeric(fact.get("finalgrade"), errors="coerce")
+
+    # Moodle module grades can use arbitrary scales (for example quiz out of 10).
+    # Convert to percentage before downstream pass/fail feature logic (>= 50).
+    if "grademax" in fact.columns:
+        grademax = pd.to_numeric(fact["grademax"], errors="coerce")
+        valid_scale_mask = fact["assessment_score"].notna() & grademax.notna() & (grademax > 0)
+        fact.loc[valid_scale_mask, "assessment_score"] = (
+            fact.loc[valid_scale_mask, "assessment_score"]
+            / grademax.loc[valid_scale_mask]
+            * 100.0
+        )
+
+    if "due_timestamp" not in fact.columns:
+        return fact
+
+    due_ts = pd.to_numeric(fact["due_timestamp"], errors="coerce")
+    now_ts = pd.Timestamp.utcnow().timestamp()
+    overdue_mask = due_ts.notna() & (due_ts > 0) & (due_ts <= now_ts)
+
+    itemtype = fact.get("itemtype", "").fillna("").astype(str).str.lower()
+    itemmodule = fact.get("itemmodule", "").fillna("").astype(str).str.lower()
+    has_finished_attempt = pd.to_numeric(fact.get("has_finished_attempt", 0), errors="coerce").fillna(0).astype(int)
+    has_submission = pd.to_numeric(fact.get("has_submission", 0), errors="coerce").fillna(0).astype(int)
+
+    no_submission_mask = (
+        ((itemmodule == "quiz") & (has_finished_attempt <= 0)) |
+        ((itemmodule == "assign") & (has_submission <= 0))
+    )
+
+    awaiting_to_zero_mask = (
+        fact["assessment_score"].isna()
+        & (itemtype == "mod")
+        & overdue_mask
+        & no_submission_mask
+    )
+
+    fact.loc[awaiting_to_zero_mask, "assessment_score"] = 0.0
+    return fact
 
 # 8. Grade Dimension - reference:  https://askmurdoch.custhelp.com/app/answers/detail/a_id/714
 
@@ -483,7 +534,7 @@ def create_fact_result(
     if is_moodle_long_format:
         fact = results.copy()
         original_count = len(fact)
-        fact["assessment_score"] = pd.to_numeric(fact["finalgrade"], errors="coerce")
+        fact = normalize_moodle_assessment_scores(fact)
 
         fact = fact.merge(
             dim_student[["student_key", "student_id"]],

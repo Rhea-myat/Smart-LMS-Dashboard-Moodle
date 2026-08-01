@@ -408,3 +408,15 @@ def cleanup_non_student_moodle_records(engine):
             WHERE enrolment_source = 'Moodle'
               AND (student_key IS NULL OR student_key NOT IN (SELECT student_key FROM dim_student))
         """))
+
+        # Rebuild Moodle assessment outcomes from the latest ETL snapshot each run.
+        conn.execute(text("""
+            DELETE FROM fact_result
+            WHERE source_system = 'Moodle'
+        """))
+
+        # Course-level placeholder assessment names should never persist.
+        conn.execute(text("""
+            DELETE FROM dim_assessment
+            WHERE TRIM(COALESCE(assessment_name, '')) = ''
+        """))

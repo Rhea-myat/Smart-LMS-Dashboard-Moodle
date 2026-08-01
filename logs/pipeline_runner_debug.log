@@ -781,3 +781,882 @@ https://scikit-learn.org/stable/model_persistence.html#security-maintainability-
 https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
   warnings.warn(
 2026-07-17T13:23:07.492816+00:00 | run_id=pipe_20260717T132304458861Z_1f0cdc6c | status=completed | duration_sec=3.034
+2026-07-17T17:30:08.328100+00:00 | run_id=pipe_20260717T173008327757Z_f06b07b3 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-17T17:30:23.935238+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=15.607
+2026-07-17T17:30:23.935238+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2275, 21)
+Grades: (2, 8)
+2026-07-17T17:30:27.265222+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=3.329
+2026-07-17T17:30:27.265222+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2072 latest_snapshot_date=2026-07-17 latest_activity_date=2026-07-17 academic_period_key_default=2
+2026-07-17T17:30:44.164126+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=16.898
+2026-07-17T17:30:44.164126+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-17T17:30:44.165021+00:00 | run_id=pipe_20260717T173008327757Z_f06b07b3 | status=completed | duration_sec=35.837
+2026-07-18T17:30:12.056476+00:00 | run_id=pipe_20260718T173012046322Z_355825a9 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-18T17:30:45.482280+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=33.425
+2026-07-18T17:30:45.482280+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2405, 21)
+Grades: (8, 12)
+2026-07-18T17:30:53.165954+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=7.683
+2026-07-18T17:30:53.165954+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2246 latest_snapshot_date=2026-07-18 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-18T17:31:06.488145+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=13.321
+2026-07-18T17:31:06.488145+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-18T17:31:06.489145+00:00 | run_id=pipe_20260718T173012046322Z_355825a9 | status=completed | duration_sec=54.433
+2026-07-19T05:24:11.861231+00:00 | run_id=pipe_20260719T052411861096Z_60083162 | status=started | stages=etl,feature_engineering
+2026-07-19T05:24:25.305266+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=13.444
+2026-07-19T05:24:25.305266+00:00 | stage=etl | stdout_tail=
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2420, 21)
+Grades: (8, 13)
+2026-07-19T05:24:25.305266+00:00 | stage=etl | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-19T05:24:30.730639+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=5.425
+2026-07-19T05:24:30.730639+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2420 latest_snapshot_date=2026-07-19 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-19T05:24:30.730639+00:00 | stage=feature_engineering | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-19T05:24:30.732131+00:00 | run_id=pipe_20260719T052411861096Z_60083162 | status=completed | duration_sec=18.871
+2026-07-19T05:28:08.404231+00:00 | run_id=pipe_20260719T052808404096Z_f40efbd0 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-19T05:28:18.897862+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=10.494
+2026-07-19T05:28:18.897862+00:00 | stage=etl | stdout_tail=
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2421, 21)
+Grades: (8, 13)
+2026-07-19T05:28:18.897862+00:00 | stage=etl | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-19T05:28:21.870845+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=2.971
+2026-07-19T05:28:21.870845+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2420 latest_snapshot_date=2026-07-19 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-19T05:28:21.870845+00:00 | stage=feature_engineering | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-19T05:28:29.761199+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=7.889
+2026-07-19T05:28:29.761199+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-19.
+2026-07-19T05:28:29.761199+00:00 | stage=online_prediction | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator RandomForestClassifier from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+2026-07-19T05:28:29.762784+00:00 | run_id=pipe_20260719T052808404096Z_f40efbd0 | status=completed | duration_sec=21.359
+2026-07-19T17:30:13.407153+00:00 | run_id=pipe_20260719T173013400337Z_fe1aba5e | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-19T17:30:41.710153+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=28.294
+2026-07-19T17:30:41.710153+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2436, 21)
+Grades: (8, 13)
+2026-07-19T17:30:47.268464+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=5.553
+2026-07-19T17:30:47.268464+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2420 latest_snapshot_date=2026-07-19 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-19T17:31:01.216862+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=13.948
+2026-07-19T17:31:01.216862+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-19T17:31:01.217566+00:00 | run_id=pipe_20260719T173013400337Z_fe1aba5e | status=completed | duration_sec=47.81
+2026-07-20T17:30:01.779782+00:00 | run_id=pipe_20260720T173001779669Z_e3461c82 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-20T17:30:10.512513+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=8.733
+2026-07-20T17:30:10.512513+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2469, 21)
+Grades: (8, 13)
+2026-07-20T17:30:14.278541+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=3.766
+2026-07-20T17:30:14.278541+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2594 latest_snapshot_date=2026-07-20 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-20T17:30:16.675607+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.396
+2026-07-20T17:30:16.675607+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-20T17:30:16.676511+00:00 | run_id=pipe_20260720T173001779669Z_e3461c82 | status=completed | duration_sec=14.897
+2026-07-21T12:31:15.617352+00:00 | run_id=pipe_20260721T123115617187Z_192f42f6 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-21T12:31:16.243719+00:00 | stage=etl | status=failed | exit_code=1 | duration_sec=0.626
+2026-07-21T12:31:16.243719+00:00 | stage=etl | stderr_tail=
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ft04/Smart-LMS-Dashboard-Moodle/etl/main.py", line 2, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+2026-07-21T12:31:16.459263+00:00 | stage=feature_engineering | status=failed | exit_code=1 | duration_sec=0.214
+2026-07-21T12:31:16.459263+00:00 | stage=feature_engineering | stderr_tail=
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ft04/Smart-LMS-Dashboard-Moodle/ml/main.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+2026-07-21T12:31:16.696204+00:00 | stage=online_prediction | status=failed | exit_code=1 | duration_sec=0.236
+2026-07-21T12:31:16.696204+00:00 | stage=online_prediction | stderr_tail=
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ft04/Smart-LMS-Dashboard-Moodle/ml/predict_main.py", line 4, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+2026-07-21T12:31:16.697762+00:00 | run_id=pipe_20260721T123115617187Z_192f42f6 | status=failed | duration_sec=1.08
+2026-07-21T12:32:11.132249+00:00 | run_id=pipe_20260721T123211132119Z_627df3aa | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-21T12:32:11.134507+00:00 | stage=etl | status=failed | exit_code=1 | duration_sec=0.002
+2026-07-21T12:32:11.134507+00:00 | stage=etl | stderr_tail=
+runner_exception: FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2026-07-21T12:32:11.137057+00:00 | stage=feature_engineering | status=failed | exit_code=1 | duration_sec=0.002
+2026-07-21T12:32:11.137057+00:00 | stage=feature_engineering | stderr_tail=
+runner_exception: FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2026-07-21T12:32:11.139561+00:00 | stage=online_prediction | status=failed | exit_code=1 | duration_sec=0.002
+2026-07-21T12:32:11.139561+00:00 | stage=online_prediction | stderr_tail=
+runner_exception: FileNotFoundError: [Errno 2] No such file or directory: 'conda'
+2026-07-21T12:32:11.140052+00:00 | run_id=pipe_20260721T123211132119Z_627df3aa | status=failed | duration_sec=0.008
+2026-07-21T12:32:29.471668+00:00 | run_id=pipe_20260721T123229471524Z_d394bb4e | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-21T12:32:29.672926+00:00 | stage=etl | status=failed | exit_code=1 | duration_sec=0.201
+2026-07-21T12:32:29.672926+00:00 | stage=etl | stderr_tail=
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ft04/Smart-LMS-Dashboard-Moodle/etl/main.py", line 2, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+2026-07-21T12:32:29.866981+00:00 | stage=feature_engineering | status=failed | exit_code=1 | duration_sec=0.192
+2026-07-21T12:32:29.866981+00:00 | stage=feature_engineering | stderr_tail=
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ft04/Smart-LMS-Dashboard-Moodle/ml/main.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+2026-07-21T12:32:30.062105+00:00 | stage=online_prediction | status=failed | exit_code=1 | duration_sec=0.194
+2026-07-21T12:32:30.062105+00:00 | stage=online_prediction | stderr_tail=
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ft04/Smart-LMS-Dashboard-Moodle/ml/predict_main.py", line 4, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+2026-07-21T12:32:30.063490+00:00 | run_id=pipe_20260721T123229471524Z_d394bb4e | status=failed | duration_sec=0.592
+2026-07-21T12:33:16.868094+00:00 | run_id=pipe_20260721T123316867977Z_e3719535 | status=started | stages=etl
+2026-07-21T12:33:17.076410+00:00 | stage=etl | status=failed | exit_code=1 | duration_sec=0.208
+2026-07-21T12:33:17.076410+00:00 | stage=etl | stderr_tail=
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ft04/Smart-LMS-Dashboard-Moodle/etl/main.py", line 2, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+2026-07-21T12:33:17.077874+00:00 | run_id=pipe_20260721T123316867977Z_e3719535 | status=failed | duration_sec=0.21
+2026-07-21T12:33:44.588599+00:00 | run_id=pipe_20260721T123344588464Z_695e6ff4 | status=started | stages=feature_engineering,online_prediction
+2026-07-21T12:33:44.793553+00:00 | stage=feature_engineering | status=failed | exit_code=1 | duration_sec=0.205
+2026-07-21T12:33:44.793553+00:00 | stage=feature_engineering | stderr_tail=
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ft04/Smart-LMS-Dashboard-Moodle/ml/main.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+2026-07-21T12:33:44.997587+00:00 | stage=online_prediction | status=failed | exit_code=1 | duration_sec=0.203
+2026-07-21T12:33:44.997587+00:00 | stage=online_prediction | stderr_tail=
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/usr/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/ft04/Smart-LMS-Dashboard-Moodle/ml/predict_main.py", line 4, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
+2026-07-21T12:33:44.999027+00:00 | run_id=pipe_20260721T123344588464Z_695e6ff4 | status=failed | duration_sec=0.41
+2026-07-21T12:34:28.098896+00:00 | run_id=pipe_20260721T123428098792Z_7fa5a504 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-21T12:34:37.611796+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=9.513
+2026-07-21T12:34:37.611796+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2469, 21)
+Grades: (8, 13)
+2026-07-21T12:34:45.266174+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=7.653
+2026-07-21T12:34:45.266174+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2768 latest_snapshot_date=2026-07-21 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-21T12:34:47.630176+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.364
+2026-07-21T12:34:47.630176+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-21.
+2026-07-21T12:34:47.630550+00:00 | run_id=pipe_20260721T123428098792Z_7fa5a504 | status=completed | duration_sec=19.532
+2026-07-21T12:37:11.092849+00:00 | run_id=pipe_20260721T123711092717Z_1d9e056c | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-21T12:37:29.242551+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=18.15
+2026-07-21T12:37:29.242551+00:00 | stage=etl | stdout_tail=
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2469, 21)
+Grades: (8, 13)
+2026-07-21T12:37:29.242551+00:00 | stage=etl | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-21T12:37:34.360192+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=5.116
+2026-07-21T12:37:34.360192+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2768 latest_snapshot_date=2026-07-21 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-21T12:37:34.360192+00:00 | stage=feature_engineering | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-21T12:37:49.241164+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=14.881
+2026-07-21T12:37:49.241164+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-21.
+2026-07-21T12:37:49.241164+00:00 | stage=online_prediction | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator RandomForestClassifier from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+2026-07-21T12:37:49.242724+00:00 | run_id=pipe_20260721T123711092717Z_1d9e056c | status=completed | duration_sec=38.15
+2026-07-21T12:46:39.935798+00:00 | run_id=pipe_20260721T124639935666Z_62c0ab7a | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-21T12:46:50.738753+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=10.803
+2026-07-21T12:46:50.738753+00:00 | stage=etl | stdout_tail=
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2469, 21)
+Grades: (8, 13)
+2026-07-21T12:46:50.738753+00:00 | stage=etl | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-21T12:46:55.957477+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=5.218
+2026-07-21T12:46:55.957477+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2768 latest_snapshot_date=2026-07-21 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-21T12:46:55.957477+00:00 | stage=feature_engineering | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-21T12:46:57.340425+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=1.382
+2026-07-21T12:46:57.340425+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-21.
+2026-07-21T12:46:57.340425+00:00 | stage=online_prediction | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator RandomForestClassifier from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+2026-07-21T12:46:57.342017+00:00 | run_id=pipe_20260721T124639935666Z_62c0ab7a | status=completed | duration_sec=17.406
+2026-07-21T12:48:01.558599+00:00 | run_id=pipe_20260721T124801558462Z_79ef51eb | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-21T12:48:11.823347+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=10.265
+2026-07-21T12:48:11.823347+00:00 | stage=etl | stdout_tail=
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2469, 21)
+Grades: (8, 13)
+2026-07-21T12:48:11.823347+00:00 | stage=etl | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-21T12:48:17.006690+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=5.182
+2026-07-21T12:48:17.006690+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2768 latest_snapshot_date=2026-07-21 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-21T12:48:17.006690+00:00 | stage=feature_engineering | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-21T12:48:18.397744+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=1.391
+2026-07-21T12:48:18.397744+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-21.
+2026-07-21T12:48:18.397744+00:00 | stage=online_prediction | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator RandomForestClassifier from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+2026-07-21T12:48:18.399273+00:00 | run_id=pipe_20260721T124801558462Z_79ef51eb | status=completed | duration_sec=16.841
+2026-07-21T12:48:59.258119+00:00 | run_id=pipe_20260721T124859257981Z_33dc62c6 | status=started | stages=etl
+2026-07-21T12:49:09.947975+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=10.69
+2026-07-21T12:49:09.947975+00:00 | stage=etl | stdout_tail=
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/courses.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/students.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/enrolments.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/activity_logs.csv
+Saved to staging: /home/ft04/Smart-LMS-Dashboard-Moodle/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2469, 21)
+Grades: (8, 13)
+2026-07-21T12:49:09.947975+00:00 | stage=etl | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-21T12:49:09.949724+00:00 | run_id=pipe_20260721T124859257981Z_33dc62c6 | status=completed | duration_sec=10.692
+2026-07-21T12:49:43.619010+00:00 | run_id=pipe_20260721T124943618880Z_4040c297 | status=started | stages=feature_engineering,online_prediction
+2026-07-21T12:49:50.641903+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=7.023
+2026-07-21T12:49:50.641903+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2768 latest_snapshot_date=2026-07-21 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-21T12:49:50.641903+00:00 | stage=feature_engineering | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+2026-07-21T12:49:52.017667+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=1.374
+2026-07-21T12:49:52.017667+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-21.
+2026-07-21T12:49:52.017667+00:00 | stage=online_prediction | stderr_tail=
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/pymysql/_auth.py:9: CryptographyDeprecationWarning: Python 3.8 is no longer supported by the Python core team and support for it is deprecated in cryptography. The next release of cryptography will remove support for Python 3.8.
+  from cryptography.hazmat.backends import default_backend
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator LogisticRegression from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator DecisionTreeClassifier from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator RandomForestClassifier from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/lib/python3.8/site-packages/sklearn/base.py:348: InconsistentVersionWarning: Trying to unpickle estimator StandardScaler from version 1.7.2 when using version 1.3.2. This might lead to breaking code or invalid results. Use at your own risk. For more info please refer to:
+https://scikit-learn.org/stable/model_persistence.html#security-maintainability-limitations
+  warnings.warn(
+2026-07-21T12:49:52.019202+00:00 | run_id=pipe_20260721T124943618880Z_4040c297 | status=completed | duration_sec=8.4
+2026-07-21T12:50:23.779667+00:00 | run_id=pipe_20260721T125023779565Z_5fbfe50d | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-21T12:50:32.547916+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=8.768
+2026-07-21T12:50:32.547916+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2469, 21)
+Grades: (8, 13)
+2026-07-21T12:50:36.032678+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=3.484
+2026-07-21T12:50:36.032678+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2768 latest_snapshot_date=2026-07-21 latest_activity_date=2026-07-18 academic_period_key_default=2
+2026-07-21T12:50:38.316759+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.283
+2026-07-21T12:50:38.316759+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction skipped. No new Moodle rows to score for snapshot_date=2026-07-21.
+2026-07-21T12:50:38.317760+00:00 | run_id=pipe_20260721T125023779565Z_5fbfe50d | status=completed | duration_sec=14.538
+2026-07-21T17:30:02.392827+00:00 | run_id=pipe_20260721T173002392704Z_17ca10fd | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-21T17:30:11.328339+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=8.935
+2026-07-21T17:30:11.328339+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2496, 21)
+Grades: (8, 13)
+2026-07-21T17:30:15.126797+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=3.797
+2026-07-21T17:30:15.126797+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2768 latest_snapshot_date=2026-07-21 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-21T17:30:17.579947+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.452
+2026-07-21T17:30:17.579947+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-21T17:30:17.580813+00:00 | run_id=pipe_20260721T173002392704Z_17ca10fd | status=completed | duration_sec=15.188
+2026-07-22T17:30:02.244846+00:00 | run_id=pipe_20260722T173002244737Z_16261005 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-22T17:30:11.300069+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=9.055
+2026-07-22T17:30:11.300069+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2502, 21)
+Grades: (8, 13)
+2026-07-22T17:30:14.745779+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=3.445
+2026-07-22T17:30:14.745779+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=2942 latest_snapshot_date=2026-07-22 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-22T17:30:17.507896+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.761
+2026-07-22T17:30:17.507896+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-22T17:30:17.508335+00:00 | run_id=pipe_20260722T173002244737Z_16261005 | status=completed | duration_sec=15.263
+2026-07-23T17:30:03.288702+00:00 | run_id=pipe_20260723T173003288591Z_26b7fdf5 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-23T17:30:12.402439+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=9.114
+2026-07-23T17:30:12.402439+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2513, 21)
+Grades: (8, 13)
+2026-07-23T17:30:16.190579+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=3.787
+2026-07-23T17:30:16.190579+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=3116 latest_snapshot_date=2026-07-23 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-23T17:30:18.881300+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.69
+2026-07-23T17:30:18.881300+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-23T17:30:18.881740+00:00 | run_id=pipe_20260723T173003288591Z_26b7fdf5 | status=completed | duration_sec=15.593
+2026-07-24T17:30:01.578655+00:00 | run_id=pipe_20260724T173001578541Z_aa39f12a | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-24T17:30:10.455075+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=8.876
+2026-07-24T17:30:10.455075+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2523, 21)
+Grades: (8, 13)
+2026-07-24T17:30:14.572301+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=4.116
+2026-07-24T17:30:14.572301+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=3290 latest_snapshot_date=2026-07-24 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-24T17:30:16.959534+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.387
+2026-07-24T17:30:16.959534+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-24T17:30:16.960442+00:00 | run_id=pipe_20260724T173001578541Z_aa39f12a | status=completed | duration_sec=15.382
+2026-07-25T17:30:02.524403+00:00 | run_id=pipe_20260725T173002524292Z_92bc72f1 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-25T17:30:12.062278+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=9.538
+2026-07-25T17:30:12.062278+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2534, 21)
+Grades: (8, 13)
+2026-07-25T17:30:15.449687+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=3.387
+2026-07-25T17:30:15.449687+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=3464 latest_snapshot_date=2026-07-25 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-25T17:30:17.948231+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.498
+2026-07-25T17:30:17.948231+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-25T17:30:17.949110+00:00 | run_id=pipe_20260725T173002524292Z_92bc72f1 | status=completed | duration_sec=15.425
+2026-07-26T17:30:02.252935+00:00 | run_id=pipe_20260726T173002252824Z_8558a59f | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-26T17:30:11.266427+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=9.013
+2026-07-26T17:30:11.266427+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2534, 21)
+Grades: (8, 13)
+2026-07-26T17:30:15.240928+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=3.974
+2026-07-26T17:30:15.240928+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=3638 latest_snapshot_date=2026-07-26 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-26T17:30:19.646883+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=4.405
+2026-07-26T17:30:19.646883+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-26T17:30:19.647820+00:00 | run_id=pipe_20260726T173002252824Z_8558a59f | status=completed | duration_sec=17.395
+2026-07-27T17:30:02.666143+00:00 | run_id=pipe_20260727T173002666032Z_72f121de | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-27T17:30:12.380119+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=9.714
+2026-07-27T17:30:12.380119+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2534, 21)
+Grades: (8, 13)
+2026-07-27T17:30:17.678111+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=5.297
+2026-07-27T17:30:17.678111+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=3812 latest_snapshot_date=2026-07-27 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-27T17:30:20.407771+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.729
+2026-07-27T17:30:20.407771+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-27T17:30:20.408771+00:00 | run_id=pipe_20260727T173002666032Z_72f121de | status=completed | duration_sec=17.743
+2026-07-28T17:30:02.512077+00:00 | run_id=pipe_20260728T173002511967Z_ec66caa6 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-28T17:30:11.578705+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=9.067
+2026-07-28T17:30:11.578705+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2535, 21)
+Grades: (8, 13)
+2026-07-28T17:30:15.549822+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=3.971
+2026-07-28T17:30:15.549822+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=3986 latest_snapshot_date=2026-07-28 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-28T17:30:18.116462+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.566
+2026-07-28T17:30:18.116462+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-28T17:30:18.116876+00:00 | run_id=pipe_20260728T173002511967Z_ec66caa6 | status=completed | duration_sec=15.605
+2026-07-29T17:30:02.122754+00:00 | run_id=pipe_20260729T173002122641Z_db11f32e | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-29T17:30:10.883658+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=8.761
+2026-07-29T17:30:10.883658+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2544, 21)
+Grades: (8, 13)
+2026-07-29T17:30:15.314159+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=4.429
+2026-07-29T17:30:15.314159+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=4160 latest_snapshot_date=2026-07-29 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-29T17:30:17.881317+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.566
+2026-07-29T17:30:17.881317+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-29T17:30:17.882201+00:00 | run_id=pipe_20260729T173002122641Z_db11f32e | status=completed | duration_sec=15.759
+2026-07-30T17:30:02.151842+00:00 | run_id=pipe_20260730T173002151730Z_8b29c91b | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-30T17:30:11.134086+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=8.982
+2026-07-30T17:30:11.134086+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2547, 21)
+Grades: (8, 13)
+2026-07-30T17:30:15.590780+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=4.456
+2026-07-30T17:30:15.590780+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=4334 latest_snapshot_date=2026-07-30 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-30T17:30:18.165404+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.574
+2026-07-30T17:30:18.165404+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-30T17:30:18.165799+00:00 | run_id=pipe_20260730T173002151730Z_8b29c91b | status=completed | duration_sec=16.014
+2026-07-31T17:30:02.300739+00:00 | run_id=pipe_20260731T173002300629Z_a82ca4e1 | status=started | stages=etl,feature_engineering,online_prediction
+2026-07-31T17:30:11.648560+00:00 | stage=etl | status=completed | exit_code=0 | duration_sec=9.348
+2026-07-31T17:30:11.648560+00:00 | stage=etl | stdout_tail=
+Saved to staging: /app/data/staging/courses.csv
+Saved to staging: /app/data/staging/students.csv
+Saved to staging: /app/data/staging/enrolments.csv
+Saved to staging: /app/data/staging/activity_logs.csv
+Saved to staging: /app/data/staging/grades.csv
+Courses: (2, 6)
+Students: (3, 7)
+Enrolments: (3, 6)
+Logs: (2568, 21)
+Grades: (8, 13)
+2026-07-31T17:30:17.887681+00:00 | stage=feature_engineering | status=completed | exit_code=0 | duration_sec=6.239
+2026-07-31T17:30:17.887681+00:00 | stage=feature_engineering | stdout_tail=
+Saved: ml/baselines/model_feature_stats.csv
+Saved: ml/baselines/model_feature_baseline.csv
+v2.2 snapshot upsert complete | student_snapshot_total=4508 latest_snapshot_date=2026-07-31 latest_activity_date=2026-07-21 academic_period_key_default=2
+2026-07-31T17:30:20.795771+00:00 | stage=online_prediction | status=completed | exit_code=0 | duration_sec=2.908
+2026-07-31T17:30:20.795771+00:00 | stage=online_prediction | stdout_tail=
+Dropping unexpected features: ['avg_events_per_active_day', 'quiz_views', 'top_material_type']
+Dropping unexpected features: ['assessments_attempted']
+Online prediction pipeline completed.
+   student_key  course_key  ...  final_risk_label ensemble_model_version
+0            1           1  ...                 0                     v1
+1            2           1  ...                 1                     v1
+2            3           1  ...                 1                     v1
+3            4           1  ...                 1                     v1
+4            5           1  ...                 0                     v1
+
+[5 rows x 9 columns]
+2026-07-31T17:30:20.796711+00:00 | run_id=pipe_20260731T173002300629Z_a82ca4e1 | status=completed | duration_sec=18.496

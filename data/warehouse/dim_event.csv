@@ -34,3 +34,12 @@ event_key,event_name
 33,\mod_quiz\event\course_module_viewed
 34,\core\event\course_module_completion_updated
 35,\mod_resource\event\course_module_viewed
+36,\mod_quiz\event\attempt_started
+37,\mod_quiz\event\attempt_viewed
+38,\mod_quiz\event\attempt_updated
+39,\mod_quiz\event\attempt_summary_viewed
+40,\core\event\user_graded
+41,\mod_quiz\event\attempt_submitted
+42,\mod_quiz\event\attempt_reviewed
+43,\mod_assign\event\course_module_viewed
+44,\mod_assign\event\submission_status_viewed
