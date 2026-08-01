@@ -59,3 +59,4 @@
 2026-07-29T17:30:11.418044+00:00 | run_id=feat_20260729T173011418044Z | status=completed | snapshot_date=2026-07-29 | academic_period_key=2 | rows_student=174 | rows_behaviour_pred=174 | rows_academic_pred=174
 2026-07-30T17:30:11.671411+00:00 | run_id=feat_20260730T173011671411Z | status=completed | snapshot_date=2026-07-30 | academic_period_key=2 | rows_student=174 | rows_behaviour_pred=174 | rows_academic_pred=174
 2026-07-31T17:30:12.171585+00:00 | run_id=feat_20260731T173012171585Z | status=completed | snapshot_date=2026-07-31 | academic_period_key=2 | rows_student=174 | rows_behaviour_pred=174 | rows_academic_pred=174
+2026-08-01T06:04:27.500242+00:00 | run_id=feat_20260801T060427500242Z | status=completed | snapshot_date=2026-08-01 | academic_period_key=1 | rows_student=171 | rows_behaviour_pred=171 | rows_academic_pred=171

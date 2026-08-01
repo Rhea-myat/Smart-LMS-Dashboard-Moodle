@@ -1,0 +1,65 @@
+2026-08-01T06:04:02Z INFO: smoke handover run starting
+2026-08-01T06:04:02Z INFO: run_id=smoke_20260801T060402Z data_source=historical python=/home/ft04/Smart-LMS-Dashboard-Moodle/.venv/bin/python
+2026-08-01T06:04:02Z INFO: log_file=/home/ft04/Smart-LMS-Dashboard-Moodle/logs/smoke_20260801T060402Z.log
+2026-08-01T06:04:02Z START: ETL
+{
+  "run_id": "pipe_20260801T060403023439Z_4fdec93e",
+  "status": "completed",
+  "data_source": "historical",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": false,
+  "stages": [
+    "etl"
+  ],
+  "failed_stages": [],
+  "duration_sec": 23.952,
+  "logs": {
+    "run_summary": "/home/ft04/Smart-LMS-Dashboard-Moodle/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/home/ft04/Smart-LMS-Dashboard-Moodle/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/home/ft04/Smart-LMS-Dashboard-Moodle/logs/pipeline_runner_debug.log"
+  }
+}
+2026-08-01T06:04:26Z PASS: ETL
+2026-08-01T06:04:26Z START: Feature Engineering
+{
+  "run_id": "pipe_20260801T060427042257Z_e5b1d272",
+  "status": "completed",
+  "data_source": "historical",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": false,
+  "stages": [
+    "feature_engineering"
+  ],
+  "failed_stages": [],
+  "duration_sec": 3.125,
+  "logs": {
+    "run_summary": "/home/ft04/Smart-LMS-Dashboard-Moodle/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/home/ft04/Smart-LMS-Dashboard-Moodle/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/home/ft04/Smart-LMS-Dashboard-Moodle/logs/pipeline_runner_debug.log"
+  }
+}
+2026-08-01T06:04:30Z PASS: Feature Engineering
+2026-08-01T06:04:30Z START: Prediction
+{
+  "run_id": "pipe_20260801T060430231758Z_dc369748",
+  "status": "completed",
+  "data_source": "historical",
+  "conda_env": "",
+  "reuse_staging": false,
+  "refresh_staging_effective": false,
+  "stages": [
+    "online_prediction"
+  ],
+  "failed_stages": [],
+  "duration_sec": 2.866,
+  "logs": {
+    "run_summary": "/home/ft04/Smart-LMS-Dashboard-Moodle/logs/pipeline_runner_runs.csv",
+    "stage_logs": "/home/ft04/Smart-LMS-Dashboard-Moodle/logs/pipeline_runner_stage_logs.csv",
+    "debug_log": "/home/ft04/Smart-LMS-Dashboard-Moodle/logs/pipeline_runner_debug.log"
+  }
+}
+2026-08-01T06:04:33Z PASS: Prediction
+2026-08-01T06:04:33Z PASS: smoke handover run completed successfully
+2026-08-01T06:04:33Z PASS: ETL -> ML feature engineering -> prediction validated

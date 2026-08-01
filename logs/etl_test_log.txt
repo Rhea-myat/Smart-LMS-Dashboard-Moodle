@@ -4352,3 +4352,25 @@ dtype: int64
 2026-07-31 17:30:11.521444: Loaded fact_activity_log | incoming=54578 inserted=0 skipped_existing=54578 skipped_batch_duplicates=0
 2026-07-31 17:30:11.521553: Loaded fact_result | incoming=3064 inserted=4 skipped_existing=3060 skipped_batch_duplicates=0
 2026-07-31 17:30:11.521660: Loaded fact_enrolment | incoming=347 inserted=0 skipped_existing=347 skipped_batch_duplicates=0
+2026-08-01 14:04:21.231054: Upserted fact_activity_log from historical | incoming=54508 added=0 skipped_duplicates=54508 total=54508
+2026-08-01 14:04:21.289627: Upserted fact_result from historical | incoming=3060 added=3060 skipped_duplicates=0 total=6120
+2026-08-01 14:04:21.305374: Upserted fact_enrolment from historical | incoming=171 added=0 skipped_duplicates=171 total=347
+2026-08-01 14:04:21.305474: Aligned keys for dim_student from historical | incoming=171
+2026-08-01 14:04:21.305533: Aligned keys for dim_time from historical | incoming=51949
+2026-08-01 14:04:21.305585: Aligned keys for dim_academic_period from historical | incoming=1
+2026-08-01 14:04:21.305635: Aligned keys for dim_course from historical | incoming=1
+2026-08-01 14:04:21.305684: Aligned keys for dim_event from historical | incoming=16
+2026-08-01 14:04:21.305732: Aligned keys for dim_material from historical | incoming=91
+2026-08-01 14:04:21.305780: Aligned keys for dim_assessment from historical | incoming=18
+2026-08-01 14:04:21.305827: Aligned keys for dim_grade from historical | incoming=22
+2026-08-01 14:04:26.851024: Loaded dim_student | incoming=171 inserted=0 skipped_existing=171 skipped_batch_duplicates=0
+2026-08-01 14:04:26.851215: Loaded dim_time | incoming=51949 inserted=0 skipped_existing=51949 skipped_batch_duplicates=0
+2026-08-01 14:04:26.851301: Loaded dim_academic_period | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-08-01 14:04:26.851375: Loaded dim_course | incoming=1 inserted=0 skipped_existing=1 skipped_batch_duplicates=0
+2026-08-01 14:04:26.851444: Loaded dim_event | incoming=16 inserted=0 skipped_existing=16 skipped_batch_duplicates=0
+2026-08-01 14:04:26.851511: Loaded dim_material | incoming=91 inserted=0 skipped_existing=91 skipped_batch_duplicates=0
+2026-08-01 14:04:26.851577: Loaded dim_assessment | incoming=18 inserted=0 skipped_existing=18 skipped_batch_duplicates=0
+2026-08-01 14:04:26.851642: Loaded dim_grade | incoming=22 inserted=0 skipped_existing=22 skipped_batch_duplicates=0
+2026-08-01 14:04:26.851708: Loaded fact_activity_log | incoming=54508 inserted=0 skipped_existing=54508 skipped_batch_duplicates=0
+2026-08-01 14:04:26.851773: Loaded fact_result | incoming=6120 inserted=3060 skipped_existing=3060 skipped_batch_duplicates=0
+2026-08-01 14:04:26.851838: Loaded fact_enrolment | incoming=347 inserted=0 skipped_existing=347 skipped_batch_duplicates=0

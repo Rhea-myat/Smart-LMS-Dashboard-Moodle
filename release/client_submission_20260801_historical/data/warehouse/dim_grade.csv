@@ -1,0 +1,23 @@
+grade_key,grade_code,grade_name,pass_status
+1,HD,High Distinction,Pass
+2,D,Distinction,Pass
+3,C,Credit,Pass
+4,P,Pass,Pass
+5,N,Fail,Fail
+6,DNS,Did Not Submit,Fail
+7,SA,Supplementary Assessment,Pending
+8,SX,Supplementary Examination,Pending
+9,DX,Deferred Assessment - Examination,Pending
+10,GP,Grade Pending,Pending
+11,UP,Pass,Pass
+12,UF,No Mark,Other
+13,RPL,Recognition for Prior Learning,Other
+14,AW,Approved Withdrawal,Other
+15,UW,University Withdrawal,Other
+16,AS,Academic Safety Net,Other
+17,FCR,Forward Credit,Other
+18,G,Good Standing,Other
+19,NA,Not Available,Other
+20,NS,Not Submitted,Fail
+21,Q,Deferred Assessment,Pending
+22,S,Supplementary Examination,Pending

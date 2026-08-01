@@ -5,7 +5,6 @@ material_key,context,component,material_type
 4,File: Solutions,File,Lecture Material
 5,File: Lab Solutions,File,Lecture Material
 6,File: Lecture Slides (PPT for students),File,Lecture Material
-7,File: Lecture Notes (PDF) ,File,Lecture Material
 8,"Unit: ICT001 Theory of Programming (S1, 2025)",User report,Course Page
 9,Assignment: Assignment 2,Assignment,Assignment
 10,Assignment: Assignment 1,Assignment,Assignment
@@ -23,6 +22,7 @@ material_key,context,component,material_type
 22,File: Unit Information and Administrative Matters (PDF),File,Lecture Material
 23,Assignment: Assessed Exercise Week 4 (for students enrolled Face-to-Face),Assignment,Assignment
 24,File: Lecture Slides (PPT),File,Lecture Material
+7,File: Lecture Notes (PDF),File,Lecture Material
 26,File:  ICT001 Admin Matters - Offline Video Recording,File,Recorded Session
 27,File: Drop-in Session (Tue 2024/06/04),File,Other
 28,Assignment: Submit the Assessed Exercise of Week 12 (Students enrolled in Online Flexible Model),Assignment,Assignment
@@ -90,22 +90,3 @@ material_key,context,component,material_type
 90,Assignment: Submit the Assessed Exercise of Week 7 (Students enrolled in Online Flexible Model),File submissions,Assignment
 91,Assignment: Submit the Assessed Exercise of Week 6,System,Assignment
 92,Assignment: Submit the Assessed Exercise of Week 6,File submissions,Assignment
-94,user_enrolment,core,Other
-95,role,core,Other
-96,user_profile,core,Lecture Material
-97,dashboard,core,Other
-98,tour,tool_usertours,Other
-99,mycourses,core,Other
-100,course,core,Other
-101,course_module,mod_forum,Forum
-102,grade_report,gradereport_user,Other
-103,user_list,core,Other
-104,notification,core,Other
-105,course_module,mod_quiz,Quiz
-106,course_module_completion,core,Other
-107,course_module,mod_resource,Lecture Material
-108,attempt,mod_quiz,Quiz
-109,attempt_summary,mod_quiz,Quiz
-93,user,core,Other
-110,course_module,mod_assign,Assignment
-111,submission_status,mod_assign,Assignment

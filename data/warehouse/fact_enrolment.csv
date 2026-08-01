@@ -172,6 +172,9 @@ enrolment_fact_id,student_key,course_key,academic_period_key,time_key,enrolment_
 343,1,1,1,,Assumed Enrolled,ActivityOnly
 1,172,2,2,51950,active,Moodle
 344,112,1,1,,Assumed Enrolled,Both
+3,172,2,2,51950,0,Moodle
+6,173,3,2,51950,0,Moodle
+7,174,3,2,51950,0,Moodle
 1,112,1,1,,Assumed Enrolled,Both
 2,135,1,1,,Assumed Enrolled,Both
 3,102,1,1,,Assumed Enrolled,Both
@@ -343,6 +346,3 @@ enrolment_fact_id,student_key,course_key,academic_period_key,time_key,enrolment_
 169,74,1,1,,Assumed Enrolled,Both
 170,28,1,1,,Assumed Enrolled,Both
 171,1,1,1,,Assumed Enrolled,ActivityOnly
-3,172,2,2,51950,0,Moodle
-6,173,3,2,51950,0,Moodle
-7,174,3,2,51950,0,Moodle

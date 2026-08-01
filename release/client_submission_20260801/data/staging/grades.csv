@@ -1,0 +1,9 @@
+grade_id,userid,courseid,itemid,itemname,itemtype,itemmodule,grademax,due_timestamp,has_finished_attempt,has_submission,finalgrade,timemodified
+1,6,3,3,Assessment 1,mod,quiz,10.0,1784451600,1,0,0.0,1784267434.0
+3,2,3,3,Assessment 1,mod,quiz,10.0,1784451600,0,0,,
+5,5,3,3,Assessment 1,mod,quiz,10.0,1784451600,0,0,,
+10,7,3,3,Assessment 1,mod,quiz,10.0,1784451600,1,0,10.0,1784368650.0
+7,2,3,4,Assignment 1,mod,assign,100.0,1785405600,0,0,,
+8,5,3,4,Assignment 1,mod,assign,100.0,1785405600,0,0,,
+9,6,3,4,Assignment 1,mod,assign,100.0,1785405600,0,0,,
+12,7,3,4,Assignment 1,mod,assign,100.0,1785405600,0,0,,
