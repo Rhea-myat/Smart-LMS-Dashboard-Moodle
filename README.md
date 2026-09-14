@@ -40,7 +40,7 @@ Prediction Results
       |
       v
 Moodle Dashboard Plugin
-
+```
 
 ## Technologies
 
