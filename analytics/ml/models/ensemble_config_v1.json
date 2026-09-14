@@ -1,0 +1,14 @@
+{
+    "version": "v1",
+    "ensemble_type": "weighted_average",
+    "behaviour_weight": 0.5,
+    "academic_weight": 0.5,
+    "threshold": 0.5,
+    "behaviour_model": "final_behaviour_model_v1.pkl",
+    "academic_model": "final_academic_model_v1.pkl",
+    "behaviour_scaler": "final_behaviour_scaler_v1.pkl",
+    "behaviour_features": "final_behaviour_features_v1.pkl",
+    "academic_features": "final_academic_features_v1.pkl",
+    "feature_baseline": "model_feature_baseline.csv",
+    "feature_stats": "model_feature_stats.csv"
+}
