@@ -13,8 +13,8 @@ The plugin was developed and tested using:
 - **Moodle:** 4.1
 - **PHP:** 7.4
 - **Database:** MySQL 8.0
-- **Local development environment:** WampServer 64-bit
-- **Local operating system:** Windows
+- **Local development environment:** MAMP
+- **Local operating system:** macOS
 - **University-hosted environment:** Linux
 
 These versions document the environment used during the project. Compatibility with newer Moodle, PHP, or MySQL versions has not been verified.
