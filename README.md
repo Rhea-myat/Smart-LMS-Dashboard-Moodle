@@ -102,7 +102,7 @@ moodle/
 - MySQL
 - HTML
 - CSS
-- WampServer
+- MAMP
 - Linux
 
 ## System Integration
