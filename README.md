@@ -4,42 +4,58 @@ A learning analytics system that combines a Moodle dashboard plugin with a Pytho
 
 ## Overview
 
-The Smart LMS Dashboard was developed to help educators monitor student engagement, academic performance, course activity, and potential learning risks within Moodle.
+The Smart LMS Dashboard was developed to help unit coordinators  monitor student engagement, academic performance, course activity, and potential learning risks within Moodle. It also sends automated email notifications when updated risk results identify students who may require review or early intervention.
 
-The system extracts Moodle data, transforms it into an analytics-ready structure, generates machine learning predictions, and displays the resulting insights through a Moodle dashboard.
+A scheduled daily pipeline extracts data from Moodle, transforms it into an analytics-ready structure, generates machine-learning predictions, and stores the results for display within the Moodle dashboard. Pipeline logs allow Moodle administrators to review execution status and investigate processing issues.
 
 This project was originally developed and tested in a university-hosted Moodle environment. Access to the original virtual machine and Moodle database ended when the university project was completed.
 
 ## Main Features
 
-- Moodle dashboard integration
-- Student engagement and performance analytics
-- ETL pipeline for extracting and transforming Moodle data
-- Academic and behavioural prediction models
+- Dashboard integration within Moodle
+- Student engagement and academic-performance analytics
+- Daily automated ETL and prediction pipeline
+- Extraction and transformation of Moodle activity and assessment data
+- Academic and behavioural risk-prediction models
+- Student-risk distribution and intervention-priority views
 - Model evaluation and monitoring
-- Prediction storage for dashboard integration
-- Scheduled background processing with Linux cron
-- Docker configuration for reproducible deployment
+- Prediction storage for Moodle dashboard integration
+- Scheduled background processing using Linux cron
+- Automated risk-update email notifications for assigned unit coordinators
+- Course-level notification and risk-threshold configuration
+- Configurable inactivity triggers and notification frequency
+- Prediction-feedback and intervention-status recording
+- Pipeline execution logs for Moodle administrators
+- Docker configuration for a consistent and reproducible runtime environment
 
-## System Architecture
+
+## System Architecture 
 
 ```text
-Moodle Database
-      |
-      v
-Python ETL Pipeline
-      |
-      v
+Linux Cron Scheduler
+        |
+        v
+Daily Moodle Data Extraction
+        |
+        v
+ETL and Data Validation
+        |
+        v
 Analytics Database
-      |
-      v
-Machine Learning Pipeline
-      |
-      v
-Prediction Results
-      |
-      v
-Moodle Dashboard Plugin
+        |
+        v
+Feature Engineering and Prediction
+        |
+        v
+Prediction and Monitoring Results
+        |
+        +----------------------+
+        |                      |
+        v                      v
+Moodle Dashboard      Email Notifications
+                              |
+                              v
+                    Assigned Unit Coordinators
 ```
 
 ## Technologies
@@ -65,14 +81,13 @@ The following screenshots demonstrate the dashboard using synthetic or sanitized
 
 The unit summary provides an executive overview of student engagement, active and inactive student counts, and the latest scheduled analytics refresh.
 
-![Smart LMS Dashboard overview](docs/images/Picture1.png)
-
+![Smart LMS Dashboard overview](docs/images/Picture1.png)(doc/images/Picture2.png)
 
 ### Predictive Analytics
 
 The predictive analytics view summarizes the current student-risk distribution and compares behavioural and academic risk scores. An adjustable threshold supports the identification of students who may require early intervention.
 
-![Student risk distribution and risk map](docs/images/Picture3.png)
+![Student risk distribution and risk map](docs/images/Picture3.png)(doc/images/Picture4.png)(doc/images/Picture5.png)
 
 ### AI-Assisted Insight Summary
 
