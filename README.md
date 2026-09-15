@@ -81,13 +81,16 @@ The following screenshots demonstrate the dashboard using synthetic or sanitized
 
 The unit summary provides an executive overview of student engagement, active and inactive student counts, and the latest scheduled analytics refresh.
 
-![Smart LMS Dashboard overview](docs/images/Picture1.png)(doc/images/Picture2.png)
+![Unit engagement summary](docs/images/Picture1.png)
+![Engagement trends and academic performance](docs/images/Picture2.png)
 
 ### Predictive Analytics
 
 The predictive analytics view summarizes the current student-risk distribution and compares behavioural and academic risk scores. An adjustable threshold supports the identification of students who may require early intervention.
 
-![Student risk distribution and risk map](docs/images/Picture3.png)(doc/images/Picture4.png)(doc/images/Picture5.png)
+![Student risk distribution and risk map](docs/images/Picture3.png)
+![At Risk student detail and feedback](docs/images/Picture4.png)
+![All at risk students table](docs/images/Picture5.png)
 
 ### AI-Assisted Insight Summary
 
